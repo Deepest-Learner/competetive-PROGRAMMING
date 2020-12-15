@@ -37,4 +37,5 @@ define('NODE_BOOSTRAP_PORT_TESTNET',    6969);
 define('J4FVM_USE_SUBPROCESS',true);
 
 //OS INFO
-define('IS
+define('IS_WIN',                        (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? true:false);
+?>
