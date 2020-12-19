@@ -43,4 +43,41 @@ include('../src/Miner.php');
 include('../src/SmartContract.php');
 include('../src/SmartContractStateMachine.php');
 include('../src/J4FVM/J4FVMTools.php');
-incl
+include('../src/J4FVM/J4FVMSubprocess.php');
+include('../src/uint256.php');
+include('../src/Socket.php');
+include('../src/Gas.php');
+include('../funity/js.php');
+
+require __DIR__ . DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+
+use React\Socket\ConnectionInterface;
+
+date_default_timezone_set("UTC");
+
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+
+//Get Input steam data
+$rawData = file_get_contents("php://input");
+$data = json_decode($rawData, true);
+
+//If not have data, check if have POST or GET request
+if ($data != null) {
+    $id = $data['id'];
+    $method = $data['method'];
+    $params = $data['params'];
+} else {
+    $id = (isset($_REQUEST['id'])) ? $_REQUEST['id']:null;
+    $method = (isset($_REQUEST['method'])) ? $_REQUEST['method']:'';
+    $params = (isset($_POST['params'])) ? $_POST['params']:$_GET;
+}
+
+//Instantiate response array JSON-RPC
+$response_jsonrpc = array('jsonrpc'=>'2.0');
+
+//Check if have request ID
+if ($id != null) {
+
+    //Check if NODE is alive
+    if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK)
