@@ -117,4 +117,40 @@ if ($id != null) {
                     $currentNetwork = 'mainnet';
 
                     $nodeNetwork = $chaindata->GetConfig('network');
-            
+                    if (strlen($nodeNetwork) > 0)
+                        $currentNetwork = $nodeNetwork;
+
+                    $response_jsonrpc['result'] = $currentNetwork;
+                break;
+
+                case 'node_peerCount':
+                    $response_jsonrpc['result'] = count($chaindata->GetAllPeers());
+                break;
+
+                case 'node_listening':
+                    $listening = false;
+
+                    $nodeListening = $chaindata->GetConfig('p2p');
+                    if (strlen($nodeListening) > 0 && $nodeListening == 'on')
+                        $listening = true;
+
+                    $response_jsonrpc['result'] = $listening;
+                break;
+
+                case 'node_syncing':
+                    $syncing = false;
+
+                    $nodeSyncing = $chaindata->GetConfig('syncing');
+                    if (strlen($nodeSyncing) > 0 && $nodeSyncing == 'on')
+                        $syncing = true;
+					if ($syncing) {
+
+						$highestBlock = $chaindata->GetConfig('highestBlock');
+
+						$response_jsonrpc['result'] = array(
+							"currentBlock" => $chaindata->GetCurrentBlockNum(),
+							"highestBlock" => $highestBlock,
+						);
+					}
+					else {
+				
