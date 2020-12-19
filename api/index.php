@@ -80,4 +80,41 @@ $response_jsonrpc = array('jsonrpc'=>'2.0');
 if ($id != null) {
 
     //Check if NODE is alive
-    if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK)
+    if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK)) {
+        $mainThreadTime = @file_get_contents(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK);
+        $minedTime = date_diff(
+            date_create(date('Y-m-d H:i:s', $mainThreadTime)),
+            date_create(date('Y-m-d H:i:s', time()))
+        );
+        $diffTime = $minedTime->format('%s');
+        if ($diffTime >= 120) {
+
+            $response_jsonrpc['error'] = array(
+                'code'    => -100,
+                'message' => 'Node not active'
+            );
+            die(json_encode($response_jsonrpc));
+        }
+	}
+
+    //Check if have method
+    if (strlen($method) > 0) {
+
+        if (is_array($params)) {
+
+            //Instantiate database blockchain
+            $chaindata = new DB();
+
+			$isTestnet = ($chaindata->GetConfig('network') == 'testnet') ? true:false;
+
+            switch ($method) {
+
+                case 'node_version':
+                    $response_jsonrpc['result'] = $chaindata->GetConfig('node_version');
+                break;
+
+                case 'node_network':
+                    $currentNetwork = 'mainnet';
+
+                    $nodeNetwork = $chaindata->GetConfig('network');
+            
