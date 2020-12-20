@@ -153,4 +153,38 @@ if ($id != null) {
 						);
 					}
 					else {
-				
+						$response_jsonrpc['result'] = $syncing;
+					}
+                break;
+
+                case 'node_mining':
+                    $mining = false;
+
+                    $nodeMining = $chaindata->GetConfig('miner');
+                    if (strlen($nodeMining) > 0 && $nodeMining == 'on')
+                        $mining = true;
+
+                    $response_jsonrpc['result'] = $mining;
+                break;
+
+                case 'node_hashrate':
+                    $hashrate = "0 H/s";
+
+                    $nodeHashrate = $chaindata->GetConfig('hashrate');
+                    if (strlen($nodeHashrate) > 0)
+                        $hashrate = $nodeHashrate;
+
+                    $response_jsonrpc['result'] = $hashrate;
+                break;
+
+                case 'j4f_coinbase':
+                    $wallet = "";
+
+                    $walletCoinBase = Wallet::GetCoinbase();
+                    if (is_array($walletCoinBase) && !empty($walletCoinBase)) {
+                        $walletcb = Wallet::GetWalletAddressFromPubKey($walletCoinBase['public']);
+                        if ($walletcb != null)
+                            $wallet = $walletcb;
+                    }
+
+          
