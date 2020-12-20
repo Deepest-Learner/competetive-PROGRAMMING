@@ -187,4 +187,32 @@ if ($id != null) {
                             $wallet = $walletcb;
                     }
 
-          
+                    $response_jsonrpc['result'] = $wallet;
+                break;
+
+                case 'j4f_accounts':
+                    $response_jsonrpc['result'] = Wallet::GetAccounts();
+                break;
+
+                case 'j4f_addAccount':
+                    if (!isset($params['password']) || strlen($params['password']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+
+                        $infoNewWallet = Wallet::LoadOrCreate('',$params['password']);
+                        if (is_array($infoNewWallet) && !empty($infoNewWallet)) {
+                            $infoNewWallet['address'] = Wallet::GetWalletAddressFromPubKey($infoNewWallet['public']);
+
+                            $response_jsonrpc['result'] = serialize($infoNewWallet);
+                        }
+                    }
+                break;
+
+                case 'j4f_blockNumber':
+                    $response_jsonrpc['result'] = $chaindata->GetCurrentBlockNum();
+                break;
+
+                case 'j4f_getBa
