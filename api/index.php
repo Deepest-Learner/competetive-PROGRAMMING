@@ -267,4 +267,29 @@ if ($id != null) {
 
                         //Check if have wallet
                         if (strlen($wallet) < 59) {
-           
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32602,
+                                'message' => 'Invalid params'
+                            );
+                        } else if (strlen($wallet) == 0) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32603,
+                                'message' => 'Internal error'
+                            );
+                        } else {
+                            //Write result on response
+                            $response_jsonrpc['result'] = Wallet::API_GetPendingBalance($wallet,$isTestnet);
+                        }
+                    }
+                break;
+
+                case 'j4f_getTransactionCount':
+                    if (!isset($params['wallet']) || strlen($params['wallet']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+
+                        //Check if wallet is a pubKey
+                        if (strlen(
