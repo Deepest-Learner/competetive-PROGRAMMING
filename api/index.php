@@ -316,4 +316,29 @@ if ($id != null) {
                     if (!isset($params['hash']) || strlen($params['hash']) == 0) {
                         $response_jsonrpc['error'] = array(
                             'code'    => -32602,
-                            'message' => 'Inv
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+                        $response_jsonrpc['result'] = $chaindata->GetBlockTransactionsCountByHash($params['hash']);
+                    }
+                break;
+
+                case 'j4f_getBlockTransactionCountByNumber':
+                    if (!isset($params['height']) || strlen($params['height']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+                        $response_jsonrpc['result'] = $chaindata->GetBlockTransactionsCountByHeight($params['height']);
+                    }
+                break;
+
+                case 'j4f_sendTransaction':
+
+                    if (
+                        (!isset($params['from']) || strlen($params['from']) == 0) ||
+                        (!isset($params['password']) || strlen($params['password']) == 0) ||
+                        (!isset($params['to']) || strlen($params['to']) == 0) ||
+                        (!isset($params['amount']) || strlen($params['amount']) == 0)
+  
