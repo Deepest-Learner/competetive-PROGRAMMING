@@ -341,4 +341,28 @@ if ($id != null) {
                         (!isset($params['password']) || strlen($params['password']) == 0) ||
                         (!isset($params['to']) || strlen($params['to']) == 0) ||
                         (!isset($params['amount']) || strlen($params['amount']) == 0)
-  
+                    ) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+
+						$password = ($params['password'] == 'null') ? '':$params['password'];
+
+						$data = (isset($params['data'])) ? $params['data']:"";
+						$gasLimit = (isset($params['gasLimit'])) ? $params['gasLimit']:21000;
+						$gasPrice = (isset($params['gasPrice'])) ? $params['gasPrice']:"0.0000000001";
+
+						//Instance the pointer to the chaindata
+						$txnHash = Wallet::API_SendTransaction($params['from'],$password,$params['to'],$params['amount'],$data,$gasLimit,$gasPrice,$isTestnet);
+
+                        //Check if transaction have error
+                        if (strpos($txnHash,'Error') !== false) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => 100,
+                                'message' => $txnHash
+                            );
+                        } else {
+                            $response_jsonrpc['result'] = $txnHash;
+   
