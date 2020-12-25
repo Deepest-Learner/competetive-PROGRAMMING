@@ -292,4 +292,28 @@ if ($id != null) {
                     } else {
 
                         //Check if wallet is a pubKey
-                        if (strlen(
+                        if (strlen($params['wallet']) > 59) {
+                            //Get wallet from Public key
+                            $wallet = Wallet::GetWalletAddressFromPubKey($params['wallet']);
+                        } else {
+                            $wallet = $params['wallet'];
+                        }
+
+                        //Check if have wallet
+                        if (strlen($wallet) == 0) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32603,
+                                'message' => 'Internal error'
+                            );
+                        } else {
+                            //Write result on response
+                            $response_jsonrpc['result'] = Wallet::GetSendedTransactionsCount($wallet,$isTestnet);
+                        }
+                    }
+                break;
+
+                case 'j4f_getBlockTransactionCountByHash':
+                    if (!isset($params['hash']) || strlen($params['hash']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Inv
