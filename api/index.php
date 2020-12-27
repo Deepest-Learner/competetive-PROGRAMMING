@@ -422,4 +422,23 @@ if ($id != null) {
                             );
                         } else {
                             $response_jsonrpc['result'] = array(
-                          
+                                'height'            => $block['height'],
+                                'hash'              => $block['block_hash'],
+                                'parentHash'        => $block['block_previous'],
+                                'nonce'             => $block['nonce'],
+                                'merkleRoot'        => $block['root_merkle'],
+                                'miner'             => $chaindata->GetMinerOfBlockByHash($block['block_hash']),
+                                'difficulty'        => $block['difficulty'],
+                                'maxDifficulty'     => $blockInfo['max_difficulty'],
+                                'timestamp'         => $block['timestamp_end_miner'],
+                                'transactions'      => $block['transactions']
+                            );
+                        }
+                    }
+                break;
+
+                case 'j4f_getBlockByNumber':
+                    if (!isset($params['height']) || strlen($params['height']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invali
