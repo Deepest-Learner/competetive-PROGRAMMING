@@ -441,4 +441,25 @@ if ($id != null) {
                     if (!isset($params['height']) || strlen($params['height']) == 0) {
                         $response_jsonrpc['error'] = array(
                             'code'    => -32602,
-                            'message' => 'Invali
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+                        $withTransactions = false;
+                        if (isset($params['transactions']) && ($params['transactions'] == true || $params['transactions'] == 1))
+                            $withTransactions = true;
+
+                        $block = $chaindata->GetBlockByHeight($params['height'],$withTransactions);
+                        $blockInfo = @unserialize($block['info']);
+
+                        if (!is_array($block) || empty($block)) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32603,
+                                'message' => 'Internal error'
+                            );
+                        } else {
+                            $response_jsonrpc['result'] = array(
+                                'height'            => $block['height'],
+                                'hash'              => $block['block_hash'],
+                                'parentHash'        => $block['block_previous'],
+                                'nonce'             => $block['nonce'],
+                              
