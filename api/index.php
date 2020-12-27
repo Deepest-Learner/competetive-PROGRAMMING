@@ -365,4 +365,38 @@ if ($id != null) {
                             );
                         } else {
                             $response_jsonrpc['result'] = $txnHash;
-   
+                        }
+                    }
+                break;
+
+				case 'j4f_calcGas':
+
+                    if (
+                        (!isset($params['to']) || strlen($params['to']) == 0) ||
+                        (!isset($params['data']) || strlen($params['data']) == 0)
+                    ) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+
+						$to = (isset($params['to'])) ? $params['to']:"";
+						$data = (isset($params['data'])) ? $params['data']:"";
+
+						//Instance the pointer to the chaindata
+
+				        $chaindata = new DB();
+						$gas = Gas::calculateGasTxn($chaindata,$to,$data);
+
+                        //Check if transaction have error
+                        if ($gas == null) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => 100,
+                                'message' => $txnHash
+                            );
+                        } else {
+                            $response_jsonrpc['result'] = $gas;
+                        }
+                    }
+          
