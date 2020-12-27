@@ -399,4 +399,27 @@ if ($id != null) {
                             $response_jsonrpc['result'] = $gas;
                         }
                     }
-          
+                break;
+
+                case 'j4f_getBlockByHash':
+                    if (!isset($params['hash']) || strlen($params['hash']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+                        $withTransactions = false;
+                        if (isset($params['transactions']) && ($params['transactions'] == true || $params['transactions'] == 1))
+                            $withTransactions = true;
+
+                        $block = $chaindata->GetBlockByHash($params['hash'],$withTransactions);
+                        $blockInfo = @unserialize($block['info']);
+
+                        if (!is_array($block) || empty($block)) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32603,
+                                'message' => 'Internal error'
+                            );
+                        } else {
+                            $response_jsonrpc['result'] = array(
+                          
