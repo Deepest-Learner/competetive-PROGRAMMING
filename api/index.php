@@ -501,4 +501,33 @@ if ($id != null) {
 								'gasLimit'          => $transaction['gasLimit'],
 								'gasPrice'          => $transaction['gasPrice'],
                                 'signature'         => $transaction['signature'],
-								'data'     
+								'data'         		=> $transaction['data']
+                            );
+                        }
+                    }
+                break;
+
+                case 'j4f_sign':
+                    if (
+                        (!isset($params['wallet']) || strlen($params['wallet']) == 0) ||
+                        (!isset($params['password']) || strlen($params['password']) == 0)
+                    ) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+						//Check if have wallet
+
+                        if (strlen($params['wallet']) < 59) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32602,
+                                'message' => 'Invalid params'
+                            );
+                        } else {
+
+							$infoWallet = Wallet::Load($params['wallet']);
+
+                            if (!is_array($infoWallet) || empty($infoWallet)) {
+                                $response_jsonrpc['error'] = array(
+   
