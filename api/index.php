@@ -462,4 +462,27 @@ if ($id != null) {
                                 'hash'              => $block['block_hash'],
                                 'parentHash'        => $block['block_previous'],
                                 'nonce'             => $block['nonce'],
-                              
+                                'merkleRoot'        => $block['root_merkle'],
+                                'miner'             => $chaindata->GetMinerOfBlockByHash($block['block_hash']),
+                                'difficulty'        => $block['difficulty'],
+                                'maxDifficulty'     => $blockInfo['max_difficulty'],
+                                'timestamp'         => $block['timestamp_end_miner'],
+                                'transactions'      => $block['transactions']
+                            );
+                        }
+                    }
+                break;
+
+                case 'j4f_getTransactionByHash':
+                    if (!isset($params['hash']) || strlen($params['hash']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+
+                        //Get transaction
+                        $transaction = $chaindata->GetTransactionByHash($params['hash']);
+
+                        //Check if transaction data its ok
+                        if (!is_array($transaction) || empty($transaction
