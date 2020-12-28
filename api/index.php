@@ -485,4 +485,20 @@ if ($id != null) {
                         $transaction = $chaindata->GetTransactionByHash($params['hash']);
 
                         //Check if transaction data its ok
-                        if (!is_array($transaction) || empty($transaction
+                        if (!is_array($transaction) || empty($transaction)) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32603,
+                                'message' => 'Internal error'
+                            );
+                        } else {
+                            $response_jsonrpc['result'] = array(
+                                'blockHash'         => $transaction['block_hash'],
+                                'blockHeight'       => $chaindata->GetBlockHeightByHash($transaction['block_hash']),
+                                'hash'              => $transaction['txn_hash'],
+                                'from'              => ($transaction['wallet_from'] == "") ? 'REWARD_MINER':$transaction['wallet_from'],
+                                'to'                => $transaction['wallet_to'],
+                                'amount'            => $transaction['amount'],
+								'gasLimit'          => $transaction['gasLimit'],
+								'gasPrice'          => $transaction['gasPrice'],
+                                'signature'         => $transaction['signature'],
+								'data'     
