@@ -530,4 +530,30 @@ if ($id != null) {
 
                             if (!is_array($infoWallet) || empty($infoWallet)) {
                                 $response_jsonrpc['error'] = array(
-   
+                                    'code'    => -32603,
+                                    'message' => 'Internal error'
+                                );
+                            }
+                            else {
+
+                                if ($params['password'] == 'null')
+                                    $params['password'] = '';
+
+                                if ($sign = Pki::encrypt('', $infoWallet['private'],$params['password'])) {
+                                    $response_jsonrpc['result'] = $sign;
+                                } else {
+                                    $response_jsonrpc['error'] = array(
+                                        'code'    => 100,
+                                        'message' => "Error, Can't sign with this password"
+                                    );
+                                }
+                            }
+                        }
+                    }
+                break;
+
+				case 'j4f_parse':
+                    if (!isset($params['data']) || strlen($params['data']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                     
