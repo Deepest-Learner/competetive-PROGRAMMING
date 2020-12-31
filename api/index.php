@@ -605,4 +605,40 @@ if ($id != null) {
                         if (!is_array($contract) || empty($contract)) {
                             $response_jsonrpc['error'] = array(
                                 'code'    => -32603,
-                                'message' => 'Intern
+                                'message' => 'Internal error'
+                            );
+                        } else {
+
+							$j4fvm_process = new J4FVMSubprocess('READ');
+
+							//echo J4FVMTools::GetFunityVersion($contract['code']);
+
+							//Set info for J4FVM
+							$j4fvm_process->setContractHash($params['hash']);
+							$j4fvm_process->setTxnHash('empty');
+							$j4fvm_process->setVersion(J4FVMTools::GetFunityVersion($contract['code']));
+							$j4fvm_process->setFrom('0');
+							$j4fvm_process->setAmount('0');
+							$j4fvm_process->setData($params['data']);
+
+							//Run contract
+							$statusRun = $j4fvm_process->run();
+							if ($statusRun !== "1") {
+								$response_jsonrpc['error'] = array(
+	                                'code'    => -32604,
+	                                'message' => 'Internal error'
+	                            );
+							}
+							else {
+								$outputCall = '';
+								foreach ($j4fvm_process->output() as $line)
+									$outputCall .= $line;
+								$response_jsonrpc['result'] = $outputCall;
+							}
+                        }
+                    }
+                break;
+
+                default:
+                    $response_jsonrpc['error'] = array(
+                        '
