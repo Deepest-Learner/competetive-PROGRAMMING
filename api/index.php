@@ -582,4 +582,27 @@ if ($id != null) {
                                 'message' => 'Internal error'
                             );
                         } else {
-                            $response_jsonrpc['result'] = array
+                            $response_jsonrpc['result'] = array(
+                                'txnHash'         	=> $contract['txn_hash'],
+                                'contractHash'      => $contract['contract_hash'],
+								'code'         		=> $contract['code']
+                            );
+                        }
+                    }
+                break;
+
+				case 'j4f_callReadFunctionContractByHash':
+                    if (!isset($params['hash']) || strlen($params['hash']) == 0 || !isset($params['data']) || strlen($params['data']) == 0) {
+                        $response_jsonrpc['error'] = array(
+                            'code'    => -32602,
+                            'message' => 'Invalid params'
+                        );
+                    } else {
+                        //Get contract
+                        $contract = $chaindata->GetContractByHash($params['hash']);
+
+                        //Check if contract data its ok
+                        if (!is_array($contract) || empty($contract)) {
+                            $response_jsonrpc['error'] = array(
+                                'code'    => -32603,
+                                'message' => 'Intern
