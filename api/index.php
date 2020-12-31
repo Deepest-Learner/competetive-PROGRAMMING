@@ -641,4 +641,34 @@ if ($id != null) {
 
                 default:
                     $response_jsonrpc['error'] = array(
-                        '
+                        'code'    => -32601,
+                        'message' => 'Method not found'
+                    );
+                break;
+            }
+        } else {
+            $response_jsonrpc['error'] = array(
+                'code'    => -32600,
+                'message' => 'Invalid Request'
+            );
+        }
+    } else {
+        $response_jsonrpc['error'] = array(
+            'code'    => -32700,
+            'message' => 'Invalid Request'
+        );
+    }
+
+    //Add request id to response
+    $response_jsonrpc['id'] = $id;
+
+} else {
+    $response_jsonrpc['error'] = array(
+        'code'    => -32700,
+        'message' => 'Invalid Request'
+    );
+}
+
+echo json_encode($response_jsonrpc);
+
+?>
