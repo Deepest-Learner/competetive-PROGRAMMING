@@ -27,4 +27,43 @@ if (count($argv) > 1) {
     $argvParser = new ArgvParser();
     $parse_argv = "";
     foreach ($argv as $value) {
-    
+        $parse_argv .= " ".$value;
+    }
+    $arguments = $argvParser->parseConfigs($parse_argv);
+
+    if (!isset($arguments['user']))
+        exit('You must specify a username');
+
+    if (!isset($arguments['ip']))
+        exit('You must specify the IP');
+
+    if (!isset($arguments['port']))
+        exit('You must specify a port');
+
+    //This argument enable minerSubprocess
+    $enable_mine = false;
+    if (isset($arguments['miner']))
+        $enable_mine = true;
+
+    //Define if make genesis block
+    $make_genesis = false;
+    if (isset($arguments['genesis']))
+        $make_genesis = true;
+
+    //Define if this node its a bootstrapNode
+    $bootstrap_node = false;
+    if (isset($arguments['bootstrap_node']))
+        $bootstrap_node = true;
+
+    //Check if use testnet
+    $isTestNet = false;
+    if (isset($arguments['testnet']))
+        $isTestNet = true;
+
+	//Check if want sanity blockchain
+	$sanityBlockchain = -1;
+	if (isset($arguments['sanity'])) {
+		$sanityBlockchain = $arguments['sanity'];
+	}
+
+    $gossip = new Gossip($db, $arguments['user'],$arguments['ip'],$arguments['port'], $enable_mine, $make_genesis, $bootstrap_node,
