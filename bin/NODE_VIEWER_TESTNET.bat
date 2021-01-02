@@ -1,3 +1,4 @@
+
 @echo off
 
 rem GetPublicAddress
@@ -6,4 +7,4 @@ for /f "tokens=1* delims=: " %%A in (
 ) Do set ExtIP=%%B
 
 rem Stat client
-cd .. && php client.php -user USER -ip %ExtIP% -port 6969
+cd .. && php client.php -user USER -ip %ExtIP% -port 6969 -testnet
