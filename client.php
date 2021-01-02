@@ -22,5 +22,9 @@ require __DIR__ . '/vendor/autoload.php';
 
 use React\Socket\ConnectionInterface;
 
-CLI::MainMenu();
-?>
+if (count($argv) > 1) {
+
+    $argvParser = new ArgvParser();
+    $parse_argv = "";
+    foreach ($argv as $value) {
+    
