@@ -33,4 +33,51 @@ function __lambda_10 ($tokens) {
 $tokens[0]->add_common_rule($tokens[1]); return $tokens[0];
 }
 function __lambda_11 ($tokens) {
-$tokens[0]->add_rule_list($tokens[1
+$tokens[0]->add_rule_list($tokens[1][0], $tokens[1][1]); return $tokens[0];
+}
+function __lambda_12 ($tokens) {
+return $tokens;
+}
+function __lambda_13 ($tokens) {
+return array($tokens[0], array($tokens[1]));
+}
+function __lambda_14 ($tokens) {
+return array($tokens[0], $tokens[2]);
+}
+function __lambda_15 ($tokens) {
+return preg_pattern(metascanner::make_regex($tokens[0], $tokens[1]), $tokens[2], $tokens[3], $tokens[4]);
+}
+function __lambda_16 ($tokens) {
+return implode('', $tokens);
+}
+function __lambda_17 ($tokens) {
+return 0;
+}
+function __lambda_18 ($tokens) {
+return 1;
+}
+function __lambda_19 ($tokens) {
+return '';
+}
+function __lambda_20 ($tokens) {
+return mk_action($tokens[1]);
+}
+function __lambda_21 (&$type, &$text, $match, &$state, &$context) {
+$state='text';
+}
+function __lambda_22 (&$type, &$text, $match, &$state, &$context) {
+ $text = hexdec($text); 
+}
+function __lambda_23 (&$type, &$text, $match, &$state, &$context) {
+ $text = $text-0; 
+}
+function __lambda_24 (&$type, &$text, $match, &$state, &$context) {
+$state='INITIAL';
+}
+function __lambda_25 ($tokens) {
+ return new js_program($tokens[0]); 
+}
+function __lambda_26 ($tokens) {
+ return new js_source(); 
+}
+function __lamb
