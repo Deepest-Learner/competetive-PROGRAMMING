@@ -66,4 +66,25 @@ if (count($argv) > 1) {
 		$sanityBlockchain = $arguments['sanity'];
 	}
 
-    $gossip = new Gossip($db, $arguments['user'],$arguments['ip'],$arguments['port'], $enable_mine, $make_genesis, $bootstrap_node,
+    $gossip = new Gossip($db, $arguments['user'],$arguments['ip'],$arguments['port'], $enable_mine, $make_genesis, $bootstrap_node, $isTestNet, $sanityBlockchain);
+    if (isset($arguments['peer-ip']) && isset($arguments['peer-port'])) {
+        $gossip->_addPeer($arguments['peer-ip'],$arguments['peer-port']);
+	}
+
+} else {
+    Display::ClearScreen();
+    echo "Available arguments:".PHP_EOL.PHP_EOL;
+    echo "user          Set the node user name                  - REQUIRED".PHP_EOL;
+    echo "ip            Set the IP that the node will use       - REQUIRED".PHP_EOL;
+    echo "port          Set the port that the node will use     - REQUIRED".PHP_EOL;
+    echo "peer-ip       Set an IP of a nearby node".PHP_EOL;
+    echo "peer-port     Set the port of a nearby node".PHP_EOL;
+	echo "miner         Activate mining mode".PHP_EOL.PHP_EOL;
+	echo "sanity        Sanity Blockchain and remove X blocks".PHP_EOL.PHP_EOL;
+
+    echo "Examples of use: ".PHP_EOL;
+    echo "php client.php -u user -ip 0.0.0.0 -port 8080".PHP_EOL;
+	echo "php client.php -u user -ip 0.0.0.0 -port 8080 -mine".PHP_EOL;
+	echo "php client.php -u user -ip 0.0.0.0 -port 8080 -sanity 100".PHP_EOL;
+}
+?>
