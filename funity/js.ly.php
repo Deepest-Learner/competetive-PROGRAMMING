@@ -176,4 +176,45 @@ function __lambda_55 ($tokens) {
  return new js_while($tokens[2], $tokens[4]); 
 }
 function __lambda_56 ($tokens) {
-r
+return new js_for_in($tokens[2], $tokens[4], $tokens[6]);
+}
+function __lambda_57 ($tokens) {
+
+    $k=2;
+    if ($tokens[$k]==';') { $a1=new js_nop(); $k++; } 
+    else { $a1=$tokens[$k]; $k+=2; }
+    if ($tokens[$k]==';') { $a2=new js_nop(); $k++; } 
+    else { $a2=$tokens[$k]; $k+=2; }
+    if ($tokens[$k]==')') { $a3=new js_nop(); $k++; } 
+    else { $a3=$tokens[$k]; $k+=2; }
+    $a4=$tokens[$k];
+    return new js_for($a1,$a2,$a3,$a4);
+
+}
+function __lambda_58 ($tokens) {
+
+    $k=5;
+    if ($tokens[$k]==';') { $a2=new js_nop(); $k++; }
+    else { $a2=$tokens[$k]; $k+=2; }
+    if ($tokens[$k]==')') { $a3=new js_nop(); $k++; }
+    else { $a3=$tokens[$k]; $k+=2; }
+    $a4=$tokens[$k];
+    return new js_for( new js_var($tokens[3]), $a2, $a3, $a4);
+
+}
+function __lambda_59 ($tokens) {
+return new js_for_in( new js_var($tokens[3]), $tokens[5], $tokens[7]);
+}
+function __lambda_60 ($tokens) {
+return @new js_continue($tokens[1]);
+}
+function __lambda_61 ($tokens) {
+return @new js_break($tokens[1]);
+}
+function __lambda_62 ($tokens) {
+return @new js_return($tokens[1]);
+}
+function __lambda_63 ($tokens) {
+return new js_with($tokens[2],$tokens[4]);
+}
+f
