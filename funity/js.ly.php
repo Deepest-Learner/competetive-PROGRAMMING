@@ -217,4 +217,60 @@ return @new js_return($tokens[1]);
 function __lambda_63 ($tokens) {
 return new js_with($tokens[2],$tokens[4]);
 }
-f
+function __lambda_64 ($tokens) {
+
+  return new js_switch($tokens[2], $tokens[4]);
+
+}
+function __lambda_65 ($tokens) {
+if ($tokens[1]=='}') return array(); else return $tokens[1];
+}
+function __lambda_66 ($tokens) {
+
+  return $tokens[1];
+
+}
+function __lambda_67 ($tokens) {
+
+  return array_merge($tokens[1],$tokens[2]);
+
+}
+function __lambda_68 ($tokens) {
+
+  return array_merge($tokens[1],$tokens[2],$tokens[3]);
+
+}
+function __lambda_69 ($tokens) {
+$tokens[0][] = $tokens[1]; return $tokens[0];
+}
+function __lambda_70 ($tokens) {
+return new js_case($tokens[1],$tokens[3]);
+}
+function __lambda_71 ($tokens) {
+return array(new js_case(0, $tokens[2]));
+}
+function __lambda_72 ($tokens) {
+return new js_label($tokens[0], $tokens[1]);
+}
+function __lambda_73 ($tokens) {
+return new js_throw($tokens[1]);
+}
+function __lambda_74 ($tokens) {
+return new js_try($tokens[1],$tokens[2], NULL);
+}
+function __lambda_75 ($tokens) {
+return new js_try($tokens[1], NULL, $tokens[2]);
+}
+function __lambda_76 ($tokens) {
+return new js_try($tokens[1], $tokens[2], $tokens[3]);
+}
+function __lambda_77 ($tokens) {
+return new js_catch($tokens[2], $tokens[4]);
+}
+function __lambda_78 ($tokens) {
+ return $tokens[1];
+}
+function __lambda_79 ($tokens) {
+ return new js_this();
+}
+functi
