@@ -120,4 +120,60 @@ function __lambda_39 ($tokens) {
  return new js_print($tokens[2]); 
 }
 function __lambda_40 ($tokens) {
- return new js_print(new js_literal_string($t
+ return new js_print(new js_literal_string($tokens[1],0)); 
+}
+function __lambda_41 ($tokens) {
+
+    return new js_print(js_plus(new js_literal_string($tokens[1],0), $tokens[3]));
+
+}
+function __lambda_42 ($tokens) {
+return new js_nop();
+}
+function __lambda_43 ($tokens) {
+return new js_block($tokens[1]);
+}
+function __lambda_44 ($tokens) {
+ return array($tokens[0]);
+}
+function __lambda_45 ($tokens) {
+ $tokens[0][]=$tokens[1]; return $tokens[0];
+}
+function __lambda_46 ($tokens) {
+ 
+  return new js_var($tokens[1]);
+
+}
+function __lambda_47 ($tokens) {
+ return array($tokens[0]); 
+}
+function __lambda_48 ($tokens) {
+ return @array($tokens[0],$tokens[1]);
+}
+function __lambda_49 ($tokens) {
+ return $tokens[1]; 
+}
+function __lambda_50 ($tokens) {
+ return new js_nop();
+}
+function __lambda_51 ($tokens) {
+return new js_statement($tokens[0]);
+}
+function __lambda_52 ($tokens) {
+
+  return new js_if($tokens[2], $tokens[4], $tokens[6]);
+
+}
+function __lambda_53 ($tokens) {
+
+  return new js_if($tokens[2], $tokens[4]);
+
+}
+function __lambda_54 ($tokens) {
+ return new js_do($tokens[4],$tokens[1]); 
+}
+function __lambda_55 ($tokens) {
+ return new js_while($tokens[2], $tokens[4]); 
+}
+function __lambda_56 ($tokens) {
+r
