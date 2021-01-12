@@ -273,4 +273,53 @@ function __lambda_78 ($tokens) {
 function __lambda_79 ($tokens) {
  return new js_this();
 }
-functi
+function __lambda_80 ($tokens) {
+ return new js_identifier($tokens[0]);
+}
+function __lambda_81 ($tokens) {
+ return $tokens[0]; 
+}
+function __lambda_82 ($tokens) {
+ return new js_literal_null(); 
+}
+function __lambda_83 ($tokens) {
+ return new js_literal_boolean($tokens[0]); 
+}
+function __lambda_84 ($tokens) {
+ return new js_literal_number($tokens[0]); 
+}
+function __lambda_85 ($tokens) {
+return TRUE;
+}
+function __lambda_86 ($tokens) {
+return FALSE;
+}
+function __lambda_87 ($tokens) {
+return new js_literal_string($tokens[0]);
+}
+function __lambda_88 ($tokens) {
+return new js_literal_array($tokens[1]);
+}
+function __lambda_89 ($tokens) {
+$tokens[0][] = $tokens[2]; return $tokens[0];
+}
+function __lambda_90 ($tokens) {
+return new js_literal_null();
+}
+function __lambda_91 ($tokens) {
+return new js_literal_object();
+}
+function __lambda_92 ($tokens) {
+return new js_literal_object($tokens[1]);
+}
+function __lambda_93 ($tokens) {
+return array($tokens[0],$tokens[2]);
+}
+function __lambda_94 ($tokens) {
+$p=explode(':', $tokens[0]); return array(new js_literal_string($p[0],0),$tokens[1]);
+}
+function __lambda_95 ($tokens) {
+$tokens[0][]=$tokens[2];$tokens[0][]=$tokens[4];return $tokens[0];
+}
+function __lambda_96 ($tokens) {
+$p=ex
