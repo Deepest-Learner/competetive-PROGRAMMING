@@ -366,4 +366,52 @@ return new js_void($tokens[1]);
 function __lambda_110 ($tokens) {
 return new js_typeof($tokens[1]);
 }
-function 
+function __lambda_111 ($tokens) {
+return new js_pre_pp($tokens[1]);
+}
+function __lambda_112 ($tokens) {
+return new js_pre_mm($tokens[1]);
+}
+function __lambda_113 ($tokens) {
+return new js_u_plus($tokens[1]);
+}
+function __lambda_114 ($tokens) {
+return new js_u_minus($tokens[1]);
+}
+function __lambda_115 ($tokens) {
+return new js_bit_not($tokens[1]);
+}
+function __lambda_116 ($tokens) {
+return new js_not($tokens[1]);
+}
+function __lambda_117 ($tokens) {
+return new js_multiply($tokens[0],$tokens[2]);
+}
+function __lambda_118 ($tokens) {
+return new js_divide($tokens[0],$tokens[2]);
+}
+function __lambda_119 ($tokens) {
+return new js_modulo($tokens[0],$tokens[2]);
+}
+function __lambda_120 ($tokens) {
+return new js_plus($tokens[0],$tokens[2]);
+}
+function __lambda_121 ($tokens) {
+return new js_minus($tokens[0],$tokens[2]);
+}
+function __lambda_122 ($tokens) {
+return new js_lsh($tokens[0],$tokens[2]);
+}
+function __lambda_123 ($tokens) {
+return new js_rsh($tokens[0],$tokens[2]);
+}
+function __lambda_124 ($tokens) {
+return new js_ursh($tokens[0],$tokens[2]);
+}
+function __lambda_125 ($tokens) {
+return 	$tokens[0];
+}
+function __lambda_126 ($tokens) {
+return new js_lt($tokens[0],$tokens[2]);
+}
+function __la
