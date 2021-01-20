@@ -457,4 +457,70 @@ function __lambda_140 ($tokens) {
 return new js_or($tokens[0],$tokens[2]);
 }
 function __lambda_141 ($tokens) {
-return new js_ternary($tokens[0],$tokens[2
+return new js_ternary($tokens[0],$tokens[2],$tokens[4]);
+}
+function __lambda_142 ($tokens) {
+return new js_assign($tokens[0],$tokens[2]);
+}
+function __lambda_143 ($tokens) {
+return new js_compound_assign($tokens[0],$tokens[2],$tokens[1]);
+}
+function __lambda_144 ($tokens) {
+return new js_comma($tokens[0],$tokens[2]);
+}
+$lexp = array (
+  'INITIAL' => 
+  array (
+    0 => 
+    array (
+      0 => '((?s)/\\*.*?\\*/)',
+      1 => 'mlcomment',
+      2 => 1,
+      3 => '',
+    ),
+    1 => 
+    array (
+      0 => '((?)//[^\\x0A\\x0D]*)',
+      1 => 'slcomment',
+      2 => 1,
+      3 => '',
+    ),
+    2 => 
+    array (
+      0 => '((?)[\\x0A\\x0D])',
+      1 => 'newline',
+      2 => 1,
+      3 => '',
+    ),
+    3 => 
+    array (
+      0 => '((?)\\s+)',
+      1 => 'whitespace',
+      2 => 1,
+      3 => '',
+    ),
+    4 => 
+    array (
+      0 => '((?)\\?\\>)',
+      1 => 'T_SCRIPT_END',
+      2 => 0,
+      3 => '__lambda_21',
+    ),
+    5 => 
+    array (
+      0 => '((?)\\bfunction\\b)',
+      1 => 'T_FUNCTION',
+      2 => 0,
+      3 => '',
+    ),
+    6 => 
+    array (
+      0 => '((?)\\bvar\\b)',
+      1 => 'T_VAR',
+      2 => 0,
+      3 => '',
+    ),
+    7 => 
+    array (
+      0 => '((?)\\bdo\\b)',
+   
