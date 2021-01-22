@@ -594,4 +594,74 @@ $lexp = array (
     array (
       0 => '((?)\\bcatch\\b)',
       1 => 'T_CATCH',
-    
+      2 => 0,
+      3 => '',
+    ),
+    18 => 
+    array (
+      0 => '((?)\\bfinally\\b)',
+      1 => 'T_FINALLY',
+      2 => 0,
+      3 => '',
+    ),
+    19 => 
+    array (
+      0 => '((?)\\bcontinue\\b)',
+      1 => 'T_CONTINUE',
+      2 => 0,
+      3 => '',
+    ),
+    20 => 
+    array (
+      0 => '((?)\\bbreak\\b)',
+      1 => 'T_BREAK',
+      2 => 0,
+      3 => '',
+    ),
+    21 => 
+    array (
+      0 => '((?)\\breturn\\b)',
+      1 => 'T_RETURN',
+      2 => 0,
+      3 => '',
+    ),
+    22 => 
+    array (
+      0 => '((?)\\bnew\\b)',
+      1 => 'T_NEW',
+      2 => 0,
+      3 => '',
+    ),
+    23 => 
+    array (
+      0 => '((?)\\bdelete\\b)',
+      1 => 'T_DELETE',
+      2 => 0,
+      3 => '',
+    ),
+    24 => 
+    array (
+      0 => '((?)\\bvoid\\b)',
+      1 => 'T_VOID',
+      2 => 0,
+      3 => '',
+    ),
+    25 => 
+    array (
+      0 => '((?)\\btypeof\\b)',
+      1 => 'T_TYPEOF',
+      2 => 0,
+      3 => '',
+    ),
+    26 => 
+    array (
+      0 => '((?)\\binstanceof\\b)',
+      1 => 'T_INSTANCEOF',
+      2 => 0,
+      3 => '',
+    ),
+    27 => 
+    array (
+      0 => '((?)\\bnull\\b)',
+      1 => 'T_NULL',
+      2 =
