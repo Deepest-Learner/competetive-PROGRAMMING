@@ -1109,4 +1109,44 @@ $dpa = array (
     'MultiplicativeExpression2' => 's2016',
     'AdditiveExpression2' => 's2045',
     'ShiftExpression2' => 's2080',
-    'Relati
+    'RelationalExpression2' => 's2141',
+    'EqualityExpression2' => 's2192',
+    'BitwiseANDExpression2' => 's2215',
+    'BitwiseXORExpression2' => 's2232',
+    'BitwiseORExpression2' => 's2249',
+    'LogicalANDExpression2' => 's2266',
+    'LogicalORExpression2' => 's2283',
+    'ConditionalExpression2' => 's2304',
+    'AssignmentExpression2' => 's2330',
+    'Expression2' => 's2348',
+    'RelationalExpressionNoIn' => 's2397',
+    'EqualityExpressionNoIn' => 's2446',
+    'BitwiseANDExpressionNoIn' => 's2469',
+    'BitwiseXORExpressionNoIn' => 's2486',
+    'BitwiseORExpressionNoIn' => 's2503',
+    'LogicalANDExpressionNoIn' => 's2520',
+    'LogicalORExpressionNoIn' => 's2537',
+    'ConditionalExpressionNoIn' => 's2558',
+    'AssignmentExpressionNoIn' => 's2584',
+    'ExpressionNoIn' => 's2602',
+    'VariableDeclarationListNoIn' => 's2619',
+    'VariableDeclarationNoIn' => 's2632',
+    'InitialiserNoIn' => 's2643',
+  ),
+  'delta' => 
+  array (
+    's165' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'push',
+        1 => 'Source',
+        2 => 's166',
+      ),
+    ),
+    's166' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 =>
