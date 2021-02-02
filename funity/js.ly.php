@@ -1149,4 +1149,74 @@ $dpa = array (
       '[default]' => 
       array (
         0 => 'do',
-        1 =>
+        1 => 16,
+      ),
+    ),
+    's183' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 17,
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_BREAK' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+    
