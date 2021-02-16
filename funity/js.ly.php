@@ -1219,4 +1219,70 @@ $dpa = array (
         1 => 17,
         2 => 's184',
       ),
-    
+      'T_RETURN' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_THROW' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_TRY' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_MINUSMI
