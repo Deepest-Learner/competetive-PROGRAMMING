@@ -1285,4 +1285,72 @@ $dpa = array (
         1 => 17,
         2 => 's184',
       ),
-      'T_MINUSMI
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'fold',
+        1 => 17,
+        2 => 's184',
+      ),
+      'T_TRUE' => 
+      array (
+ 
