@@ -1552,4 +1552,66 @@ $dpa = array (
         1 => 'Statement',
         2 => 's185',
       ),
-      
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's185',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'FunctionDeclaration',
+        2 => 's186',
+      ),
+    ),
+    's185' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 18,
+      ),
+      'T_FUNCTI
