@@ -1821,4 +1821,71 @@ $dpa = array (
       'T_DECIMAL' => 
       array (
         0 => 'fold',
-  
+        1 => 18,
+        2 => 's184',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'fold',
+        1 => 18,
+        2 => 's184',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'fold',
+        1 => 18,
+        2 => 's184',
+      ),
+    ),
+    's186' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 19,
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_FOR' => 
+      array (
+        0
