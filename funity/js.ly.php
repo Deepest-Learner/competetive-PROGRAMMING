@@ -1958,4 +1958,70 @@ $dpa = array (
         1 => 19,
         2 => 's184',
       ),
-      'T_TY
+      'T_TYPEOF' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_NULL' => 
