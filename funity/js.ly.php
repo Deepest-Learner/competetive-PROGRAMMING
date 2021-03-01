@@ -2169,4 +2169,78 @@ $dpa = array (
       'T_RIGHTBRACE' => 
       array (
         0 => 'go',
-        1 =
+        1 => 's235',
+      ),
+    ),
+    's235' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 21,
+      ),
+    ),
+    's302' => 
+    array (
+      'T_FUNCTION' => 
+      array (
+        0 => 'go',
+        1 => 's303',
+      ),
+    ),
+    's303' => 
+    array (
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's304',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's305',
+      ),
+    ),
+    's304' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's306',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'FormalParameterList',
+        2 => 's307',
+      ),
+    ),
+    's305' => 
+    array (
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's308',
+      ),
+    ),
+    's306' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's309',
+      ),
+    ),
+    's307' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's310',
+      ),
+    ),
+    's308' => 
+    array (
+      'T_RIGHTPARENS' => 
+      
