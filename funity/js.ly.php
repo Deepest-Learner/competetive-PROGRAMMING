@@ -2025,3 +2025,76 @@ $dpa = array (
         2 => 's184',
       ),
       'T_NULL' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'fold',
+        1 => 19,
+        2 => 's184',
+      ),
+    ),
+    's223' => 
+    array (
+      'T_FUNCTION' => 
+      array (
+        0 => 'go',
+        1 => 's224',
+      ),
+    ),
+    's224' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's225',
+      ),
+    ),
+    's225' => 
+    array (
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's226',
+      ),
+    ),
+    's226' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 
