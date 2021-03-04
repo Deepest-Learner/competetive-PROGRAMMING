@@ -2396,3 +2396,76 @@ $dpa = array (
       ),
     ),
     's338' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 26,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 26,
+        2 => 's339',
+      ),
+    ),
+    's339' => 
+    array (
+      'T_COMMA' => 
+      array (
+        0 => 'go',
+        1 => 's340',
+      ),
+    ),
+    's340' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's341',
+      ),
+    ),
+    's341' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 27,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 27,
+        2 => 's339',
+      ),
+    ),
+    's346' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'go',
+        1 => 's347',
+      ),
+    ),
+    's347' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 28,
+      ),
+    ),
+    's380' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Block',
+        2 => 's381',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'push',
+        1 => 'VariableStatement',
+     
