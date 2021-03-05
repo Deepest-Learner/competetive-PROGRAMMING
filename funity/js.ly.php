@@ -2468,4 +2468,60 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'VariableStatement',
-     
+        2 => 's382',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'push',
+        1 => 'EmptyStatement',
+        2 => 's383',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_BANG' 
