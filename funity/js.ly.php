@@ -2584,4 +2584,61 @@ $dpa = array (
         1 => 'ExpressionStatement',
         2 => 's384',
       ),
-      'T_HEXA' =>
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's384',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'push',
+        1 => 'IfStatement',
+        2 => 's385',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'push',
+        1 => 'IterationStatement',
+        2 => 's386',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'push',
+        1 => 'IterationStatement',
+        2 => 's386',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'push',
+        1 => 'IterationStatement',
+        2 => 's386',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'push',
+        1 => 'ContinueStatement',
+        2 => 's387',
+      ),
+      'T_BREAK' => 
+      array (
+        0 => 'push',
+        1 => 'BreakStatement',
+        2 => 's388',
+      ),
+      'T_RETURN' => 
+      array (
+        0 => 'push',
+        1 => 'ReturnStatement',
+        2 => 's389',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'push',
+        1 => 'WithStatemen
