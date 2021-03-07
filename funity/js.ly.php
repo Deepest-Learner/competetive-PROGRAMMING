@@ -2641,4 +2641,72 @@ $dpa = array (
       'T_WITH' => 
       array (
         0 => 'push',
-        1 => 'WithStatemen
+        1 => 'WithStatement',
+        2 => 's390',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'push',
+        1 => 'LabelledStatement',
+        2 => 's391',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'push',
+        1 => 'SwitchStatement',
+        2 => 's392',
+      ),
+      'T_THROW' => 
+      array (
+        0 => 'push',
+        1 => 'ThrowStatement',
+        2 => 's393',
+      ),
+      'T_TRY' => 
+      array (
+        0 => 'push',
+        1 => 'TryStatement',
+        2 => 's394',
+      ),
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'push',
+        1 => 'TextStatement',
+        2 => 's395',
+      ),
+    ),
+    's381' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 29,
+      ),
+    ),
+    's382' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 30,
+      ),
+    ),
+    's383' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 31,
+      ),
+    ),
+    's384' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 32,
+      ),
+    ),
+    's385' => 
+    array (
+      '[d
