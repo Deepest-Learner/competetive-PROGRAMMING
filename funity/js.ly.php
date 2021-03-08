@@ -2789,4 +2789,72 @@ $dpa = array (
     ),
     's395' => 
     array (
-     
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 43,
+      ),
+    ),
+    's430' => 
+    array (
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'go',
+        1 => 's431',
+      ),
+    ),
+    's431' => 
+    array (
+      'T_SCRIPT_BEGIN' => 
+      array (
+        0 => 'go',
+        1 => 's432',
+      ),
+      'T_SCRIPT_BEGIN_ECHO' => 
+      array (
+        0 => 'go',
+        1 => 's433',
+      ),
+      'T_TEXT' => 
+      array (
+        0 => 'go',
+        1 => 's434',
+      ),
+    ),
+    's432' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 44,
+      ),
+    ),
+    's433' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0
