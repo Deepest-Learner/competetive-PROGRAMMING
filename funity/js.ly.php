@@ -2916,4 +2916,66 @@ $dpa = array (
         2 => 's435',
       ),
       'T_LEFTBRACKET' => 
-      array 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's435',
+      ),
+    ),
+    's434' => 
+    array (
+      'T_SCRIPT_BEGIN' => 
+      array (
+        0 => 'go',
+        1 => 's436',
+      ),
+      'T_SCRIPT_BEGIN_ECHO' => 
+      array (
+        0 => 'go',
+        1 => 's437',
+      ),
+    ),
+    's435' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 45,
+      ),
+    ),
+    's436' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 46,
