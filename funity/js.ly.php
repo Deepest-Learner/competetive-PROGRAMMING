@@ -3039,4 +3039,60 @@ $dpa = array (
       ),
       'T_NEW' => 
       array (
-      
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        2 => 's438',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionStatement',
+        
