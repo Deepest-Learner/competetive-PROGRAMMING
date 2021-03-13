@@ -3161,4 +3161,65 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'StatementList',
-        2 =>
+        2 => 's458',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_BREAK' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_RETURN' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_THROW' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_TRY' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      ),
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's458',
+      
