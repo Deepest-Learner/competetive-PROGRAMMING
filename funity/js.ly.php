@@ -3604,4 +3604,76 @@ $dpa = array (
       array (
         0 => 'fold',
         1 => 50,
-        2 => 's
+        2 => 's472',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_BREAK' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_RETURN' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_THROW' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+  
