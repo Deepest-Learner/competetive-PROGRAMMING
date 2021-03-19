@@ -3676,4 +3676,71 @@ $dpa = array (
       array (
         0 => 'fold',
         1 => 50,
-  
+        2 => 's472',
+      ),
+      'T_TRY' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'fold',
+        1 => 50,
+        2 => 's472',
+ 
