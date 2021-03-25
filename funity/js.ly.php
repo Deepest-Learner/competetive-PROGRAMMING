@@ -4003,4 +4003,72 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'Statement',
-    
+        2 => 's473',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's473',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's473',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's473',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's473',
+      ),
+    ),
+    's473' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 51,
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'fold',
+        1 => 51,
+        2 => 's472',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'fold',
+        1 => 51,
+        2 => 's472',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'fold',
+        1 => 51,
+        2 => 's472',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'fold',
+        1 => 51,
+        2 => 's472',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'fold',
+        1 => 51,
+        2 => 's472',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'fold',
+        1 => 51,
+        2 => 's472'
