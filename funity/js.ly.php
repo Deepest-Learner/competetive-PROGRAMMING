@@ -4354,4 +4354,65 @@ $dpa = array (
     array (
       'T_EQUAL' => 
       array (
-        
+        0 => 'push',
+        1 => 'Initialiser',
+        2 => 's515',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 55,
+      ),
+    ),
+    's515' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 55,
+      ),
+    ),
+    's524' => 
+    array (
+      'T_EQUAL' => 
+      array (
+        0 => 'go',
+        1 => 's525',
+      ),
+    ),
+    's525' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression'
