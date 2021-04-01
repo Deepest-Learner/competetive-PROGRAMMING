@@ -4472,4 +4472,67 @@ $dpa = array (
         1 => 'AssignmentExpression',
         2 => 's526',
       ),
-      'T_LEFTBRACKET' =>
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's526',
+      ),
+    ),
+    's526' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 56,
+      ),
+    ),
+    's531' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's532',
+      ),
+    ),
+    's532' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do
