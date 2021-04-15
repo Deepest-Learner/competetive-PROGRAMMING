@@ -5175,3 +5175,66 @@ $dpa = array (
       ),
       'T_VOID' => 
       array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's581',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 
