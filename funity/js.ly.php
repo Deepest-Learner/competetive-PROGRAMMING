@@ -5371,4 +5371,64 @@ $dpa = array (
         2 => 's692',
       ),
       'T_RETURN' => 
-      array 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_THROW' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_TRY' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's692',
+      ),
+      'T_PLUSPLUS' => 
+    
