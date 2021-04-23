@@ -5810,4 +5810,72 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'ExpressionNoIn',
-    
+        2 => 's697',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+    ),
+    's695' => 
+    array (
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's700',
+      ),
+    ),
+    's696' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's701',
+      ),
+    ),
+    's697' => 
+    array (
+      'T_IN' => 
+      array (
+        0 => 'go',
+        1 => 's702',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's699',
+      ),
+    ),
+    's698' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'VariableDeclarationListNoIn',
+        2 => 's703',
+      ),
+    ),
+    's699' => 
+    array (
+      'T_SEMICOLON' => 
+  
