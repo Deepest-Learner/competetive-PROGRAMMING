@@ -5748,4 +5748,66 @@ $dpa = array (
       ),
       'T_TILDE' => 
       array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
+        2 => 's697',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'ExpressionNoIn',
     
