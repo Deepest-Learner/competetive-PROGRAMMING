@@ -6002,3 +6002,66 @@ $dpa = array (
         1 => 'Expression',
         2 => 's704',
       ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's704',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's704',
+      ),
+    ),
+    's700' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
