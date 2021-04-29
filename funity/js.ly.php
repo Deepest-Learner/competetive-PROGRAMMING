@@ -6127,4 +6127,67 @@ $dpa = array (
       ),
       'T_FALSE' => 
       array (
- 
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's706',
+      ),
+    ),
+    's701' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's707',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's707',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's707',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's707',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's707',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's707',
+      ),
+      'T_FOR' => 
+      array (
+  
