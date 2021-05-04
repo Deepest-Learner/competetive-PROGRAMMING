@@ -6500,3 +6500,69 @@ $dpa = array (
       'T_STRING' => 
       array (
         0 => 'push',
+        1 => 'Expression',
+        2 => 's708',
+      ),
+    ),
+    's703' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's709',
+      ),
+      'T_IN' => 
+      array (
+        0 => 'go',
+        1 => 's710',
+      ),
+    ),
+    's704' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's705',
+      ),
+    ),
+    's705' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's712',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+ 
