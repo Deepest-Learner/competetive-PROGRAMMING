@@ -6626,4 +6626,72 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'Expression',
-  
+        2 => 's711',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's711',
+      ),
+    ),
+    's706' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's713',
+      ),
+    ),
+    's707' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 62,
+      ),
+    ),
+    's708' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's714',
+      ),
+    ),
+    's709' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+    
