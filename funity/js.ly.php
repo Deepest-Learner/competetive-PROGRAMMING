@@ -7140,3 +7140,69 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's718',
+      ),
+    ),
+    's713' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's719',
+      ),
+    ),
+    's714' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2
