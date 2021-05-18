@@ -7519,3 +7519,69 @@ $dpa = array (
       ),
       'T_NULL' => 
       array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's721',
+      ),
+    ),
+    's717' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's723',
+      ),
+    ),
+    's718' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 64,
+      ),
+    ),
+    's719' => 
+    array (
+ 
