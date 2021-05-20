@@ -7584,4 +7584,75 @@ $dpa = array (
     ),
     's719' => 
     array (
- 
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 61,
+      ),
+    ),
+    's720' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 63,
+      ),
+    ),
+    's721' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's722',
+      ),
+    ),
+    's722' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's724',
+      
