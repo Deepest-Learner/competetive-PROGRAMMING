@@ -7842,4 +7842,65 @@ $dpa = array (
       'T_SEMICOLON' => 
       array (
         0 => 'push',
- 
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_BREAK' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_RETURN' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 =>
