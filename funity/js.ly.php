@@ -8095,4 +8095,78 @@ $dpa = array (
       '[default]' => 
       array (
         0 => 'do',
-        1 => 
+        1 => 67,
+      ),
+    ),
+    's750' => 
+    array (
+      'T_BREAK' => 
+      array (
+        0 => 'go',
+        1 => 's751',
+      ),
+    ),
+    's751' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's753',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's752',
+      ),
+    ),
+    's752' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's753',
+      ),
+    ),
+    's753' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 68,
+      ),
+    ),
+    's764' => 
+    array (
+      'T_RETURN' => 
+      array (
+        0 => 'go',
+        1 => 's765',
+      ),
+    ),
+    's765' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's767',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's766',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's766',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's766',
+      ),
+   
