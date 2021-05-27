@@ -8025,4 +8025,74 @@ $dpa = array (
         1 => 'Statement',
         2 => 's725',
       ),
-      'T_DECI
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's725',
+      ),
+    ),
+    's724' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 65,
+      ),
+    ),
+    's725' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 66,
+      ),
+    ),
+    's736' => 
+    array (
+      'T_CONTINUE' => 
+      array (
+        0 => 'go',
+        1 => 's737',
+      ),
+    ),
+    's737' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's739',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's738',
+      ),
+    ),
+    's738' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's739',
+      ),
+    ),
+    's739' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 
