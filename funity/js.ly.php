@@ -8361,4 +8361,63 @@ $dpa = array (
         2 => 's785',
       ),
       'T_TILDE' => 
- 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's785',
+      ),
+      'T
