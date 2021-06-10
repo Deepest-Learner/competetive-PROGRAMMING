@@ -8674,4 +8674,73 @@ $dpa = array (
       'T_STRING' => 
       array (
         0 => 'push',
-        1 
+        1 => 'Statement',
+        2 => 's787',
+      ),
+    ),
+    's787' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 70,
+      ),
+    ),
+    's802' => 
+    array (
+      'T_SWITCH' => 
+      array (
+        0 => 'go',
+        1 => 's803',
+      ),
+    ),
+    's803' => 
+    array (
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's804',
+      ),
+    ),
+    's804' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Exp
