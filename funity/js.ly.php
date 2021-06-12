@@ -8878,4 +8878,76 @@ $dpa = array (
         1 => 's862',
       ),
       'T_CASE' => 
-    
+      array (
+        0 => 'push',
+        1 => 'CaseClauses',
+        2 => 's860',
+      ),
+      'T_DEFAULT' => 
+      array (
+        0 => 'push',
+        1 => 'DefaultClause',
+        2 => 's861',
+      ),
+    ),
+    's860' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's862',
+      ),
+      'T_DEFAULT' => 
+      array (
+        0 => 'push',
+        1 => 'DefaultClause',
+        2 => 's863',
+      ),
+    ),
+    's861' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's864',
+      ),
+      'T_CASE' => 
+      array (
+        0 => 'push',
+        1 => 'CaseClauses',
+        2 => 's865',
+      ),
+    ),
+    's862' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 72,
+      ),
+    ),
+    's863' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's866',
+      ),
+      'T_CASE' => 
+      array (
+        0 => 'push',
+        1 => 'CaseClauses',
+        2 => 's867',
+      ),
+    ),
+    's864' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 73,
+      ),
+    ),
+    's865' => 
+    array (
+      'T_RIGHT
