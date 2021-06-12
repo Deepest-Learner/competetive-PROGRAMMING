@@ -8806,4 +8806,76 @@ $dpa = array (
         1 => 'Expression',
         2 => 's805',
       ),
-      'T_
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's805',
+      ),
+    ),
+    's805' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's806',
+      ),
+    ),
+    's806' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'CaseBlock',
+        2 => 's807',
+      ),
+    ),
+    's807' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 71,
+      ),
+    ),
+    's858' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's859',
+      ),
+    ),
+    's859' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's862',
+      ),
+      'T_CASE' => 
+    
