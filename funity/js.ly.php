@@ -8950,4 +8950,78 @@ $dpa = array (
     ),
     's865' => 
     array (
-      'T_RIGHT
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's868',
+      ),
+    ),
+    's866' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 75,
+      ),
+    ),
+    's867' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's869',
+      ),
+    ),
+    's868' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 74,
+      ),
+    ),
+    's869' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 76,
+      ),
+    ),
+    's880' => 
+    array (
+      'T_CASE' => 
+      array (
+        0 => 'push',
+        1 => 'CaseClause',
+        2 => 's881',
+      ),
+    ),
+    's881' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 77,
+      ),
+      'T_CASE' => 
+      array (
+        0 => 'fold',
+        1 => 77,
+        2 => 's882',
+      ),
+    ),
+    's882' => 
+    array (
+      'T_CASE' => 
+      array (
+        0 => 'push',
+        1 => 'CaseClause',
+        2 => 's883',
+      ),
+    ),
+    's883' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do'
