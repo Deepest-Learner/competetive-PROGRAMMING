@@ -9024,4 +9024,72 @@ $dpa = array (
     array (
       '[default]' => 
       array (
-        0 => 'do'
+        0 => 'do',
+        1 => 78,
+      ),
+      'T_CASE' => 
+      array (
+        0 => 'fold',
+        1 => 78,
+        2 => 's882',
+      ),
+    ),
+    's896' => 
+    array (
+      'T_CASE' => 
+      array (
+        0 => 'go',
+        1 => 's897',
+      ),
+    ),
+    's897' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's898',
+      ),
+      'T_BANG'
