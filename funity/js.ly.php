@@ -9218,4 +9218,66 @@ $dpa = array (
         2 => 's900',
       ),
       'T_WHILE' => 
-      array 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_FOR' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_CONTINUE' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_BREAK' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_RETURN' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_WITH' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_SWITCH' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_THROW' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_TRY' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's900',
+      ),
+      'T_SCRIPT_END' => 
+      array (
+        0 => 'push',
+        1 => 'Statemen
