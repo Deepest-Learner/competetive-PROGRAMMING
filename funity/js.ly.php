@@ -9526,4 +9526,64 @@ $dpa = array (
         2 => 's914',
       ),
       'T_SCRIPT_END' => 
-      a
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      'T_NEW' => 
+ 
