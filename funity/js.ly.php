@@ -9645,3 +9645,69 @@ $dpa = array (
         1 => 'StatementList',
         2 => 's914',
       ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'StatementList',
+        2 => 's914',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 80,
+      ),
+    ),
+    's914' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 80,
+      ),
+    ),
+    's923' => 
+    array (
+      'T_LABEL' => 
+      array (
+        0 => 'go',
+        1 => 's924',
+      ),
+    ),
+    's924' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's925',
+      ),
+      'T_VAR' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's925',
+      ),
+      'T_SEMICOLON' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's925',
+      ),
+      'T_IF' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's925',
+      ),
+      'T_DO' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's925',
+      ),
+      'T_WHILE' => 
+      array (
+        0 => 'push',
+        1 => 'Statement',
+        2 => 's925',
+      )
