@@ -10025,4 +10025,72 @@ $dpa = array (
         2 => 's938',
       ),
       'T_DECIMAL' => 
-     
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's938',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's938',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's938',
+      ),
+    ),
+    's938' => 
+    array (
+      'T_SEMICOLON' => 
+      array (
+        0 => 'go',
+        1 => 's939',
+      ),
+    ),
+    's939' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 82,
+      ),
+    ),
+    's968' => 
+    array (
+      'T_TRY' => 
+      array (
+        0 => 'go',
+        1 => 's969',
+      ),
+    ),
+    's969' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Block',
+        2 => 's970',
+      ),
+    ),
+    's970' => 
+    array (
+      'T_CATCH' => 
+      array (
+        0 => 'push',
+        1 => 'Catch',
+        2 => 's971',
+      ),
+      'T_FINALLY' => 
+      array (
+        0 => 'push',
+        1 => 'Finally',
+        2 => 's972',
+      ),
+    ),
+    's971' => 
+    array (
+      'T_FIN
