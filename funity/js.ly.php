@@ -10093,4 +10093,86 @@ $dpa = array (
     ),
     's971' => 
     array (
-      'T_FIN
+      'T_FINALLY' => 
+      array (
+        0 => 'push',
+        1 => 'Finally',
+        2 => 's973',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 83,
+      ),
+    ),
+    's972' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 84,
+      ),
+    ),
+    's973' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 85,
+      ),
+    ),
+    's988' => 
+    array (
+      'T_CATCH' => 
+      array (
+        0 => 'go',
+        1 => 's989',
+      ),
+    ),
+    's989' => 
+    array (
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's990',
+      ),
+    ),
+    's990' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's991',
+      ),
+    ),
+    's991' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's992',
+      ),
+    ),
+    's992' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Block',
+        2 => 's993',
+      ),
+    ),
+    's993' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 86,
+      ),
+    ),
+    's1002' => 
+    array (
+      'T_FINALLY' => 
+      array (
+        0
