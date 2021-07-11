@@ -10175,4 +10175,73 @@ $dpa = array (
     array (
       'T_FINALLY' => 
       array (
-        0
+        0 => 'go',
+        1 => 's1003',
+      ),
+    ),
+    's1003' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'Block',
+        2 => 's1004',
+      ),
+    ),
+    's1004' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 87,
+      ),
+    ),
+    's1025' => 
+    array (
+      'T_THIS' => 
+      array (
+        0 => 'go',
+        1 => 's1026',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's1031',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's1027',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'Literal',
+        2 => 's1028',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'Literal',
+        2 => 's1028',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Literal',
+        2 => 's1028',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Literal',
+        2 => 's1028',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Literal',
+        2 => 's1028',
+      ),
+      'T_STRING' =
