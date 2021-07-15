@@ -10244,4 +10244,75 @@ $dpa = array (
         1 => 'Literal',
         2 => 's1028',
       ),
-      'T_STRING' =
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Literal',
+        2 => 's1028',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'ArrayLiteral',
+        2 => 's1029',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'ObjectLiteral',
+        2 => 's1030',
+      ),
+    ),
+    's1026' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 88,
+      ),
+    ),
+    's1027' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 89,
+      ),
+    ),
+    's1028' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 90,
+      ),
+    ),
+    's1029' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 91,
+      ),
+    ),
+    's1030' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 92,
+      ),
+    ),
+    's1031' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1032',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's
