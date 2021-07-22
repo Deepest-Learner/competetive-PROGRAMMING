@@ -10443,4 +10443,75 @@ $dpa = array (
       'T_RIGHTPARENS' => 
       array (
         0 => 'go',
-       
+        1 => 's1033',
+      ),
+    ),
+    's1033' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 93,
+      ),
+    ),
+    's1044' => 
+    array (
+      'T_NULL' => 
+      array (
+        0 => 'go',
+        1 => 's1045',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BooleanLiteral',
+        2 => 's1046',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'BooleanLiteral',
+        2 => 's1046',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'NumericLiteral',
+        2 => 's1047',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'NumericLiteral',
+        2 => 's1047',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'StringLiteral',
+        2 => 's1048',
+      ),
+    ),
+    's1045' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 94,
+      ),
+    ),
+    's1046' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 95,
+      ),
+    ),
+    's1047' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 96,
+     
