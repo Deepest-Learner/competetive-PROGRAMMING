@@ -10595,4 +10595,78 @@ $dpa = array (
       '[default]' => 
       array (
         0 => 'do',
-  
+        1 => 102,
+      ),
+    ),
+    's1083' => 
+    array (
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'go',
+        1 => 's1084',
+      ),
+    ),
+    's1084' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'push',
+        1 => 'ArrayElements',
+        2 => 's1085',
+      ),
+    ),
+    's1085' => 
+    array (
+      'T_RIGHTBRACKET' => 
+      array (
+        0 => 'go',
+        1 => 's1086',
+      ),
+    ),
+    's1086' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 103,
+      ),
+    ),
+    's1099' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'push',
+        1 => 'ArrayElement',
+        2 => 's1100',
+      ),
+    ),
+    's1100' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 104,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 104,
+        2 => 's1101',
+      ),
+    ),
+    's1101' => 
+    array (
+      'T_COMMA' => 
+      array (
+        0 => 'go',
+        1 => 's1102',
+      ),
+    ),
+    's1102' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'push',
+        1 => 'ArrayElement',
+        2 => 's1103',
+      ),
