@@ -10850,4 +10850,69 @@ $dpa = array (
       ),
       'T_LABEL' => 
       array (
-        0 => 'pu
+        0 => 'push',
+        1 => 'PropertyNameAndValueList',
+        2 => 's1131',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyNameAndValueList',
+        2 => 's1131',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyNameAndValueList',
+        2 => 's1131',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyNameAndValueList',
+        2 => 's1131',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyNameAndValueList',
+        2 => 's1131',
+      ),
+    ),
+    's1130' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 108,
+      ),
+    ),
+    's1131' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's1132',
+      ),
+    ),
+    's1132' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 109,
+      ),
+    ),
+    's1171' => 
+    array (
+      'T_LABEL' => 
+      array (
+        0 => 'go',
+        1 => 's1173',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1172',
+      )
