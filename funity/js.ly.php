@@ -10786,4 +10786,68 @@ $dpa = array (
       'T_LEFTBRACE' => 
       array (
         0 => 'push',
- 
+        1 => 'AssignmentExpression',
+        2 => 's1111',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1111',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1111',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1111',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1111',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1111',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 106,
+      ),
+    ),
+    's1111' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 107,
+      ),
+    ),
+    's1128' => 
+    array (
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's1129',
+      ),
+    ),
+    's1129' => 
+    array (
+      'T_RIGHTBRACE' => 
+      array (
+        0 => 'go',
+        1 => 's1130',
+      ),
+      'T_LABEL' => 
+      array (
+        0 => 'pu
