@@ -10915,4 +10915,66 @@ $dpa = array (
         0 => 'push',
         1 => 'PropertyName',
         2 => 's1172',
-      )
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1172',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1172',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1172',
+      ),
+    ),
+    's1172' => 
+    array (
+      'T_COLON' => 
+      array (
+        0 => 'go',
+        1 => 's1175',
+      ),
+    ),
+    's1173' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => '
