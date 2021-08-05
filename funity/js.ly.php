@@ -11032,4 +11032,62 @@ $dpa = array (
       'T_NULL' => 
       array (
         0 => 'push',
-        
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1176',
+      ),
+    ),
+    's1174' => 
+    array (
+      'T_COMMA' => 
+      array (
+        0 => 'go',
+        1 => 's1177',
+      ),
+    ),
+    's1175' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'pu
