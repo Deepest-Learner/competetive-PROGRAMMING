@@ -11270,4 +11270,64 @@ $dpa = array (
     's1178' => 
     array (
       '[default]' => 
-     
+      array (
+        0 => 'do',
+        1 => 110,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 110,
+        2 => 's1174',
+      ),
+    ),
+    's1179' => 
+    array (
+      'T_COLON' => 
+      array (
+        0 => 'go',
+        1 => 's1181',
+      ),
+    ),
+    's1180' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1182',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1182',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1182',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1182',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1182',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1182',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Assig
