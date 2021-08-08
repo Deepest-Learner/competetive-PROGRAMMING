@@ -11203,4 +11203,71 @@ $dpa = array (
         2 => 's1178',
       ),
       'T_DECIMAL' => 
-      array
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1178',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1178',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1178',
+      ),
+    ),
+    's1176' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 111,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 111,
+        2 => 's1174',
+      ),
+    ),
+    's1177' => 
+    array (
+      'T_LABEL' => 
+      array (
+        0 => 'go',
+        1 => 's1180',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1179',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1179',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1179',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'PropertyName',
+        2 => 's1179',
+      ),
+    ),
+    's1178' => 
+    array (
+      '[default]' => 
+     
