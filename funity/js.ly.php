@@ -11625,4 +11625,67 @@ $dpa = array (
     's1194' => 
     array (
       '[default]' => 
-      a
+      array (
+        0 => 'do',
+        1 => 115,
+      ),
+    ),
+    's1195' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 116,
+      ),
+    ),
+    's1232' => 
+    array (
+      'T_NEW' => 
+      array (
+        0 => 'go',
+        1 => 's1236',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression',
+        2 => 's1233',
+      ),
+      'T_FALSE' => 
+      array (
