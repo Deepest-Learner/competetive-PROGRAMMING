@@ -11754,3 +11754,65 @@ $dpa = array (
       'T_LEFTBRACKET' => 
       array (
         0 => 'fold',
+        1 => 118,
+        2 => 's1235',
+      ),
+      'T_DOT' => 
+      array (
+        0 => 'fold',
+        1 => 118,
+        2 => 's1235',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'fold',
+        1 => 118,
+        2 => 's1235',
+      ),
+    ),
+    's1235' => 
+    array (
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'go',
+        1 => 's1237',
+      ),
+      'T_DOT' => 
+      array (
+        0 => 'go',
+        1 => 's1238',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'Arguments',
+        2 => 's1239',
+      ),
+    ),
+    's1236' => 
+    array (
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_WOR
