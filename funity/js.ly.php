@@ -11815,4 +11815,64 @@ $dpa = array (
         1 => 'MemberExpression',
         2 => 's1240',
       ),
-      'T_WOR
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression',
+        2 => 's1240',
+      ),
+    ),
+    's1237' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expressio
