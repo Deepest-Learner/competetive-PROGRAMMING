@@ -12259,4 +12259,67 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'ArgumentList',
-        
+        2 => 's1263',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+    ),
+    's1262' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 123,
+      ),
+    ),
+    's1263' => 
+    array (
+      'T_RIGHTPARENS' => 
+      array (
+        0 => 'go',
+        1 => 's1264',
+      ),
+    ),
+    's1264' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 124,
+      ),
+    ),
+    's1277' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
