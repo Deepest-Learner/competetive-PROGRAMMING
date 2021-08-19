@@ -12201,4 +12201,62 @@ $dpa = array (
         1 => 'ArgumentList',
         2 => 's1263',
       ),
-      'T_THIS
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        2 => 's1263',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'ArgumentList',
+        
