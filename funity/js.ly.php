@@ -12380,4 +12380,59 @@ $dpa = array (
       ),
       'T_WORD' => 
       array (
-        0
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1278',
+      ),
+    ),
+    's1278' => 
+    array (
+      '[default]' =>
