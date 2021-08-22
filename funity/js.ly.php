@@ -12435,4 +12435,66 @@ $dpa = array (
     ),
     's1278' => 
     array (
-      '[default]' =>
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 125,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 125,
+        2 => 's1279',
+      ),
+    ),
+    's1279' => 
+    array (
+      'T_COMMA' => 
+      array (
+        0 => 'go',
+        1 => 's1280',
+      ),
+    ),
+    's1280' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1281',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1281',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1281',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1281',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1281',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1281',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        
