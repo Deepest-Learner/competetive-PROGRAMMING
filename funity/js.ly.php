@@ -12866,4 +12866,70 @@ $dpa = array (
         1 => 'Expression',
         2 => 's1316',
       ),
-      'T_FALSE'
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1316',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1316',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1316',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1316',
+      ),
+    ),
+    's1315' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's1317',
+      ),
+    ),
+    's1316' => 
+    array (
+      'T_RIGHTBRACKET' => 
+      array (
+        0 => 'go',
+        1 => 's1318',
+      ),
+    ),
+    's1317' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 130,
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'fold',
+        1 => 130,
+        2 => 's1312',
+      ),
+      'T_DOT' => 
+      array (
+        0 => 'fold',
+        1 => 130,
+        2 => 's1312',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'fold',
+        1 => 130,
+        2 => 's1312',
+      
