@@ -12996,4 +12996,65 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LeftHandSideExpression',
-    
+        2 => 's1336',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression',
+        2 => 's1336',
+      ),
+    ),
+    's1336' => 
+    array (
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'go',
+        1 => 's1337',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'go',
+        1 => 's1338',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 131,
+      ),
