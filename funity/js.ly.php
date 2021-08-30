@@ -13058,3 +13058,72 @@ $dpa = array (
         0 => 'do',
         1 => 131,
       ),
+    ),
+    's1337' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 132,
+      ),
+    ),
+    's1338' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 133,
+      ),
+    ),
+    's1397' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'go',
+        1 => 's1399',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'go',
+        1 => 's1400',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'go',
+        1 => 's1401',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'go',
+        1 => 's1402',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'go',
+        1 => 's1403',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'go',
+        1 => 's1404',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'go',
+        1 => 's1405',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'go',
+        1 => 's1406',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'go',
+        1 => 's1407',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => '
