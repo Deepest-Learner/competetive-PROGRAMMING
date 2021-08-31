@@ -13185,4 +13185,65 @@ $dpa = array (
       'T_DECIMAL' => 
       array (
         0 => 'push',
-        1 => 'PostfixExpress
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+    ),
+    's1398' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 134,
+      ),
+    ),
+    's1399' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1408',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1408',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1408',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1408',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1408',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1408',
+      )
