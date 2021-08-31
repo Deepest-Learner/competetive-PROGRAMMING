@@ -13126,4 +13126,63 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'PostfixExpression',
-        2 => '
+        2 => 's1398',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression',
+        2 => 's1398',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpress
