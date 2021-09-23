@@ -14260,4 +14260,63 @@ $dpa = array (
       ),
       'T_TRUE' => 
       array (
-        0 => 'push
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1415',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1415',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1415',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1415',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1415',
+      ),
+    ),
+    's1407' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+      
