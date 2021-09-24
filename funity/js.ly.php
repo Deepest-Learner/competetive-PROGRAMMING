@@ -14379,4 +14379,69 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'UnaryExpression',
-  
+        2 => 's1416',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+    ),
+    's1408' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 135,
+      ),
+    ),
+    's1409' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 136,
+      ),
+    ),
+    's1410' => 
+    array (
+      '[default]' => 
+      array (
+        
