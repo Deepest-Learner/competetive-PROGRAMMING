@@ -14319,4 +14319,64 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'UnaryExpression',
-      
+        2 => 's1416',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1416',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+  
