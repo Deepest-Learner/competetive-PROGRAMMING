@@ -14444,4 +14444,79 @@ $dpa = array (
     array (
       '[default]' => 
       array (
-        
+        0 => 'do',
+        1 => 137,
+      ),
+    ),
+    's1411' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 138,
+      ),
+    ),
+    's1412' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 139,
+      ),
+    ),
+    's1413' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 140,
+      ),
+    ),
+    's1414' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 141,
+      ),
+    ),
+    's1415' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 142,
+      ),
+    ),
+    's1416' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 143,
+      ),
+    ),
+    's1445' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1446',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1446',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1446',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryE
