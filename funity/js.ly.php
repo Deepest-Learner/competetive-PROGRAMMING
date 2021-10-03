@@ -15059,4 +15059,72 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'UnaryExpression',
-  
+        2 => 's1453',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1453',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1453',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1453',
+      ),
+    ),
+    's1451' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 145,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 145,
+        2 => 's1447',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 145,
+        2 => 's1447',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 => 'fold',
+        1 => 145,
+        2 => 's1447',
+      ),
+    ),
+    's1452' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 146,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 146,
+        2 => 's1447',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 146,
+        2 => 's1447',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 
