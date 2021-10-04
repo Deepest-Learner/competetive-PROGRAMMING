@@ -15127,4 +15127,70 @@ $dpa = array (
       ),
       'T_PERCENT' => 
       array (
-        0 
+        0 => 'fold',
+        1 => 146,
+        2 => 's1447',
+      ),
+    ),
+    's1453' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 147,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 147,
+        2 => 's1447',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 147,
+        2 => 's1447',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 => 'fold',
+        1 => 147,
+        2 => 's1447',
+      ),
+    ),
+    's1474' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1475',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1475',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1475',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1475',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1475',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Multiplicati
