@@ -15307,4 +15307,65 @@ $dpa = array (
         2 => 's1476',
       ),
       'T_MINUS' => 
-      arra
+      array (
+        0 => 'fold',
+        1 => 148,
+        2 => 's1476',
+      ),
+    ),
+    's1476' => 
+    array (
+      'T_PLUS' => 
+      array (
+        0 => 'go',
+        1 => 's1477',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'go',
+        1 => 's1478',
+      ),
+    ),
+    's1477' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 =
