@@ -15368,4 +15368,57 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'MultiplicativeExpression',
-        2 =
+        2 => 's1479',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1479',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'Multi
