@@ -15478,3 +15478,59 @@ $dpa = array (
       'T_TYPEOF' => 
       array (
         0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's1480',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's14
