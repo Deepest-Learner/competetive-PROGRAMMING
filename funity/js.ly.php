@@ -15770,4 +15770,73 @@ $dpa = array (
         1 => 'AdditiveExpression',
         2 => 's1510',
       ),
-   
+    ),
+    's1510' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 151,
+      ),
+      'T_LTLT' => 
+      array (
+        0 => 'fold',
+        1 => 151,
+        2 => 's1511',
+      ),
+      'T_GTGT' => 
+      array (
+        0 => 'fold',
+        1 => 151,
+        2 => 's1511',
+      ),
+      'T_GTGTGT' => 
+      array (
+        0 => 'fold',
+        1 => 151,
+        2 => 's1511',
+      ),
+    ),
+    's1511' => 
+    array (
+      'T_LTLT' => 
+      array (
+        0 => 'go',
+        1 => 's1512',
+      ),
+      'T_GTGT' => 
+      array (
+        0 => 'go',
+        1 => 's1513',
+      ),
+      'T_GTGTGT' => 
+      array (
+        0 => 'go',
+        1 => 's1514',
+      ),
+    ),
+    's1512' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1515',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1515',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1515',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1515
