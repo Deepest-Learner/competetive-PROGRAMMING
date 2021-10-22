@@ -16073,4 +16073,63 @@ $dpa = array (
         2 => 's1516',
       ),
       'T_HEXA' => 
-      arra
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1516',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1516',
+      ),
+    ),
+    's1514' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's1517',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1
