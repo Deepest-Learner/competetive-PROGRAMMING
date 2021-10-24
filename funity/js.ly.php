@@ -16250,4 +16250,74 @@ $dpa = array (
     array (
       '[default]' => 
       array (
-        0 => 
+        0 => 'do',
+        1 => 153,
+      ),
+      'T_LTLT' => 
+      array (
+        0 => 'fold',
+        1 => 153,
+        2 => 's1511',
+      ),
+      'T_GTGT' => 
+      array (
+        0 => 'fold',
+        1 => 153,
+        2 => 's1511',
+      ),
+      'T_GTGTGT' => 
+      array (
+        0 => 'fold',
+        1 => 153,
+        2 => 's1511',
+      ),
+    ),
+    's1517' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 154,
+      ),
+      'T_LTLT' => 
+      array (
+        0 => 'fold',
+        1 => 154,
+        2 => 's1511',
+      ),
+      'T_GTGT' => 
+      array (
+        0 => 'fold',
+        1 => 154,
+        2 => 's1511',
+      ),
+      'T_GTGTGT' => 
+      array (
+        0 => 'fold',
+        1 => 154,
+        2 => 's1511',
+      ),
+    ),
+    's1570' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0
