@@ -16377,4 +16377,65 @@ $dpa = array (
         0 => 'push',
         1 => 'ShiftExpression',
         2 => 's1571',
-      )
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1571',
+      ),
+    ),
+    's1571' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 155,
