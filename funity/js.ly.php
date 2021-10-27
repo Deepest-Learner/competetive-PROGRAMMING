@@ -16510,4 +16510,63 @@ $dpa = array (
         1 => 's1578',
       ),
     ),
-    's1573
+    's1573' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's1579',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        
