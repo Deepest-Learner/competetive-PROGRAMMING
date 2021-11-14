@@ -17541,4 +17541,69 @@ $dpa = array (
       ),
     ),
     's1584' => 
-    a
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 161,
+      ),
+      'T_LT' => 
+      array (
+        0 => 'fold',
+        1 => 161,
+        2 => 's1572',
+      ),
+      'T_GT' => 
+      array (
+        0 => 'fold',
+        1 => 161,
+        2 => 's1572',
+      ),
+      'T_LTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 161,
+        2 => 's1572',
+      ),
+      'T_GTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 161,
+        2 => 's1572',
+      ),
+      'T_INSTANCEOF' => 
+      array (
+        0 => 'fold',
+        1 => 161,
+        2 => 's1572',
+      ),
+      'T_IN' => 
+      array (
+        0 => 'fold',
+        1 => 161,
+        2 => 's1572',
+      ),
+    ),
+    's1621' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1622',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1622',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1622',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+     
