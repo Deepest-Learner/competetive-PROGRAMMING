@@ -17721,4 +17721,72 @@ $dpa = array (
     ),
     's1622' => 
     array (
-    
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 162,
+      ),
+      'T_EQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 162,
+        2 => 's1623',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'fold',
+        1 => 162,
+        2 => 's1623',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 162,
+        2 => 's1623',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 162,
+        2 => 's1623',
+      ),
+    ),
+    's1623' => 
+    array (
+      'T_EQEQ' => 
+      array (
+        0 => 'go',
+        1 => 's1624',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'go',
+        1 => 's1625',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'go',
+        1 => 's1626',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'go',
+        1 => 's1627',
+      ),
+    ),
+    's1624' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1628',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1628',
+      ),
+      'T_TYPEOF' => 
+      
