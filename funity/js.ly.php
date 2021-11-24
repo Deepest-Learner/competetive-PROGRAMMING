@@ -18137,4 +18137,62 @@ $dpa = array (
         2 => 's1630',
       ),
       'T_LEFTBRACKET' => 
-     
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1630',
+      ),
+    ),
+    's1627' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1631',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's1631',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'pus
