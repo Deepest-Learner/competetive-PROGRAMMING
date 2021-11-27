@@ -18439,4 +18439,63 @@ $dpa = array (
       array (
         0 => 'fold',
         1 => 166,
-        2 => 's1623
+        2 => 's1623',
+      ),
+    ),
+    's1644' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's1645',
+      ),
+      'T_NE
