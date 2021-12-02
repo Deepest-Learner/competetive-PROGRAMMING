@@ -18733,4 +18733,64 @@ $dpa = array (
         1 => 'EqualityExpression',
         2 => 's1648',
       ),
+    ),
+    's1648' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 168,
+      ),
+      'T_AMP' => 
+      array (
+        0 => 'fold',
+        1 => 168,
+        2 => 's1646',
+      ),
+    ),
+    's1661' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's1662',
+      ),
+      'T_TILDE' => 
     
