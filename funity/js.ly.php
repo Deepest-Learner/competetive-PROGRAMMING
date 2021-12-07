@@ -19086,4 +19086,63 @@ $dpa = array (
         1 => 'BitwiseXORExpression',
         2 => 's1679',
       ),
-      'T_PLU
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+   
