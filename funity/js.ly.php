@@ -19207,4 +19207,62 @@ $dpa = array (
     array (
       'T_PIPE' => 
       array (
-  
+        0 => 'go',
+        1 => 's1681',
+      ),
+    ),
+    's1681' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 =>
