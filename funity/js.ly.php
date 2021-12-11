@@ -19145,4 +19145,66 @@ $dpa = array (
         0 => 'push',
         1 => 'BitwiseXORExpression',
         2 => 's1679',
-   
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1679',
+      ),
+    ),
+    's1679' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 171,
+      ),
+      'T_PIPE' => 
+      array (
+        0 => 'fold',
+        1 => 171,
+        2 => 's1680',
+      ),
+    ),
+    's1680' => 
+    array (
+      'T_PIPE' => 
+      array (
+  
