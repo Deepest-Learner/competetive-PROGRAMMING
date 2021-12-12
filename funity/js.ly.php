@@ -19322,4 +19322,68 @@ $dpa = array (
         2 => 's1682',
       ),
       'T_FALSE' => 
-      arra
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression',
+        2 => 's1682',
+      ),
+    ),
+    's1682' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 172,
+      ),
+      'T_PIPE' => 
+      array (
+        0 => 'fold',
+        1 => 172,
+        2 => 's1680',
+      ),
+    ),
+    's1695' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_MINUSMINUS
