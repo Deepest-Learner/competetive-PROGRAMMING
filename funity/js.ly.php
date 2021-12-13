@@ -19443,4 +19443,65 @@ $dpa = array (
       'T_WORD' => 
       array (
         0 => 'push',
- 
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1696',
+      ),
+    ),
+    's1696' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 173,
+      ),
+      'T_AMPAMP' => 
+      array (
+    
