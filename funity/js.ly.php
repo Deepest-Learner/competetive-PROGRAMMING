@@ -19504,4 +19504,63 @@ $dpa = array (
       ),
       'T_AMPAMP' => 
       array (
-    
+        0 => 'fold',
+        1 => 173,
+        2 => 's1697',
+      ),
+    ),
+    's1697' => 
+    array (
+      'T_AMPAMP' => 
+      array (
+        0 => 'go',
+        1 => 's1698',
+      ),
+    ),
+    's1698' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's1699',
+      ),
+      'T_TILDE' => 
+      array (
+        0 =>
