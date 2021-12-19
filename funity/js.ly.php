@@ -19793,3 +19793,66 @@ $dpa = array (
         0 => 'push',
         1 => 'LogicalANDExpression',
         2 => 's1713',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's1713',
+      ),
+    ),
+    's1713' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 175,
+      ),
+      'T_PIPEPIPE' => 
+      array (
+        0 => 'fold',
+        1 => 175,
+        2 => 's1714',
+      ),
+    ),
+    's1714' => 
+    array (
+      'T_PIPEPIPE' => 
+      array (
+        0 => 'go',
+        1 => 's1715',
+      ),
+    ),
+    's1715' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's1716',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's1716',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's1716',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's1716',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's1716',
+      ),
+  
