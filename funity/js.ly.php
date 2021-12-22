@@ -19975,4 +19975,60 @@ $dpa = array (
     's1733' => 
     array (
       'T_DELETE' => 
-    
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 
