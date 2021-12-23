@@ -20086,4 +20086,67 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LogicalORExpression',
- 
+        2 => 's1734',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+    ),
+    's1734' => 
+    array (
+      'T_QUESTMARK' => 
+      array (
+        0 => 'go',
+        1 => 's1735',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 177,
+      ),
+    ),
+    's1735' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1736',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1736',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1736',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1736',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Assignm
