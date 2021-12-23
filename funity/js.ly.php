@@ -20031,4 +20031,59 @@ $dpa = array (
       'T_NEW' => 
       array (
         0 => 'push',
-        1 => 
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+        2 => 's1734',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression',
+ 
