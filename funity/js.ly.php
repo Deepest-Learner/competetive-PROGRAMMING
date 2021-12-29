@@ -20441,4 +20441,62 @@ $dpa = array (
       'T_PLUS' => 
       array (
         0 => 'push',
-        1 => 'Conditiona
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_LEFTBRACKET' => 
+      arra
