@@ -20382,4 +20382,63 @@ $dpa = array (
       'T_DECIMAL' => 
       array (
         0 => 'push',
-     
+        1 => 'AssignmentExpression',
+        2 => 's1738',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1738',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1738',
+      ),
+    ),
+    's1738' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 178,
+      ),
+    ),
+    's1759' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Conditiona
