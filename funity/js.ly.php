@@ -20499,4 +20499,68 @@ $dpa = array (
         2 => 's1760',
       ),
       'T_LEFTBRACKET' => 
-      arra
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression',
+        2 => 's1760',
+      ),
+    ),
+    's1760' => 
+    array (
+      'T_EQUAL' => 
+      array (
+        0 => 'go',
+        1 => 's1761',
+      ),
+      'T_ASSIGN' => 
+      array (
+        0 => 'go',
+        1 => 's1762',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 179,
+      ),
+    ),
+    's1761' => 
+    array (
+      'T_DELETE' => 
+      array (
+       
