@@ -20563,4 +20563,58 @@ $dpa = array (
     array (
       'T_DELETE' => 
       array (
-       
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1763',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push'
