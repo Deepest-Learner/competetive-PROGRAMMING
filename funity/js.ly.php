@@ -21025,4 +21025,61 @@ $dpa = array (
       'T_PLUSPLUS' => 
       array (
         0 => 'push',
-        1 =
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's1781',
+      ),
+   
