@@ -21206,4 +21206,72 @@ $dpa = array (
         2 => 's1803',
       ),
       'T_LEFTBRACKET' => 
-  
+      array (
+        0 => 'push',
+        1 => 'ArrayLiteral',
+        2 => 's1804',
+      ),
+    ),
+    's1801' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 184,
+      ),
+    ),
+    's1802' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 185,
+      ),
+    ),
+    's1803' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 186,
+      ),
+    ),
+    's1804' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 187,
+      ),
+    ),
+    's1805' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1806',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1806',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1806',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1806',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => '
