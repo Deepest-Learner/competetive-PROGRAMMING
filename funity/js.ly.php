@@ -21456,4 +21456,70 @@ $dpa = array (
         1 => 'PrimaryExpression2',
         2 => 's1843',
       ),
- 
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'PrimaryExpression2',
+        2 => 's1843',
+      ),
+    ),
+    's1843' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 189,
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'fold',
+        1 => 189,
+        2 => 's1844',
+      ),
+      'T_DOT' => 
+      array (
+        0 => 'fold',
+        1 => 189,
+        2 => 's1844',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'fold',
+        1 => 189,
+        2 => 's1844',
+      ),
+    ),
+    's1844' => 
+    array (
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'go',
+        1 => 's1846',
+      ),
+      'T_DOT' => 
+      array (
+        0 => 'go',
+        1 => 's1847',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'Arguments',
+        2 => 's1848',
+      ),
+    ),
+    's1845' => 
+    array (
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_LEFTPARENS' =>
