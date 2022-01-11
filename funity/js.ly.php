@@ -21522,4 +21522,64 @@ $dpa = array (
         1 => 'MemberExpression2',
         2 => 's1849',
       ),
-      'T_LEFTPARENS' =>
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'MemberExpression2',
+        2 => 's1849',
+      ),
+    ),
+    's1846' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+   
