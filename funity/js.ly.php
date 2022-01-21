@@ -21970,4 +21970,66 @@ $dpa = array (
       array (
         0 => 'fold',
         1 => 195,
-        2
+        2 => 's1883',
+      ),
+    ),
+    's1885' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'Expression',
+        2 => 's1887',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+      
