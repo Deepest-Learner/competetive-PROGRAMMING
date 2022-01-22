@@ -22154,4 +22154,64 @@ $dpa = array (
     's1889' => 
     array (
       '[default]' => 
-    
+      array (
+        0 => 'do',
+        1 => 196,
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'fold',
+        1 => 196,
+        2 => 's1883',
+      ),
+      'T_DOT' => 
+      array (
+        0 => 'fold',
+        1 => 196,
+        2 => 's1883',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'fold',
+        1 => 196,
+        2 => 's1883',
+      ),
+    ),
+    's1906' => 
+    array (
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression2',
+        2 => 's1907',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression2',
+        2 => 's1907',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression2',
+        2 => 's1907',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression2',
+        2 => 's1907',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression2',
+        2 => 's1907',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'LeftHandSideExpression2',
+        2 => 's1907',
+      )
