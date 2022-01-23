@@ -22276,4 +22276,70 @@ $dpa = array (
     array (
       '[default]' => 
       array (
- 
+        0 => 'do',
+        1 => 200,
+      ),
+    ),
+    's1968' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'go',
+        1 => 's1970',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'go',
+        1 => 's1971',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'go',
+        1 => 's1972',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'go',
+        1 => 's1973',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'go',
+        1 => 's1974',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'go',
+        1 => 's1975',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'go',
+        1 => 's1976',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'go',
+        1 => 's1977',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'go',
+        1 => 's1978',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression2',
+        2 => 's1969',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpression2',
+        2 => 's1969',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'PostfixExpressi
