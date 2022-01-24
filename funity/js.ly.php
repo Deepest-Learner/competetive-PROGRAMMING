@@ -22399,4 +22399,66 @@ $dpa = array (
       '[default]' => 
       array (
         0 => 'do',
-        1
+        1 => 201,
+      ),
+    ),
+    's1970' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's1979',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpre
