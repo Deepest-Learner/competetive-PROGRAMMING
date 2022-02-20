@@ -23646,4 +23646,73 @@ $dpa = array (
       '[default]' => 
       array (
         0 => 'do',
-        1 
+        1 => 205,
+      ),
+    ),
+    's1983' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 206,
+      ),
+    ),
+    's1984' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 207,
+      ),
+    ),
+    's1985' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 208,
+      ),
+    ),
+    's1986' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 209,
+      ),
+    ),
+    's1987' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 210,
+      ),
+    ),
+    's2016' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_MINUSMINU
