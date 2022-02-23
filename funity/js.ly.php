@@ -23775,4 +23775,69 @@ $dpa = array (
         1 => 'UnaryExpression2',
         2 => 's2017',
       ),
-   
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression2',
+        2 => 's2017',
+      ),
+    ),
+    's2017' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 211,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 211,
+        2 => 's2018',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 211,
+        2 => 's2018',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 => 'fold',
+        1 => 211,
+        2 => 's2018',
+      ),
+    ),
+    's2018' => 
+    array (
+    
