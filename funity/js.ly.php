@@ -23840,4 +23840,63 @@ $dpa = array (
     ),
     's2018' => 
     array (
-    
+      'T_STAR' => 
+      array (
+        0 => 'go',
+        1 => 's2019',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'go',
+        1 => 's2020',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 => 'go',
+        1 => 's2021',
+      ),
+    ),
+    's2019' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+     
