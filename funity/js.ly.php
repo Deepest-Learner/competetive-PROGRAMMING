@@ -23960,4 +23960,67 @@ $dpa = array (
         1 => 'UnaryExpression',
         2 => 's2022',
       ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2022',
+      ),
+    ),
+    's2020' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2023',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2023',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2023',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2023',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'UnaryExpression',
+        2 => 's2023',
+      ),
       '
