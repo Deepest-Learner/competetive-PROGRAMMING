@@ -24332,4 +24332,60 @@ $dpa = array (
         1 => 214,
         2 => 's2018',
       ),
- 
+      'T_PERCENT' => 
+      array (
+        0 => 'fold',
+        1 => 214,
+        2 => 's2018',
+      ),
+    ),
+    's2045' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
