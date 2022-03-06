@@ -24257,4 +24257,79 @@ $dpa = array (
       'T_STRING' => 
       array (
         0 => 'push',
-        1 => 'UnaryExpr
+        1 => 'UnaryExpression',
+        2 => 's2024',
+      ),
+    ),
+    's2022' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 212,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 212,
+        2 => 's2018',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 212,
+        2 => 's2018',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 => 'fold',
+        1 => 212,
+        2 => 's2018',
+      ),
+    ),
+    's2023' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 213,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 213,
+        2 => 's2018',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 213,
+        2 => 's2018',
+      ),
+      'T_PERCENT' => 
+      array (
+        0 => 'fold',
+        1 => 213,
+        2 => 's2018',
+      ),
+    ),
+    's2024' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 214,
+      ),
+      'T_STAR' => 
+      array (
+        0 => 'fold',
+        1 => 214,
+        2 => 's2018',
+      ),
+      'T_SLASH' => 
+      array (
+        0 => 'fold',
+        1 => 214,
+        2 => 's2018',
+      ),
+ 
