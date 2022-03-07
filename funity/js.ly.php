@@ -24444,3 +24444,68 @@ $dpa = array (
         2 => 's2046',
       ),
       'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression2',
+        2 => 's2046',
+      ),
+    ),
+    's2046' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 215,
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'fold',
+        1 => 215,
+        2 => 's2047',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'fold',
+        1 => 215,
+        2 => 's2047',
+      ),
+    ),
+    's2047' => 
+    array (
+      'T_PLUS' => 
+      array (
+        0 => 'go',
+        1 => 's2048',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'go',
+        1 => 's2049',
+      ),
+    ),
+    's2048' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2050',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2050',
+     
