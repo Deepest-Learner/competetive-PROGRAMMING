@@ -24725,4 +24725,62 @@ $dpa = array (
       'T_LEFTBRACKET' => 
       array (
         0 => 'push',
-        1 => 'Multiplicat
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'MultiplicativeExpression',
+        2 => 's2051',
+      ),
+    ),
+    's2050' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 216,
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'fold',
+        1 => 216,
+        2 => 's2047',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'fold',
+        1 => 216,
+        2 => 's2047',
+    
