@@ -24906,4 +24906,74 @@ $dpa = array (
       'T_FALSE' => 
       array (
         0 => 'push',
-        1 => 'Addit
+        1 => 'AdditiveExpression2',
+        2 => 's2081',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression2',
+        2 => 's2081',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression2',
+        2 => 's2081',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression2',
+        2 => 's2081',
+      ),
+    ),
+    's2081' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 218,
+      ),
+      'T_LTLT' => 
+      array (
+        0 => 'fold',
+        1 => 218,
+        2 => 's2082',
+      ),
+      'T_GTGT' => 
+      array (
+        0 => 'fold',
+        1 => 218,
+        2 => 's2082',
+      ),
+      'T_GTGTGT' => 
+      array (
+        0 => 'fold',
+        1 => 218,
+        2 => 's2082',
+      ),
+    ),
+    's2082' => 
+    array (
+      'T_LTLT' => 
+      array (
+        0 => 'go',
+        1 => 's2083',
+      ),
+      'T_GTGT' => 
+      array (
+        0 => 'go',
+        1 => 's2084',
+      ),
+      'T_GTGTGT' => 
+      array (
+        0 => 'go',
+        1 => 's2085',
+      ),
+    ),
+    's2083' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 =
