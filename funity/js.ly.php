@@ -25318,4 +25318,63 @@ $dpa = array (
       ),
       'T_FUNCTION' => 
       array (
-        0 => 'p
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AdditiveExpression',
+        2 => 's2088',
+      ),
+    ),
+  
