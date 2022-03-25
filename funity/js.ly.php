@@ -25448,4 +25448,65 @@ $dpa = array (
         1 => 221,
         2 => 's2082',
       ),
-  
+      'T_GTGTGT' => 
+      array (
+        0 => 'fold',
+        1 => 221,
+        2 => 's2082',
+      ),
+    ),
+    's2141' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 => 's2142',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression2',
+        2 =>
