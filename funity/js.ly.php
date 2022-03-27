@@ -25637,4 +25637,68 @@ $dpa = array (
       'T_LTEQ' => 
       array (
         0 => 'go',
-   
+        1 => 's2146',
+      ),
+      'T_GTEQ' => 
+      array (
+        0 => 'go',
+        1 => 's2147',
+      ),
+      'T_INSTANCEOF' => 
+      array (
+        0 => 'go',
+        1 => 's2148',
+      ),
+      'T_IN' => 
+      array (
+        0 => 'go',
+        1 => 's2149',
+      ),
+    ),
+    's2144' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2150',
+      ),
+      'T_TILDE' => 
+      array (
+        0 
