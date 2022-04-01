@@ -26107,4 +26107,63 @@ $dpa = array (
       'T_TILDE' => 
       array (
         0 => 'push',
-        1 => 'Shif
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2153',
+      ),
+      'T_TRUE' => 
+      array (
+   
