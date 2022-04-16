@@ -26842,4 +26842,72 @@ $dpa = array (
       'T_HEXA' => 
       array (
         0 => 'push',
-   
+        1 => 'RelationalExpression2',
+        2 => 's2193',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression2',
+        2 => 's2193',
+      ),
+    ),
+    's2193' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 229,
+      ),
+      'T_EQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 229,
+        2 => 's2194',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'fold',
+        1 => 229,
+        2 => 's2194',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 229,
+        2 => 's2194',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 229,
+        2 => 's2194',
+      ),
+    ),
+    's2194' => 
+    array (
+      'T_EQEQ' => 
+      array (
+        0 => 'go',
+        1 => 's2195',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'go',
+        1 => 's2196',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'go',
+        1 => 's2197',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'go',
+        1 => 's2198',
+      ),
+    ),
+    's2195' => 
+    array (
+      'T_DELETE' => 
+     
