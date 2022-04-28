@@ -27425,4 +27425,69 @@ $dpa = array (
       'T_FALSE' => 
       array (
         0 => 'push',
-        1 => 'RelationalExpr
+        1 => 'RelationalExpression',
+        2 => 's2202',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's2202',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's2202',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpression',
+        2 => 's2202',
+      ),
+    ),
+    's2199' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 230,
+      ),
+      'T_EQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 230,
+        2 => 's2194',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'fold',
+        1 => 230,
+        2 => 's2194',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 230,
+        2 => 's2194',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 230,
+        2 => 's2194',
+      ),
+    ),
+    's2200' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 231,
+      ),
+      'T_EQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 231,
+        2 => 's21
