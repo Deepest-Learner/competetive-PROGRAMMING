@@ -27490,4 +27490,71 @@ $dpa = array (
       array (
         0 => 'fold',
         1 => 231,
-        2 => 's21
+        2 => 's2194',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'fold',
+        1 => 231,
+        2 => 's2194',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 231,
+        2 => 's2194',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 231,
+        2 => 's2194',
+      ),
+    ),
+    's2201' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 232,
+      ),
+      'T_EQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 232,
+        2 => 's2194',
+      ),
+      'T_BANGEQ' => 
+      array (
+        0 => 'fold',
+        1 => 232,
+        2 => 's2194',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 232,
+        2 => 's2194',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 232,
+        2 => 's2194',
+      ),
+    ),
+    's2202' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 233,
+      ),
+      'T_EQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 233,
+        2 => 's2194',
+      ),
+      'T_BANGEQ' => 
+      array (
