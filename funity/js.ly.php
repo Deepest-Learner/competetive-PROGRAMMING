@@ -27558,3 +27558,63 @@ $dpa = array (
       ),
       'T_BANGEQ' => 
       array (
+        0 => 'fold',
+        1 => 233,
+        2 => 's2194',
+      ),
+      'T_EQEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 233,
+        2 => 's2194',
+      ),
+      'T_BANGEQEQ' => 
+      array (
+        0 => 'fold',
+        1 => 233,
+        2 => 's2194',
+      ),
+    ),
+    's2215' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's221
