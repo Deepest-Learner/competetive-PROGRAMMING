@@ -27802,4 +27802,66 @@ $dpa = array (
       ),
       'T_WORD' => 
       array (
-        0 => 'p
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+    ),
+    's2219' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 235,
+      ),
+      'T_AMP' => 
+      array (
+        0 =
