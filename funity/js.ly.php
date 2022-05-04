@@ -27676,4 +27676,72 @@ $dpa = array (
       'T_FALSE' => 
       array (
         0 => 'push',
-        1 => 'EqualityExpressi
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression2',
+        2 => 's2216',
+      ),
+    ),
+    's2216' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 234,
+      ),
+      'T_AMP' => 
+      array (
+        0 => 'fold',
+        1 => 234,
+        2 => 's2217',
+      ),
+    ),
+    's2217' => 
+    array (
+      'T_AMP' => 
+      array (
+        0 => 'go',
+        1 => 's2218',
+      ),
+    ),
+    's2218' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+        2 => 's2219',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpression',
+  
