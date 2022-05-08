@@ -27864,4 +27864,63 @@ $dpa = array (
       ),
       'T_AMP' => 
       array (
-        0 =
+        0 => 'fold',
+        1 => 235,
+        2 => 's2217',
+      ),
+    ),
+    's2232' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+        2 => 's2233',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression2',
+    
