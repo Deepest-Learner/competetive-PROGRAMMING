@@ -28041,4 +28041,64 @@ $dpa = array (
         2 => 's2236',
       ),
       'T_MINUSMINUS' => 
-      
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpression',
+        2 => 's2236',
+      ),
+      'T_NULL' => 
+      array (
