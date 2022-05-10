@@ -28221,4 +28221,60 @@ $dpa = array (
       ),
       'T_NEW' => 
       array (
-        0 => 'push
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
