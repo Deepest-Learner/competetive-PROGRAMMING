@@ -28165,4 +28165,60 @@ $dpa = array (
     ),
     's2249' => 
     array (
-      'T_D
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpression2',
+        2 => 's2250',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push
