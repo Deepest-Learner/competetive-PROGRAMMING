@@ -28693,4 +28693,66 @@ $dpa = array (
         0 => 'push',
         1 => 'BitwiseORExpression',
         2 => 's2270',
-    
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+    ),
+    's2270' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 241,
+      ),
+      'T_AMPAMP' => 
+      array (
+        0 => 'fold',
+        1 => 241,
+        2 => 's2268',
+      ),
+    ),
+    's2283' => 
+    array (
+      'T_DELETE' => 
+      array (
+        
