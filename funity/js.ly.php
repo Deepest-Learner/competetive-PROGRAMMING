@@ -28637,4 +28637,60 @@ $dpa = array (
       'T_PLUS' => 
       array (
         0 => 'push',
-        1
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseORExpression',
+        2 => 's2270',
+    
