@@ -28810,4 +28810,59 @@ $dpa = array (
       'T_NEW' => 
       array (
         0 => 'push',
-        1 => 'LogicalANDExpressi
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284
