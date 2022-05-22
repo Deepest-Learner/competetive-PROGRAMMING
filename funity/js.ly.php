@@ -28865,4 +28865,67 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LogicalANDExpression2',
-        2 => 's2284
+        2 => 's2284',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression2',
+        2 => 's2284',
+      ),
+    ),
+    's2284' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 242,
+      ),
+      'T_PIPEPIPE' => 
+      array (
+        0 => 'fold',
+        1 => 242,
+        2 => 's2285',
+      ),
+    ),
+    's2285' => 
+    array (
+      'T_PIPEPIPE' => 
+      array (
+        0 => 'go',
+        1 => 's2286',
+      ),
+    ),
+    's2286' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T
