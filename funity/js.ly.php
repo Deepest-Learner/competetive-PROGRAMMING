@@ -29161,4 +29161,66 @@ $dpa = array (
         1 => 'LogicalORExpression2',
         2 => 's2305',
       ),
-   
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+    ),
+    's2305' => 
+    array (
+      'T_QUESTMARK' => 
+      array (
+        0 => 'go',
+        1 => 's2306',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 244,
+      ),
+    ),
+    's2306' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+  
