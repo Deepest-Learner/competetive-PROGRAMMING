@@ -29105,3 +29105,60 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpression2',
+        2 => 's2305',
+      ),
+   
