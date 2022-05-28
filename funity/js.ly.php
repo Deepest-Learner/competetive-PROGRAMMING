@@ -28986,4 +28986,67 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LogicalANDExpression',
-        2 => 's2
+        2 => 's2287',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpression',
+        2 => 's2287',
+      ),
+    ),
+    's2287' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 243,
+      ),
+      'T_PIPEPIPE' => 
+      array (
+        0 => 'fold',
+        1 => 243,
+        2 => 's2285',
+      ),
+    ),
+    's2304' => 
+    array (
+      'T_DELETE' => 
+      array (
+  
