@@ -29223,4 +29223,63 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'AssignmentExpression',
-  
+        2 => 's2307',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2307',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpr
