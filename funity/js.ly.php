@@ -29574,4 +29574,67 @@ $dpa = array (
       'T_DECIMAL' => 
       array (
         0 => 'push',
-        1 => 'ConditionalExpression2
+        1 => 'ConditionalExpression2',
+        2 => 's2331',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression2',
+        2 => 's2331',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpression2',
+        2 => 's2331',
+      ),
+    ),
+    's2331' => 
+    array (
+      'T_EQUAL' => 
+      array (
+        0 => 'go',
+        1 => 's2332',
+      ),
+      'T_ASSIGN' => 
+      array (
+        0 => 'go',
+        1 => 's2333',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 246,
+      ),
+    ),
+    's2332' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2334',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2334',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2334',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2334',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'A
