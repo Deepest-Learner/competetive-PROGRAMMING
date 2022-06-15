@@ -30155,4 +30155,66 @@ $dpa = array (
         1 => 'AssignmentExpression',
         2 => 's2352',
       ),
-      'T_DECIMAL' =>
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2352',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2352',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpression',
+        2 => 's2352',
+      ),
+    ),
+    's2352' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 250,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 250,
+        2 => 's2350',
+      ),
+    ),
+    's2397' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2398',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2398',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2398',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2398',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+     
