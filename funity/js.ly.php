@@ -31190,3 +31190,74 @@ $dpa = array (
         0 => 'fold',
         1 => 255,
         2 => 's2399',
+      ),
+      'T_GT' => 
+      array (
+        0 => 'fold',
+        1 => 255,
+        2 => 's2399',
+      ),
+      'T_LTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 255,
+        2 => 's2399',
+      ),
+      'T_GTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 255,
+        2 => 's2399',
+      ),
+      'T_INSTANCEOF' => 
+      array (
+        0 => 'fold',
+        1 => 255,
+        2 => 's2399',
+      ),
+    ),
+    's2409' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 256,
+      ),
+      'T_LT' => 
+      array (
+        0 => 'fold',
+        1 => 256,
+        2 => 's2399',
+      ),
+      'T_GT' => 
+      array (
+        0 => 'fold',
+        1 => 256,
+        2 => 's2399',
+      ),
+      'T_LTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 256,
+        2 => 's2399',
+      ),
+      'T_GTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 256,
+        2 => 's2399',
+      ),
+      'T_INSTANCEOF' => 
+      array (
+        0 => 'fold',
+        1 => 256,
+        2 => 's2399',
+      ),
+    ),
+    's2446' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => '
