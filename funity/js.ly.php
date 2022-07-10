@@ -31054,4 +31054,73 @@ $dpa = array (
       'T_HEXA' => 
       array (
         0 => 'push',
-        1 => 'ShiftExpressio
+        1 => 'ShiftExpression',
+        2 => 's2409',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'ShiftExpression',
+        2 => 's2409',
+      ),
+    ),
+    's2405' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 252,
+      ),
+      'T_LT' => 
+      array (
+        0 => 'fold',
+        1 => 252,
+        2 => 's2399',
+      ),
+      'T_GT' => 
+      array (
+        0 => 'fold',
+        1 => 252,
+        2 => 's2399',
+      ),
+      'T_LTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 252,
+        2 => 's2399',
+      ),
+      'T_GTEQ' => 
+      array (
+        0 => 'fold',
+        1 => 252,
+        2 => 's2399',
+      ),
+      'T_INSTANCEOF' => 
+      array (
+        0 => 'fold',
+        1 => 252,
+        2 => 's2399',
+      ),
+    ),
+    's2406' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 253,
+      ),
+      'T_LT' => 
+      array (
+        0 => 'fold',
+        1 => 253,
+        2 => 's2399',
+      ),
+      'T_GT' => 
+      array (
+        0 => 'fold',
+        1 => 253,
+        2 => 's2399',
+      ),
+      'T_LTEQ' => 
+      array (
+        0 =>
