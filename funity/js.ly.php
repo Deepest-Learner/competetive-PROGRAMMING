@@ -31657,3 +31657,57 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalEx
