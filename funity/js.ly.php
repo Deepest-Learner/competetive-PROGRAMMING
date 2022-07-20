@@ -31710,4 +31710,62 @@ $dpa = array (
       'T_STRING' => 
       array (
         0 => 'push',
-        1 => 'RelationalEx
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2454',
+      ),
+    ),
+    's2451' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'RelationalExpressionNoIn',
+        2 => 's2455',
