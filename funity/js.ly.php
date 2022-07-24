@@ -32240,4 +32240,68 @@ $dpa = array (
         1 => 'EqualityExpressionNoIn',
         2 => 's2470',
       ),
-  
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpressionNoIn',
+        2 => 's2470',
+      ),
+    ),
+    's2470' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 262,
+      ),
+      'T_AMP' => 
+      array (
+        0 => 'fold',
+        1 => 262,
+        2 => 's2471',
+      ),
+    ),
+    's2471' => 
+    array (
+      'T_AMP' => 
+      array (
+        0 => 'go',
+        1 => 's2472',
+      ),
+    ),
+    's2472' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpressionNoIn',
+        2 => 's2473',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpressionNoIn',
+        2 => 's2473',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpressionNoIn',
+        2 => 's2473',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpressionNoIn',
+        2 => 's2473',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'EqualityExpressionNoIn',
+        2 => 's2473',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+ 
