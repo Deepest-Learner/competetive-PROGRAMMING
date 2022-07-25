@@ -32421,3 +32421,55 @@ $dpa = array (
     's2486' => 
     array (
       'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2
