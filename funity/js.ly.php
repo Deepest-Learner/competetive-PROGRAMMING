@@ -32472,4 +32472,61 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'BitwiseANDExpressionNoIn',
-        2
+        2 => 's2487',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_FALSE' => 
+      arr
