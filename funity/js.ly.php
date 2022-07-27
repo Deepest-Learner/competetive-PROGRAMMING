@@ -32529,4 +32529,65 @@ $dpa = array (
         2 => 's2487',
       ),
       'T_FALSE' => 
-      arr
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2487',
+      ),
+    ),
+    's2487' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 264,
+      ),
+      'T_HAT' => 
+      array (
+        0 => 'fold',
+        1 => 264,
+        2 => 's2488',
+      ),
+    ),
+    's2488' => 
+    array (
+      'T_HAT' => 
+      array (
+        0 => 'go',
+        1 => 's2489',
+      ),
+    ),
+    's2489' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2490',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseANDExpressionNoIn',
+        2 => 's2490',
+      ),
+      'T_TYPEOF' => 
+      array (
