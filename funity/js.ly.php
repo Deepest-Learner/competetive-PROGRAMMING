@@ -32810,4 +32810,61 @@ $dpa = array (
         1 => 'BitwiseXORExpressionNoIn',
         2 => 's2504',
       ),
-      'T_NU
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2504',
+      ),
+    ),
+    's2504' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 266,
+      ),
+      'T_PIPE' => 
+   
