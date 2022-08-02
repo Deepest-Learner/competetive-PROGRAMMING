@@ -32867,4 +32867,63 @@ $dpa = array (
         1 => 266,
       ),
       'T_PIPE' => 
-   
+      array (
+        0 => 'fold',
+        1 => 266,
+        2 => 's2505',
+      ),
+    ),
+    's2505' => 
+    array (
+      'T_PIPE' => 
+      array (
+        0 => 'go',
+        1 => 's2506',
+      ),
+    ),
+    's2506' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'BitwiseXORExpressionNoIn',
+        2 => 's2507',
+      ),
+      'T_TILDE' => 
+    
