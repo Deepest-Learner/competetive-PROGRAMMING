@@ -33322,4 +33322,64 @@ $dpa = array (
         2 => 's2524',
       ),
     ),
-    's2524' 
+    's2524' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 269,
+      ),
+      'T_AMPAMP' => 
+      array (
+        0 => 'fold',
+        1 => 269,
+        2 => 's2522',
+      ),
+    ),
+    's2537' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2538',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push
