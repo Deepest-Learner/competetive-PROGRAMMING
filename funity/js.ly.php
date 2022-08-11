@@ -33666,3 +33666,58 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+   
