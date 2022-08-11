@@ -33606,4 +33606,63 @@ $dpa = array (
       'T_FALSE' => 
       array (
         0 => 'push',
-        1 => 'LogicalANDExpressionNoIn'
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2541',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2541',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2541',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalANDExpressionNoIn',
+        2 => 's2541',
+      ),
+    ),
+    's2541' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 271,
+      ),
+      'T_PIPEPIPE' => 
+      array (
+        0 => 'fold',
+        1 => 271,
+        2 => 's2539',
+      ),
+    ),
+    's2558' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
+        2 => 's2559',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'LogicalORExpressionNoIn',
