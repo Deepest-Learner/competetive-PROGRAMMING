@@ -33831,4 +33831,61 @@ $dpa = array (
       'T_MINUS' => 
       array (
         0 => 'push',
-        1 => 'AssignmentExpr
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_TILDE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_BANG' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_NEW' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_THIS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_LEFTPARENS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_FUNCTION' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_LEFTBRAC
