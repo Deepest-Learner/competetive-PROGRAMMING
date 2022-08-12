@@ -33774,4 +33774,61 @@ $dpa = array (
       array (
         0 => 'push',
         1 => 'LogicalORExpressionNoIn',
-        
+        2 => 's2559',
+      ),
+    ),
+    's2559' => 
+    array (
+      'T_QUESTMARK' => 
+      array (
+        0 => 'go',
+        1 => 's2560',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 272,
+      ),
+    ),
+    's2560' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2561',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpr
