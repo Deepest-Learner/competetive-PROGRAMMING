@@ -34058,4 +34058,63 @@ $dpa = array (
       'T_HEXA' => 
       array (
         0 => 'push',
-        1 => 'AssignmentExpressionNoI
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2563',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2563',
+      ),
+    ),
+    's2563' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 273,
+      ),
+    ),
+    's2584' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpressionNoIn',
+        2 => 's2585',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpressionNoIn',
+        2 => 's2585',
+      ),
+      'T_TYPEOF' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpressionNoIn',
+        2 => 's2585',
+      ),
+      'T_PLUSPLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpressionNoIn',
+        2 => 's2585',
+      ),
+      'T_MINUSMINUS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpressionNoIn',
+        2 => 's2585',
+      ),
+      'T_PLUS' => 
+      array (
+        0 => 'push',
+        1 => 'ConditionalExpressionNoIn',
+        2 => 's2585',
+      ),
+      'T_MINUS' => 
+      array (
+        0 => 'push',
+      
