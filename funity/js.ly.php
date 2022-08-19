@@ -34444,4 +34444,55 @@ $dpa = array (
         1 => 'AssignmentExpressionNoIn',
         2 => 's2589',
       ),
-      'T
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_NULL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_LEFTBRACKET' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_LEFTBRACE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_TRUE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_FALSE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_DECIMAL' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_HEXA' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2589',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpres
