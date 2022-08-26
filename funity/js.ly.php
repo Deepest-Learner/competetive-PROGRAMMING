@@ -34857,4 +34857,77 @@ $dpa = array (
       'T_WORD' => 
       array (
         0 => 'push',
- 
+        1 => 'VariableDeclarationNoIn',
+        2 => 's2623',
+      ),
+    ),
+    's2623' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 280,
+      ),
+      'T_COMMA' => 
+      array (
+        0 => 'fold',
+        1 => 280,
+        2 => 's2621',
+      ),
+    ),
+    's2632' => 
+    array (
+      'T_WORD' => 
+      array (
+        0 => 'push',
+        1 => 'Identifier',
+        2 => 's2633',
+      ),
+    ),
+    's2633' => 
+    array (
+      'T_EQUAL' => 
+      array (
+        0 => 'push',
+        1 => 'InitialiserNoIn',
+        2 => 's2634',
+      ),
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 281,
+      ),
+    ),
+    's2634' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 281,
+      ),
+    ),
+    's2643' => 
+    array (
+      'T_EQUAL' => 
+      array (
+        0 => 'go',
+        1 => 's2644',
+      ),
+    ),
+    's2644' => 
+    array (
+      'T_DELETE' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2645',
+      ),
+      'T_VOID' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2645',
+      ),
+      'T_TYPEOF' => 
+      array (
+      
