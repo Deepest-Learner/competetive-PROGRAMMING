@@ -35037,4 +35037,59 @@ $dpa = array (
         2 => 's2645',
       ),
       'T_HEXA' => 
-      arra
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2645',
+      ),
+      'T_STRING' => 
+      array (
+        0 => 'push',
+        1 => 'AssignmentExpressionNoIn',
+        2 => 's2645',
+      ),
+    ),
+    's2645' => 
+    array (
+      '[default]' => 
+      array (
+        0 => 'do',
+        1 => 282,
+      ),
+    ),
+  ),
+  'action' => 
+  array (
+    16 => '__lambda_25',
+    17 => '__lambda_26',
+    18 => '__lambda_27',
+    19 => '__lambda_28',
+    20 => '__lambda_29',
+    21 => '__lambda_30',
+    22 => '__lambda_31',
+    23 => '__lambda_32',
+    24 => '__lambda_33',
+    25 => '__lambda_34',
+    26 => '__lambda_35',
+    27 => '__lambda_36',
+    28 => '__lambda_37',
+    29 => '__lambda_37',
+    30 => '__lambda_37',
+    31 => '__lambda_37',
+    32 => '__lambda_37',
+    33 => '__lambda_37',
+    34 => '__lambda_37',
+    35 => '__lambda_37',
+    36 => '__lambda_37',
+    37 => '__lambda_37',
+    38 => '__lambda_37',
+    39 => '__lambda_37',
+    40 => '__lambda_37',
+    41 => '__lambda_37',
+    42 => '__lambda_37',
+    43 => '__lambda_37',
+    44 => '__lambda_38',
+    45 => '__lambda_39',
+    46 => '__lambda_40',
+    47 => '__lambda_41',
+    48 
