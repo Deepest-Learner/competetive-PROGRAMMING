@@ -611,3 +611,296 @@ class js_case extends js_construct {
       $o .= "    ".trim(str_replace("\n", "\n    ", $code->emit(1)))."\n";
     }
     return $o;
+  }
+}
+class js_throw extends js_construct {
+  /* js exceptions are sufficiently different from php5 exceptions to make them un-leverage-able. */
+  function __construct($expr) {
+    $this->expr = $expr;
+  }
+  function emit($w=0) {
+    //return "return new js_completion(".$this->expr->emit().");\n";
+    return "throw new js_exception(".$this->expr->emit(1).");\n";
+  }
+}
+class js_try extends js_construct {
+  function __construct($code, $catch = NULL, $final = NULL) {
+    list($this->body, $this->catch, $this->final) = func_get_args();
+    $this->id_try = jsc::gensym("jsrt_try");
+    $this->id_catch = jsc::gensym("jsrt_catch");
+    $this->id_finally = jsc::gensym("jsrt_finally");
+  }
+  function toplevel_emit() {
+    $o  = "function ".$this->id_try."() {\n";
+    $o .= "  try ";
+    $o .= trim(str_replace("\n", "\n  ", $this->body));    
+    $o .= " catch (Exception \$e) {\n";
+    $o .= "    jsrt::\$exception = \$e;\n";
+    $o .= "  }\n";
+    $o .= "  return NULL;\n";
+    $o .= "}\n";
+    if ($this->catch != NULL) {
+      $o .= "function ".$this->id_catch."() {\n";
+      $o .= "  ".trim(str_replace("\n", "\n  ", $this->catch));
+      $o .= "\n  return NULL;\n";
+      $o .= "}\n";
+    }
+    if ($this->final != NULL) {
+      $o .= "function ".$this->id_finally."() {\n";
+      $o .= "  ".trim(str_replace("\n", "\n  ", $this->final));
+      $o .= "\n  return NULL;\n";
+      $o .= "}\n";
+    }
+    return $o;
+  }
+  function emit($w=0) {
+    // so we put catch() and finally blocks in functions to be able to pick if/when to evaluate them
+    // it's not clear why try is in a function too at this point. consistency? yeah, weak.
+    js_source::addFunctionDefinition($this);
+    $id = ($this->catch!=NULL)?$this->catch->id:'';
+    $this->body = $this->body->emit(1);
+    if ($this->catch!=NULL) $this->catch = $this->catch->emit(1);
+    if ($this->final!=NULL) $this->final = $this->final->emit(1);
+    $ret = jsc::gensym("jsrt_ret");
+    $tmp = jsc::gensym("jsrt_tmp");
+
+    // try is on its own to work around a crash in my version of php5
+    // apparently, php exceptions inside func_user_call()ed code are not all that stable just yet.
+    // XXX note: the crash can still occur. still not entirely sure how it happens.
+    // it feels like exceptions thrown from call_user_func-ed code corrupt some php internals, which
+    // result in a possible crash at a later point in the program flow.
+    $o  = "\$$tmp = ".$this->id_try."();\n";
+    $o .= "\$$ret = jsrt::trycatch(\$$tmp, ";
+    $o .= ($this->catch!=NULL?"'".$this->id_catch."'":"NULL").", ";
+    $o .= ($this->final!=NULL?"'".$this->id_finally."'":"NULL");
+    $o .= ($this->catch!=NULL?", '".$id."'":"").");\n";
+    $o .= "if (\$$ret != NULL) return \$$ret;\n";
+    return $o;
+  }
+}
+class js_catch extends js_construct {
+  function __construct($id, $code) {
+    list($this->id, $this->code) = func_get_args();
+  }
+  function emit($w=0) {
+    // this kind of code makes you wonder why this is even an object. absorb me. please. XXX
+    return $this->code->emit(1);
+  }
+}
+class js_this extends js_construct {
+  function emit($w=0) {
+    return "jsrt::this()"; // should this be a jsrt::$this instead?
+  }
+}
+class js_identifier extends js_construct {
+  function __construct($id) {
+    $this->id = $id;
+  }
+  function emit($wantvalue=0) {
+    $v = $wantvalue?"v":"";
+    return "jsrt::id$v('".$this->id."')";
+  }
+}
+class js_literal_array extends js_construct {
+  function __construct($arr) {
+    $this->arr = $arr;
+  }
+  function emit($w=0) {
+    $a = array();
+    for ($i=0;$i<count($this->arr);$i++) {
+      if ($this->arr[$i]!=NULL) {
+        $a[$i] = $this->arr[$i]->emit(1);
+      }
+    }
+    if (count($this->arr)==1 and get_class($this->arr[0])=="js_literal_null") {
+      $a = array();
+    }
+
+    return "jsrt::literal_array(".implode(",",$a).")";
+  }
+}
+class js_literal_object extends js_construct {
+  function __construct($o=array()) {
+    $this->obj = $o;
+  }
+  function emit($w=0) {
+    $a = array();
+    for ($i=0;$i<count($this->obj);$i++) {
+      $a[] = $this->obj[$i]->emit();
+    }
+    return "jsrt::literal_object(".implode(",",$a).")";
+  }
+}
+class js_literal_null extends js_construct {
+  function emit($w=0) {
+    return 'jsrt::$null';
+  }
+}
+class js_literal_boolean extends js_construct {
+  function __construct($v) {
+    $this->v = $v;
+  }
+  function emit($w=0) {
+    return $this->v?'jsrt::$true':'jsrt::$false';
+  }
+}
+class js_literal_number extends js_construct {
+  function __construct($v) {
+    $this->v = $v;
+  }
+  function emit($w=0) {
+    return "js_int(".$this->v.")";
+  }
+}
+class js_literal_string extends js_construct {
+
+  function __construct($a, $stripquotes=1) {
+    if ($stripquotes) {
+      $a = substr($a, 1, strlen($a) - 2);
+    }
+    $this->str = $this->parse_string($a);
+  }
+
+ function parse_string($str) {
+  $out = '';
+  $mode = 0;
+  foreach (str_split($str) as $c) {
+    switch ($mode) {
+      case 0:
+        if ($c == '\\') {
+          $mode = 1;
+        } else {
+          $out.=$c;
+        }
+        break;
+      case 1:
+        $mode = 0;
+        switch ($c) {
+          case "'": $out.="'"; break;
+          case '"': $out.='"'; break;
+          case '\\': $out.="\\"; break;
+          case 'b': $out.=chr(8); break;
+          case 'f': $out.=chr(12); break;
+          case 'n': $out.=chr(10); break;
+          case 'r': $out.=chr(13); break;
+          case 't': $out.=chr(9); break;
+          case 'v': $out.=chr(11); break;
+          case '0': $out.=chr(0); break; // not quite right. \040 fails.
+          case 'x': $mode = 2; $b=''; break;
+          case 'u': $mode = 4; $b=''; break;
+          default:
+            $out.=$c; break;
+        }
+        break;
+      case 2:
+        $b.=$c;
+        if (stripos("0123456789abcdef",$c)!==false) {
+          $mode = 3;
+        } else {
+          $out.='x'.$b;
+          $mode = 0;
+        }
+        break;
+      case 3:
+        $b.=$c;
+        if (stripos("0123456789abcdef",$c)!==false) {
+          $out.=chr(hexdec($b));
+          $mode = 0;
+        } else {
+          $out.='x'.$b;
+          $mode = 0;
+        }
+        break;
+      case 4:
+        $b.=$c;
+        if (stripos("0123456789abcdef",$c)!==false) {
+          $mode = 5;
+        } else {
+          $out.='u'.$b;
+          $mode = 0;
+        }
+        break;
+      case 5:
+        $b.=$c;
+        if (stripos("0123456789abcdef",$c)!==false) {
+          $mode = 6;
+        } else {
+          $out.='u'.$b;
+          $mode = 0;
+        }
+        break;
+      case 6:
+        $b.=$c;
+        if (stripos("0123456789abcdef",$c)!==false) {
+          $mode = 7;
+        } else {
+          $out.='u'.$b;
+          $mode = 0;
+        }
+        break;
+      case 7:
+        $b.=$c;
+        if (stripos("0123456789abcdef",$c)!==false) {
+          $out.=chr(hexdec($b));
+          $mode = 0;
+        } else {
+          $out.='u'.$b;
+          $mode = 0;
+        }
+        break;
+    }
+  }
+  return $out;
+ }
+  function emit($w=0) {
+    return "js_str(".var_export($this->str,1).")";
+  }
+}
+class js_accessor extends js_construct {
+  function __construct($obj, $member, $resolve) {
+    list($this->obj, $this->member, $this->resolve) = func_get_args();
+  }
+  function emit($wantvalue=0) {
+    $v = $wantvalue?"v":"";
+    return "jsrt::dot$v(".$this->obj->emit(1).",".$this->member->emit($this->resolve).")";
+  }
+}
+class js_new extends js_construct {
+  function __construct($expr) {
+    list($this->expr) = func_get_args();
+    #-- if direct child is a js_call object, vampirize it.
+    if (get_class($this->expr)=="js_call") {
+      $this->args = $this->expr->args;
+      $this->expr = $this->expr->expr;
+    } else {
+      $this->args = array();
+    }
+  }
+  function emit($w=0) {
+    $args=array();
+    foreach ($this->args as $arg) {
+      $args[] = $arg->emit(1);
+    }
+    return "jsrt::_new(".$this->expr->emit(1).", array(".implode(",",$args) ."))";
+  }
+}
+class js_call extends js_construct {
+  function __construct($expr, $args) {
+    list($this->expr, $this->args) = func_get_args();
+  }
+  function emit($w=0) {
+    $args=array();
+    foreach ($this->args as $arg) {
+      $args[] = $arg->emit(1);
+    }
+    return "jsrt::call(".$this->expr->emit().", array(".implode(",",$args) ."))";
+  }
+}
+
+/*
+short list of speed optimizations:
+- use native PHP boolean, number and string types
+  -> convert $val->toType() into jsrt::toType($val)
+- have specialized emitted code when operand type is known at compile time.
+  -> ie:(a-b) always return a number, therefore in (a-b)*(c-d), "*" doesn't need to handle non-numbers
+*/  
