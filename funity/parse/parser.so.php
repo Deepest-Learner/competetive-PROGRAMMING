@@ -51,4 +51,32 @@ in a recursive set of "pushes" which don't accept the terminal until the stack
 looks the way it should.) Ambiguity here can be considered a bug in the
 grammar specification. It makes the PDA non-deterministic. While it may be
 possible to remove this non-determinism in some limited cases, I don't think
-it'
+it's actually necessary.
+
+We can, by this procedure, form a set of PDA rules for what to do with any
+given terminal, assuming that the state transitions in the production DFA
+call for a non-terminal. We thus have a special category of rule
+
+There is another possibility: We are in a "final" state and we don't have
+and edge or a push that accepts the next token. In this case, we assume that
+we have recognized a complete production rule.
+
+We call its associated code block, which is expected to return a syntax tree
+node. Then, we pop the stack. The symbol on the stack should tell which
+DFA to jump into and what state it will be in after recognizing a member of
+the production known to the called DFA.
+
+We can convert this entire idea to the normal definition of a DPDA by:
+1. Selecting disjoint state labels for every DFA.
+2. Keeping all DFA transitions in the same table.
+
+That done, a stack symbol is merely also a state label.
+
+*/
+
+define("FA_NO_MARK", 99999);	# A sentinel value. Real marks should be less.
+
+function gen_label() {
+	# Won't return the same number twice. Note that we use state labels
+	# for hash keys all over the place. To prevent PHP from doing the
+	
