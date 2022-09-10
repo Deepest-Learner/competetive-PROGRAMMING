@@ -79,4 +79,49 @@ define("FA_NO_MARK", 99999);	# A sentinel value. Real marks should be less.
 function gen_label() {
 	# Won't return the same number twice. Note that we use state labels
 	# for hash keys all over the place. To prevent PHP from doing the
-	
+	# wrong thing when we merge such hashes, we tack a letter on the
+	# front of the labels.
+	static $count = 0;
+	$count ++;
+	return 's'.$count;
+}
+
+class enfa {
+	# Extended epsilon NFA in normal form.
+	function enfa() {
+		# $this->alphabet = array();	# We don't care
+		$this->states = array();	# Contains a list of labels
+
+		# These are hashes with state labels for keys:
+		$this->delta = array();	# sub-hash from symbol to label-list
+		$this->epsilon = array();	# label-list
+		$this->mark = array();		# distinguishing mark
+
+		# Now we can add the initial and final states:
+		$this->initial = $this->add_state(gen_label());
+		$this->final = $this->add_state(gen_label());
+	}
+
+	function eclose($label_list) {
+		$states = array_count_values($label_list);
+		$queue = array_keys($states);
+		while (count($queue) > 0) {
+			$s = array_shift($queue);
+			foreach($this->epsilon[$s] as $t) if (!isset($states[$t])) {
+				$states[$t] = true;
+				$queue[] = $t;
+			}
+		}
+		return array_keys($states);
+	}
+
+	function any_are_final($label_list) {
+		return in_array($this->final, $label_list);
+	}
+
+	function best_mark($label_list) {
+		$mark = FA_NO_MARK;
+		foreach($label_list as $label) {
+			$mark = min($mark, $this->mark[$label]);
+		}
+		return
