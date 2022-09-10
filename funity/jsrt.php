@@ -2087,3 +2087,587 @@ class js_date extends js_object {
     return js_int(gmdate("n", $t/1000)-1);
   }
   static function getDate() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(date("j", $t/1000));
+  }
+  static function getUTCDate() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(gmdate("j", $t/1000));
+  }
+  static function getDay() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(date("w", $t/1000));
+  }
+  static function getUTCDay() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(gmdate("w", $t/1000));
+  }
+  static function getHours() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(date("G", $t/1000));
+  }
+  static function getUTCHours() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(gmdate("G", $t/1000));
+  }
+  static function getMinutes() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(date("i", $t/1000));
+  }
+  static function getUTCMinutes() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(gmdate("i", $t/1000));
+  }
+  static function getSeconds() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(date("s", $t/1000));
+  }
+  static function getUTCSeconds() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int(gmdate("s", $t/1000));
+  }
+  static function getMillieconds() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int($t%1000);
+  }
+  static function getUTCMilliseconds() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    return js_int($t%1000);
+  }
+  static function getTimezoneOffset() {
+    $t = js_date::valueOf()->value;
+    if (is_nan($t)) return jsrt::$nan;
+    $s = gettimeofday();
+    return js_int($t["minuteswest"]);
+  }
+  static function setTime($time) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $v = $time->toNumber()->value;
+    $obj->value = $v;
+    return js_int($v);
+  }
+  static function setMilliseconds($ms) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = js_date::valueOf()->value;
+    $ms = $ms->toNumber()->value;
+    $v = floor($t/1000)*1000 + $ms;
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCMilliseconds($ms) {
+    return js_date::setMilliseconds($ms);
+  }
+  static function setSeconds($s, $ms) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $s = $s->toNumber()->value;
+    $ms = ($ms == jsrt::$undefined)?($t%1000):$ms->toNumber()->value;
+    $v = floor($t/60000)*60000 + ( 1000*$s + $ms );
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCSeconds($s, $ms) {
+    return js_date::setSeconds($s, $ms);
+  }
+  static function setMinutes($min, $sec, $ms) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $min = $min->toNumber()->value;
+    $sec = ($sec==jsrt::$undefined)?js_date::getSeconds():$sec->toNumber()->value;
+    $ms = ($ms == jsrt::$undefined)?($t%1000):$ms->toNumber()->value;
+    $v = mktime(js_date::getHours(), $min, $sec, js_date::getMonth(),
+                js_date::getDate(), js_date::getYear())*1000 + $ms;
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCMinutes($min, $sec, $ms) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $min = $min->toNumber()->value;
+    $sec = ($sec==jsrt::$undefined)?js_date::getUTCSeconds():$sec->toNumber()->value;
+    $ms = ($ms == jsrt::$undefined)?($t%1000):$ms->toNumber()->value;
+    $v = gmmktime(js_date::getUTCHours(), $min, $sec, js_date::getUTCMonth(),
+                js_date::getUTCDate(), js_date::getUTCYear())*1000 + $ms;
+    $obj->value = $v;
+    return $v;
+  }
+  static function setHours($hour, $min, $sec, $ms) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $hour = $hour->toNumber()->value;
+    $min = ($min==jsrt::$undefined)?js_date::getMinutes():$min->toNumber()->value;
+    $sec = ($sec==jsrt::$undefined)?js_date::getSeconds():$sec->toNumber()->value;
+    $ms = ($ms == jsrt::$undefined)?($t%1000):$ms->toNumber()->value;
+    $v = mktime($hour, $min, $sec, js_date::getMonth(),
+                js_date::getDate(), js_date::getYear())*1000 + $ms;
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCHours($hour, $min, $sec, $ms) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $hour = $hour->toNumber()->value;
+    $min = ($min==jsrt::$undefined)?js_date::getUTCMinutes():$min->toNumber()->value;
+    $sec = ($sec==jsrt::$undefined)?js_date::getUTCSeconds():$sec->toNumber()->value;
+    $ms = ($ms == jsrt::$undefined)?($t%1000):$ms->toNumber()->value;
+    $v = gmmktime($hour, $min, $sec, js_date::getUTCMonth(),
+                js_date::getUTCDate(), js_date::getUTCYear())*1000 + $ms;
+    $obj->value = $v;
+    return $v;
+  }
+  static function setDate($date) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $date = $date->toNumber()->value;
+    $v = mktime(js_date::getHours(), js_date::getMinutes(), js_date::getSeconds(),
+                js_date::getMonth(), $date, js_date::getYear())*1000 + ($t%1000);
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCDate($date) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $date = $date->toNumber()->value;
+    $v = gmmktime(js_date::getUTCHours(), js_date::getUTCMinutes(), js_date::getUTCSeconds(),
+                js_date::getUTCMonth(), $date, js_date::getUTCYear())*1000 + ($t%1000);
+    $obj->value = $v;
+    return $v;
+  }
+  static function setMonth($month, $date) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $month = $month->toNumber()->value;
+    $date=($date==jsrt::$undefined)?js_date::getDate():$date->toNumber()->value;
+    $v = mktime(js_date::getHours(), js_date::getMinutes(), js_date::getSeconds(),
+                $month, $date, js_date::getYear())*1000 + ($t%1000);
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCMonth($month, $date) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $month = $month->toNumber()->value;
+    $date=($date==jsrt::$undefined)?js_date::getUTCDate():$date->toNumber()->value;
+    $v = gmmktime(js_date::getUTCHours(), js_date::getUTCMinutes(), js_date::getUTCSeconds(),
+                $month, $date, js_date::getUTCYear())*1000 + ($t%1000);
+    $obj->value = $v;
+    return $v;
+  }
+  static function setFullYear($year, $month, $date) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $year = $year->toNumber()->value;
+    $month = ($month==jsrt::$undefined)?js_date::getMonth():$month->toNumber()->value;
+    $date = ($date==jsrt::$undefined)?js_date::getMinutes():$date->toNumber()->value;
+    $v = mktime(js_date::getHours(), js_date::getDate(), js_date::getSeconds(),
+                $month, $date, $year)*1000 + ($t%1000);
+    $obj->value = $v;
+    return $v;
+  }
+  static function setUTCFullYear($year, $month, $date) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    $year = $year->toNumber()->value;
+    $month = ($month==jsrt::$undefined)?js_date::getUTCMonth():$month->toNumber()->value;
+    $date = ($date==jsrt::$undefined)?js_date::getUTCDate():$date->toNumber()->value;
+    $v = gmmktime(js_date::getUTCHours(), js_date::getUTCMinutes(), js_date::getUTCSeconds(),
+                $month, $date, $year)*1000 + ($t%1000);
+    $obj->value = $v;
+    return $v;
+  }
+  static function toUTCString() {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_date") throw new js_exception(new js_typeerror());
+    $t = $obj->value;
+    return js_str(gmstrftime("%c", $t/1000));
+  }
+
+}
+class js_regexp extends js_object {
+  public $pattern;
+  public $flags;
+  function __construct($pattern=NULL, $flags=NULL) {
+    parent::__construct("RegExp", jsrt::$proto_regexp);
+    $this->pattern = $pattern;
+    $this->flags = $flags;
+    $this->put("global", (strchr($flags, "g")!==FALSE)?jsrt::$true:jsrt::$false, array("dontdelete","readonly","dontenum"));
+    $this->put("ignoreCase", (strchr($flags, "i")!==FALSE)?jsrt::$true:jsrt::$false, array("dontdelete","readonly","dontenum"));
+    $this->put("multiline", (strchr($flags, "m")!==FALSE)?jsrt::$true:jsrt::$false, array("dontdelete","readonly","dontenum"));
+    $this->put("source", js_str($pattern), array("dontdelete","readonly","dontenum"));
+    $this->put("lastIndex", jsrt::$zero, array("dontdelete", "dontenum"));
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($value) {
+    list ($pattern, $flags) = func_get_args();
+    if (!js_function::isConstructor() and get_class($pattern)=="js_regexp" and $flags==jsrt::$undefined) {
+      return $pattern;
+    }
+    if (get_class($pattern)=="js_regexp") {
+      if ($flags!=jsrt::$undefined) {
+        throw new js_exception(new js_typeerror());
+      }
+      $flags = $pattern->flags;
+      $pattern = $pattern->pattern;
+    } else {
+      $flags = ($flags == jsrt::$undefined)?"":$flags->toStr()->value;
+      $pattern = ($pattern == jsrt::$undefined)?"":$pattern->toStr()->value;
+    }
+    return new js_regexp($pattern, $flags);
+  }
+  static function exec($str) {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_regexp") throw new js_exception(new js_typeerror());
+    $s = $str->toStr()->value;
+    $len = strlen($s);
+    $lastIndex = $obj->get("lastIndex")->toInteger()->value;
+    $i=$lastIndex;
+    if ($obj->get("global")->toBoolean()->value== false) $i=0;
+    do {
+      if ($i<0 or $i>$len) {
+        $obj->put("lastIndex", jsrt::$zero);
+        return jsrt::$null;
+      }
+      $r = $obj->match($s, $i); // XXX write js_regexp::match()
+      $i++;
+    } while ($r == NULL);
+    $e = $r["endIndex"];
+    $n = $r["length"];
+    if ($obj->get("global")->toBoolean()->value==true) {
+      $obj->put("lastIndex", js_int($e));
+    }
+    $array = new js_array();
+    $array->put("index", js_int($i-1));
+    $array->put("input", $str);
+    $array->put("length", $n+1);
+    $array->put(0, js_str(substr($s, $i-1, $e-$i)));
+    for($i=0;$i<$n;$i++) {
+      $array->put($i+1, js_str($r[$i]));
+    }
+    return $array;
+  }
+  static function test($str) {
+    return (js_regexp::exec($str)!=NULL)?jsrt::$true:jsrt::$false;
+  }
+  static function toString() {
+    $obj = jsrt::this();
+    if (get_class($obj)!="js_regexp") throw new js_exception(new js_typeerror());
+    $s = "/".str_replace(array("/","\\"),array("\/","\\\\"),$obj->pattern)."/";
+    if ($obj->get("global")==jsrt::$true) $s.="g";
+    if ($obj->get("ignoreCase")==jsrt::$true) $s.="i";
+    if ($obj->get("multiline")==jsrt::$true) $s.="m";
+    return js_str($s);
+  }
+
+}
+class js_error extends js_object {
+  function __construct($class="Error", $proto=NULL, $msg='') {
+    parent::__construct($class, ($proto==NULL)?jsrt::$proto_error:$proto);
+    $this->put("name", js_str($class));
+    $this->put("message", js_str($msg));
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new js_error("Error", NULL, $message->toStr()->value);
+  }
+  static function toString() {
+    $obj = jsrt::this();
+    if (!($obj instanceof js_error)) throw new js_exception(new js_typeeror());
+    return js_str(get_class($obj).": ".$obj->get("message")->toStr()->value);
+  }
+}
+class js_evalerror extends js_error {
+  function __construct($msg = '') {
+    parent::__construct("EvalError", jsrt::$proto_evalerror, $msg);
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new self($message->toStr()->value);
+  }
+}
+class js_rangeerror extends js_error {
+  function __construct($msg = '') {
+    parent::__construct("RangeError", jsrt::$proto_rangeerror, $msg);
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new self($message->toStr()->value);
+  }
+}
+class js_referenceerror extends js_error {
+  function __construct($msg = '') {
+    parent::__construct("ReferenceError", jsrt::$proto_referenceerror, $msg);
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new self($message->toStr()->value);
+  }
+}
+class js_syntaxerror extends js_error {
+  function __construct($msg = '') {
+    parent::__construct("SyntaxError", jsrt::$proto_syntaxerror, $msg);
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new self($message->toStr()->value);
+  }
+}
+class js_typeerror extends js_error {
+  function __construct($msg = '') {
+    parent::__construct("TypeError", jsrt::$proto_typeerror, $msg);
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new self($message->toStr()->value);
+  }
+}
+class js_urierror extends js_error {
+  function __construct($msg = '') {
+    parent::__construct("URIError", jsrt::$proto_urierror, $msg);
+  }
+  ////////////////////////
+  // scriptable methods //
+  ////////////////////////
+  static function object($message) {
+    return new self($message->toStr()->value);
+  }
+}
+
+class js_ref {
+  public $type;
+  public $base;
+  public $propName;
+  function __construct($base, $propName) {
+    $this->type = js_val::REF;
+    $this->base = $base;
+    $this->propName = $propName;
+  }
+  function getValue() {
+    if (!is_object($this->base)) {
+      echo "<pre>";
+      debug_print_backtrace();
+      echo "</pre>";
+    }
+    return $this->base->get($this->propName);
+  }
+  function putValue($w, $ret=0) {
+    $v = null;
+    if ($ret==2) {
+      $v = $this->base->get($this->propName);
+    }
+    $this->base->put($this->propName, $w);
+    if ($ret==1) return $w;
+    return $v;
+  }
+}
+class js_ref_null extends js_ref {
+	function __construct($propName) {
+    	parent::__construct(NULL, $propName);
+  	}
+  	function getValue() {
+
+		//Check if MXVM is on node (MainProcess)
+		try {
+			$method = new ReflectionMethod( 'Display::_error' );
+			if ($method->isStatic()) {
+				//Show error
+				//Display::_error("MXVM_ERROR::MakeContract -> Trying to read ".$this->propName.", but that's not defined.");
+				Tools::writeLog("MXVM_ERROR:: Trying to read ".$this->propName.", but that's not defined.");
+			}
+		}
+		catch ( ReflectionException $e ) {
+
+			//Check if MXVM is on node (SubProcess)
+			try {
+				$method = new ReflectionMethod( 'Blockchain::checkDifficulty' );
+				if ($method->isStatic()) {
+					Tools::writeLog("MXVM_ERROR:: Trying to read ".$this->propName.", but that's not defined.");
+				}
+			}
+			catch ( ReflectionException $e ) {
+
+				//We are not in a node process
+				echo "\nMXVM_ERROR:: Trying to read ".$this->propName.", but that's not defined.<hr>";
+			}
+		}
+    	throw new Exception();
+  	}
+  	function putValue($w, $ret=0) {
+		jsrt::$global->put($this->propName, $w);
+	}
+}
+
+class js_attribute {
+  public $value;
+  public $readonly = false;
+  public $dontenum = false;
+  public $dontdelete = false;
+  function __construct($value, $ro=0, $de=0, $dd=0) {
+    $this->value = $value;
+    $this->readonly = $ro;
+    $this->dontenum = $de;
+    $this->dontdelete = $dd;
+  }
+}
+
+//////////////////////////////////////////////
+// shortcuts to keep the generated code small
+//////////////////////////////////////////////
+
+// PHP --> JS
+
+function js_str($s) {
+	static $cache = array();
+	if (!isset($cache[$s])) {
+    	$cache[$s] = new js_val(js_val::STRING, $s);
+  	}
+  	return $cache[$s];
+}
+function js_int($i) {
+  	static $cache = array();
+  	$s = strval($i);
+  	if (!isset($cache[$s])) {
+    	$cache[$s] = new js_val(js_val::NUMBER, $i);
+  	}
+  	//echo "js_int($i) = ".serialize($cache[$s])."<br>";
+  	return $cache[$s];
+}
+function js_bool($v) {
+  	return $v->toBoolean()->value;
+}
+function js_obj($v) {
+  	return $v->toObject();
+}
+function js_thrown($v) {
+  	return (get_class($v)=="js_exception" and $v->type==js_exception::EXCEPTION);
+}
+function js_object($table) {
+	$object = new js_object();
+
+	if (is_array($table) && !empty($table)) {
+		foreach ($table as $key=>$value) {
+			if (is_array($value)) {
+				$subObject = js_object($value);
+				$object->put($key,$subObject);
+			}
+			else {
+				$object->put($key,new js_val(js_val::STRING,$value));
+			}
+		}
+	}
+
+	return js_obj($object);
+}
+// JS --> PHP
+
+function php_int($o) {
+  	return $o->toNumber()->value;
+}
+function php_str($o) {
+  	return $o->toStr()->value;
+}
+
+function php_array($o,&$array=array()) {
+
+	foreach ($o->slots as $index => $attribute) {
+		if ($attribute instanceof js_attribute) {
+			if ($attribute->value instanceof js_val) {
+				$array[$index] = $attribute->value->value;
+			}
+			if ($attribute->value instanceof js_object) {
+				$array[$index] = php_array($attribute->value);
+			}
+		}
+	}
+
+	return $array;
+}
+
+///////////////////////////////////////////
+//
+///////////////////////////////////////////
+
+function dump_object($o) {
+  $s = '['.$o->type.']-';
+  if ($o instanceof js_ref) {
+    $s.="(".$o->base.".".$o->propName.")";
+  } else {
+    $s.="{";
+    foreach ($o->slots as $index=>$value) {
+      $s.="'$index': ".$value->value.",\n";
+    }
+    $s.="}";
+  }
+  return $s;
+}
+
+function jsi_empty() {
+  return jsrt::$undefined;
+}
+function jsi_eval() {
+  throw new js_exception(new js_syntaxerror("Eval is not implemented"));
+}
+function jsi_parseInt($str, $radix) {
+  $radix = $radix->toNumber()->value;
+  if ($radix==0) $radix=10;
+  return js_int($str->toStr()->value);
+}
+function jsi_parseFloat($str) {
+  return js_int($str->toStr()->value);
+}
+function jsi_isNaN($val) {
+  return is_nan($val->toNumber()->$value)?jsrt::$true:jsrt::$false;
+}
+function jsi_isFinite($val) {
+  return is_finite($val->toNumber()->$value)?jsrt::$true:jsrt::$false;
+}
+function jsi_decodeURI($uri) {
+  throw new js_error("decodeURI not implemented");
+}
+function jsi_decodeURIComponent($uri) {
+  throw new js_error("decodeURIComponent not implemented");
+}
+function jsi_encodeURI($uri) {
+  throw new js_error("encodeURI not implemented");
+}
+function jsi_encodeURIComponent($uri) {
+  throw new js_error("encodeURIComponent not implemented");
+}
