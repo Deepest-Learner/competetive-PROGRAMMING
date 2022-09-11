@@ -168,4 +168,32 @@ class enfa {
 
 		# Note that there is a certain amount of unavoidable cleverness
 		# in the algorithm. I don't care the values of $out, so it
-		# doesn't matt
+		# doesn't matter that they happen also to be some arbitrary
+		# transition lists.
+		$out = array();
+		foreach($label_list as $label) $out = array_merge($out, $this->delta[$label]);
+		return array_keys($out);
+	}
+
+	/*
+	Now that we have the basics down, I'd like some functions that
+	let me make convenient modifications to an NFA. In particular,
+	I would like to:
+
+	1: Recognize a particular sequence of glyphs
+	2: Accept the union of the current NFA and some other
+	3: Perform the Kleene closure
+	4: Similar for the common + and ? operators
+	5: Accept the concatenation of this and some other NFA.
+
+	Fortunately, these all boil down to a fairly simple set of steps.
+
+	One slightly complicated part is that I'd also like to be able
+	to carry these "distinguishing marks" through the system so that
+	they can instruct the final PDA on which production matched.
+
+	The other more complicated part is that these production rules are
+	really transducers. Each rule has certain parts which must go into
+	a parse tree node. It turns out that this is a relatively hard
+	problem in the short run, and not necessary for a solution to the
+	ultimate goal of getting PHP programs into a "tree-of-lists" struct
