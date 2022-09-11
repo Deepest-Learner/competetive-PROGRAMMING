@@ -124,4 +124,48 @@ class enfa {
 		foreach($label_list as $label) {
 			$mark = min($mark, $this->mark[$label]);
 		}
-		return
+		return $mark;
+	}
+
+	function add_state($label) {
+		if (isset($this->delta[$label])) {
+			die ("Trying to add existing state to an NFA.");
+		}
+		$this->states[] = $label;
+		$this->delta[$label] = array();
+		$this->epsilon[$label] = array();
+		$this->mark[$label] = FA_NO_MARK;
+		return $label;
+	}
+
+	function add_epsilon($src, $dest) {
+		$this->epsilon[$src][] = $dest;
+	}
+
+	function start_states() {
+		return $this->eclose(array($this->initial));
+	}
+
+	function add_transition($src, $glyph, $dest) {
+		$lst = & $this->delta[$src];
+		if (empty($lst[$glyph])) $lst[$glyph] = array($dest);
+		else $lst[$glyph][] = $dest;
+	}
+
+	function step($label_list, $glyph) {
+		$out = array();
+		foreach($label_list as $label) {
+			if (isset($this->delta[$label][$glyph])) {
+				$out = array_merge($out, $this->delta[$label][$glyph]);
+			}
+		}
+		return $this->eclose($out);
+	}
+
+	function accepting($label_list) {
+		# Return a set of those glyphs which will not kill the NFA.
+		# Assume that any necessary epsilon closure is already done.
+
+		# Note that there is a certain amount of unavoidable cleverness
+		# in the algorithm. I don't care the values of $out, so it
+		# doesn't matt
