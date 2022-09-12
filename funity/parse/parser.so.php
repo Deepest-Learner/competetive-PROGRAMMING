@@ -243,4 +243,43 @@ class enfa {
 
 		while (count($queue) > 0) {
 			$set = array_shift($queue);
-			$label = $map
+			$label = $map->label($set);
+			foreach ($this->accepting($set) as $glyph) {
+				$dest = $this->step($set, $glyph);
+				$dest_label = $map->label($dest);
+				if (!$dfa->has_state($dest_label)) {
+					$dfa->add_state($dest_label);
+					$dfa->mark[$dest_label] = $this->best_mark($dest);
+					$queue[] = $dest;
+				}
+				$dfa->add_transition($label, $glyph, $dest_label);
+			}
+			if ($this->any_are_final($set)) $dfa->final[$label] = true;
+		}
+
+		return $dfa;
+	}
+
+}
+
+/*
+Note that you should really throw away any NFA once you have
+used one of the below functions on it, because the result will contain
+indentically named state labels from the originals. We could fix this
+apparent problem, but it would mean establishing a state-renaming function
+for NFAs. Because I don't care to do this just now, and it's not important
+anyway, I'm not doing it.
+*/
+function nfa_union($nfa_list) {
+	$out = new enfa();
+	foreach($nfa_list as $nfa) {
+		$out->copy_in($nfa);
+		$out->add_epsilon($out->initial, $nfa->initial);
+		$out->add_epsilon($nfa->final, $out->final);
+	}
+	return $out;
+}
+
+function nfa_concat($nfa_list) {
+	$out = new enfa();
+	$las
