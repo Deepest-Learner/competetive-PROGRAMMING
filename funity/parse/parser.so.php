@@ -282,4 +282,52 @@ function nfa_union($nfa_list) {
 
 function nfa_concat($nfa_list) {
 	$out = new enfa();
-	$las
+	$last_state = $out->initial;
+	foreach($nfa_list as $nfa) {
+		$out->copy_in($nfa);
+		$out->add_epsilon($last_state, $nfa->initial);
+		$last_state = $nfa->final;
+	}
+	$out->add_epsilon($last_state, $out->final);
+	return $out;
+}
+
+
+
+class dfa {
+	/*
+	A DFA has a simpler representation than that of an NFA.
+	It also has a bit of a different interface.
+	*/
+
+	function dfa() {
+		# $this->alphabet = array();	# We don't care
+		$this->states = array();	# Contains a list of labels
+		$this->initial = '';		# Set this later.
+
+		# These are hashes with state labels for keys:
+		$this->final = array();	# Just a bit for each state
+		$this->delta = array();	# sub-hash from symbol to label
+		$this->mark = array();		# distinguishing mark
+	}
+
+	function add_state($label) {
+		if ($this->has_state($label)) {
+			die ("Trying to add existing state to an DFA.");
+		}
+		$this->states[] = $label;
+		$this->final[$label] = false;
+		$this->delta[$label] = array();
+		$this->mark[$label] = FA_NO_MARK;
+		return $label;
+	}
+
+	function has_state($label) {
+		return isset($this->delta[$label]);
+	}
+
+	function add_transition($src, $glyph, $dest) {
+		$this->delta[$src][$glyph] = $dest;
+	}
+
+	function step($label, $glyph)
