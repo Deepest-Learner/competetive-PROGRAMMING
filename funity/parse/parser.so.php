@@ -196,4 +196,51 @@ class enfa {
 	really transducers. Each rule has certain parts which must go into
 	a parse tree node. It turns out that this is a relatively hard
 	problem in the short run, and not necessary for a solution to the
-	ultimate goal of getting PHP programs into a "tree-of-lists" struct
+	ultimate goal of getting PHP programs into a "tree-of-lists" structure.
+	*/
+
+	function recognize($glyph) {
+		$this->add_transition($this->initial, $glyph, $this->final);
+	}
+
+	function plus() {
+		# Recognize the current NFA one or more times:
+		$this->add_epsilon($this->final, $this->initial);
+	}
+
+	function hook() {
+		# Recognize the current NFA zero or one times:
+		$this->add_epsilon($this->initial, $this->final);
+	}
+
+	function kleene() {
+		# kleen-star closure over the current NFA:
+		$this->hook();
+		$this->plus();
+	}
+
+	function copy_in($nfa) {
+		# Used by the union and concatenation operations.
+		# Highly magical. Counts on a few things....
+		foreach (array('states', 'delta', 'epsilon', 'mark') as $part) {
+			$this->$part = array_merge($this->$part, $nfa->$part);
+		}
+	}
+
+	function determinize() {
+		# Now I can write the code that converts
+		# an NFA into an equivalent DFA.
+
+		$map = new state_set_labeler();
+		$start = $this->start_states();
+		$queue = array($start);
+
+		$dfa = new dfa();
+		$i = $map->label($start);
+		$dfa->add_state($i);
+		$dfa->initial = $i;
+		$dfa->mark[$i] = $this->best_mark($start);
+
+		while (count($queue) > 0) {
+			$set = array_shift($queue);
+			$label = $map
