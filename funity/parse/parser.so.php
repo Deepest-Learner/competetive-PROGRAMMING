@@ -330,4 +330,42 @@ class dfa {
 		$this->delta[$src][$glyph] = $dest;
 	}
 
-	function step($label, $glyph)
+	function step($label, $glyph) {
+		return @$this->delta[$label][$glyph];
+	}
+
+	function accepting($label) {
+		return array_keys($this->delta[$label]);
+	}
+
+	function minimize() {
+		/*
+		We'll use the table-filling algorithm to find pairs of
+		distinguishable states. When that algorithm is done, any states
+		not distinguishable are equivalent. We'll return a new DFA.
+		*/
+
+		$map = $this->indistinguishable_state_map($this->table_fill());
+		$dist = array();
+		foreach($map as $p => $q) $dist[$q] = $q;
+
+		$dfa = new dfa();
+		foreach($dist as $p) $dfa->add_state($p);
+		foreach($dist as $p) {
+			foreach ($this->delta[$p] as $glyph => $q) $dfa->add_transition($p, $glyph, $map[$q]);
+			$dfa->final[$p] = $this->final[$p];
+			$dfa->mark[$p] = $this->mark[$p];
+		}
+		$dfa->initial = $map[$this->initial];
+
+		return $dfa;
+	}
+	function indistinguishable_state_map($table) {
+		# Assumes that $table is filled according to the table filling
+		# algorithm.
+		$map = array();
+		$set = new set($this->states);
+		while ($set->count()) {
+			$p = $set->one();
+			foreach($set->all() as $q) if (!$table->differ($p, $q)) {
+				
