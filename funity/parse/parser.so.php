@@ -368,4 +368,49 @@ class dfa {
 		while ($set->count()) {
 			$p = $set->one();
 			foreach($set->all() as $q) if (!$table->differ($p, $q)) {
-				
+				$map[$q] = $p;
+				$set->del($q);
+			}
+		}
+		return $map;
+	}
+	function table_fill() {
+		/*
+		We use a slight modification of the standard base case:
+		Two states are automatically distinguishable if their marks
+		differ.
+		*/
+
+		# Base Case:
+		$table = new distinguishing_table();
+
+		foreach($this->states as $s1) foreach($this->states as $s2) {
+			if ($this->mark[$s1] != $this->mark[$s2]) $table->distinguish($s1, $s2);
+		}
+
+		# Induction:
+		do { /* nothing */ } while (!$this->filling_round($table));
+
+		return $table;
+	}
+
+	function filling_round(&$table) {
+		$done = true;
+
+		foreach($this->states as $s1) foreach($this->states as $s2) {
+			if ($s1 == $s2) continue;
+			if (!$table->differ($s1, $s2)) {
+				# Try to find a reason why the two states
+				# differ. If so, then mark them different
+				# and clear $done. Note that if the table
+				# has no record of either state, then we
+				# can't yet make a determination.
+				$different = $this->compare_states($s1, $s2, $table);
+				if ($different) {
+					$table->distinguish($s1, $s2);
+					$done = false;
+					break;
+				}
+			}
+		}
+		# ("Done Round<br/>")
