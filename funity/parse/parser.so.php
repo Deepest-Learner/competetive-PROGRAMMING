@@ -413,4 +413,59 @@ class dfa {
 				}
 			}
 		}
-		# ("Done Round<br/>")
+		# ("Done Round<br/>");
+		return $done;
+	}
+
+	function compare_states($p, $q, $table) {
+		$sigma = array_unique(array_merge($this->accepting($p), $this->accepting($q)));
+		# "Comparing $p and $q - shared vocabulary: [ ".implode(' : ', $sigma)." ] - ");
+		if ($p == $q) {
+			# "Same State<br/>";
+			return false;
+		}
+
+		foreach($sigma as $glyph) {
+			$p1 = $this->step($p, $glyph);
+			$q1 = $this->step($q, $glyph);
+			if (!($p1 and $q1) or $table->differ($p1, $q1)) {
+				# "<font color=green>They differ on $glyph - $p1/$q1<br/></font>");
+				return true;
+			}
+		}
+
+		# ("No difference found (yet)<br/>");
+		return false;
+	}
+
+}
+
+class distinguishing_table {
+	function distinguishing_table() {
+		$this->dist = array();
+	}
+	function key($s1, $s2) {
+		$them = array($s1, $s2);
+		sort($them);
+		return implode("|", $them);
+	}
+	function distinguish($s1, $s2) {
+		$key = $this->key($s1, $s2);
+		$this->dist[$key] = true;
+	}
+	function differ($s1, $s2) {
+		$key = $this->key($s1, $s2);
+		return isset($this->dist[$key]);
+	}
+}
+
+
+class state_set_labeler {
+	function state_set_labeler() {
+		$this->map=array();
+	}
+	function label($list) {
+		sort($list);
+		$key = implode(':', $list);
+		if (empty($this->map[$key])) $this->map[$key] = gen_label();
+		return $
