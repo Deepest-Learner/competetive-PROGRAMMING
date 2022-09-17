@@ -468,4 +468,29 @@ class state_set_labeler {
 		sort($list);
 		$key = implode(':', $list);
 		if (empty($this->map[$key])) $this->map[$key] = gen_label();
-		return $
+		return $this->map[$key];
+	}
+}
+
+/*
+Now we can turn any production rule (head + set <body, action>) into a
+DFA that recognizes the rule and can even invoke the correct action based
+on a set of distinguishing marks. Any given final state in the DFA will
+be marked with exactly the best matching action number.
+
+A remaining problem is that of transduction. We would like to mark certain
+glyphs with a symbol indicating that they cause the corresponding parse node
+to go into the correct slot of a special parsing data structure which makes
+for convenient reference within an action part of a rule. In other words,
+we would really ideally like to turn NFTs into DFTs. It seems, at the moment,
+that the transduction might still be non-deterministic. This not so much of
+a problem as a big hassle.
+
+However, if we always make the entire matched glyph list available in the form
+of a list of parse nodes, then the action that corresponds to a given rule
+branch is free to do fancy things.
+
+All that remains is to build a PDA from a collection of DFAs.
+
+These various DFAs will mostly have some transitions that are predicated on
+non-terminal symbols in the CFG. We have to
