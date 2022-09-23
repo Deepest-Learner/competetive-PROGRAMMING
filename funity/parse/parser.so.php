@@ -493,4 +493,51 @@ branch is free to do fancy things.
 All that remains is to build a PDA from a collection of DFAs.
 
 These various DFAs will mostly have some transitions that are predicated on
-non-terminal symbols in the CFG. We have to
+non-terminal symbols in the CFG. We have to find all such transitions and deal
+with them specially.
+*/
+
+
+/*
+File: lex.so.php
+License: GPL
+Purpose: Provides a simple lexical analysis framework
+Purpose: useful in so many ways. (Minilanguages are a
+Purpose: fabulous way to save programming time.)
+*/
+
+
+class token {
+	function __construct($type, $text, $start, $stop) {
+		$this->type = $type;
+		$this->text = $text;
+		$this->start = $start;
+		$this->stop = $stop;
+	}
+}
+function null_token() { return new token('','','',''); }
+// we want a serializable structure.
+/*
+class preg_pattern {
+	function __construct($regex, $type, $ignore, $action) {
+		$this->regex = $regex;
+		$this->type = $type;
+		$this->ignore = $ignore;
+		$this->action = $action; # This is the name of a function.
+	}
+	function test($string) {
+		if (preg_match($this->regex.'A', $string, $match)) return $match;
+	}
+}
+*/
+function preg_pattern($regex, $type, $ignore, $action) {
+  return array($regex, $type, $ignore, $action);
+}
+function preg_pattern_test($pattern, $string) {
+  if (preg_match($pattern.'A', $string, $match)) return $match;
+}
+
+class stream {
+	function __construct($string) {
+		$this->string = $string;
+		$t
