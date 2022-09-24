@@ -668,4 +668,48 @@ abstract class parser {
 	function report() {
 		# pr($this->action);
 		pr($this->start);
-		foreac
+		foreach($this->delta as $label => $d) {
+			echo "<h3>State $label</h3>";
+			foreach($d as $glyph => $step) echo $glyph." -&gt; ". implode(':', $step)."<br>";
+		}
+	}
+	function get_step($label, $glyph) {
+		$d = $this->delta[$label];
+		if (isset($d[$glyph])) return $d[$glyph];
+		if (isset($d['[default]'])) return $d['[default]'];
+		return array('error');
+	}
+	function parse($symbol, $lex, $strategy = null) {
+		$stack = array();
+		$tos = $this->frame($symbol);
+		$token = $lex->next();
+		while (true) {
+			$step = $this->get_step($tos->state, $token->type);
+			# echo implode(':', $step)."<br>";
+			switch($step[0]) {
+				case 'go':
+				$tos->shift($token->text);
+				$tos->state = $step[1];
+				$token = $lex->next();
+				break;
+
+				case 'do':
+				$semantic = $this->reduce($step[1], $tos->semantic());
+				if (empty($stack)) {
+					$strategy->assert_done($token, $lex);
+					return $semantic;
+				} else {
+					$tos = array_pop($stack);
+					$tos->shift($semantic);
+				}
+				break;
+
+				case 'push':
+				$tos->state = $step[2];
+				$stack[] = $tos;
+				$tos = $this->frame($step[1]);
+				break;
+
+				case 'fold':
+				$tos->fold($this->reduce($step[1], $tos->semantic()));
+				$tos
