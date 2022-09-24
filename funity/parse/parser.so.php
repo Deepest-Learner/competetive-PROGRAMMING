@@ -712,4 +712,49 @@ abstract class parser {
 
 				case 'fold':
 				$tos->fold($this->reduce($step[1], $tos->semantic()));
-				$tos
+				$tos->state = $step[2];
+				break;
+
+				case 'error':
+				$stack[] = $tos;
+				$strategy->stuck($token, $lex, $stack);
+				break;
+
+				default:
+				throw new parse_error("Impossible. Bad PDA has $step[0] instruction.");
+			}
+		}
+	}
+	function frame($symbol) { return new parse_stack_frame($symbol, $this->start[$symbol]); }
+	abstract function reduce($action, $tokens);
+}
+
+class easy_parser extends parser {
+	function __construct($pda, $strategy = null) {
+		parent::__construct($pda);
+		$this->call = $this->action; //array();
+		$this->strategy = ($strategy ? $strategy : new default_parser_strategy());
+		/*
+		foreach($this->action as $k => $body) {
+		  $this->call[$k] = create_function( '$tokens', preg_replace('/{(\d+)}/', '$tokens[\\1]', $body));
+		}
+		*/
+	}
+	function reduce($action, $tokens) {
+		return $this->call[$action]($tokens);
+	}
+	function parse($symbol, $lex, $strategy = null) {
+		return parent::parse($symbol, $lex, $this->strategy);
+	}
+}
+
+abstract class parser_strategy {
+	abstract function stuck($token, $lex, $stack);
+	abstract function assert_done($token, $lex);
+}
+function send_parse_error_css_styles() {
+	?>
+	<style>
+	.char { border: 1px solid red; margin: 2px; }
+	.nonterm { border: 1px solid blue; margin: 10px; }
+	.wierd { border: 1px solid purple; m
