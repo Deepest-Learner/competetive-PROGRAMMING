@@ -757,4 +757,19 @@ function send_parse_error_css_styles() {
 	<style>
 	.char { border: 1px solid red; margin: 2px; }
 	.nonterm { border: 1px solid blue; margin: 10px; }
-	.wierd { border: 1px solid purple; m
+	.wierd { border: 1px solid purple; margin: 2px; }
+	pre { line-height: 1.5; }
+	</style>
+	<?php
+}
+class default_parser_strategy extends parser_strategy {
+	function stuck($token, $lex, $stack) {
+		throw new Exception("Can't tell what to do with ".$token->type.".");
+	}
+	function assert_done($token, $lex) {
+		if ($token->type) $this->stuck($token, $lex, array());
+	}
+}
+
+
+?>
