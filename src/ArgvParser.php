@@ -47,4 +47,17 @@ class ArgvParser
                 // match prefix - with next parameter
                 if (preg_match('/^-+(.+)\=(.+)$/', $argv[$index], $subMatches) === 1) {
                     $configs[$subMatches[1]] = $subMatches[2];
-                } else if (isset($argv[$index + 1]) && preg_match('/^[^-\=]+$/', $argv
+                } else if (isset($argv[$index + 1]) && preg_match('/^[^-\=]+$/', $argv[$index + 1]) === 1) {
+                    // have sub parameter
+                    $configs[$matches[1]] = $argv[$index + 1];
+                    $index++;
+                } else {
+                    $configs[$matches[1]] = true;
+                }
+            }
+            $index++;
+        }
+        return $configs;
+    }
+}
+?>
