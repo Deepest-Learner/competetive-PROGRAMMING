@@ -126,3 +126,42 @@ class BootstrapNode {
 
         $infoToSend = array(
             'action' => 'GETGENESIS'
+        );
+		$infoPOST = Socket::sendMessageWithReturn($ip,$port,$infoToSend,60);
+		if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1)
+			return $infoPOST['result'];
+		else
+			return null;
+    }
+
+    /**
+     *
+     * We get the next 100 blocks given a current height
+     *
+     * @param DB $chaindata
+     * @param int $lastBlockOnLocalBlockChain
+     * @param bool $isTestNet
+     * @return mixed
+     */
+    public static function SyncNextBlocksFrom(int $lastBlockOnLocalBlockChain,bool $isTestNet=false) {
+
+        if ($isTestNet) {
+            $ip = NODE_BOOTSTRAP_TESTNET;
+            $port = NODE_BOOSTRAP_PORT_TESTNET;
+        } else {
+            $ip = NODE_BOOTSTRAP;
+            $port = NODE_BOOSTRAP_PORT;
+        }
+
+        $infoToSend = array(
+            'action' => 'SYNCBLOCKS',
+            'from' => $lastBlockOnLocalBlockChain
+        );
+		$infoPOST = Socket::sendMessageWithReturn($ip,$port,$infoToSend);
+		if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1)
+			return $infoPOST['result'];
+		else
+			return 0;
+    }
+}
+?>
