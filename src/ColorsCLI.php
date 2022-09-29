@@ -39,4 +39,10 @@ class ColorsCLI {
     public static $BG_RED           = "\033[41m";
     public static $BG_GREEN         = "\033[42m";
     public static $BG_YELLOW        = "\033[43m";
-    public sta
+    public static $BG_BLUE          = "\033[44m";
+    public static $BG_MAGENTA       = "\033[45m";
+    public static $BG_CYAN          = "\033[46m";
+    public static $BG_LIGHT_GRAY    = "\03347m";
+
+}
+?>
