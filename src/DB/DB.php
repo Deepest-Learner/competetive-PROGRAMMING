@@ -132,4 +132,39 @@ class DB extends DBBase {
         return false;
     }
 
- 
+    /**
+     * Returns an array with all the peers
+     *
+     * @return array
+     */
+    public function GetAllPeers() : array {
+        $peers = [];
+        $peers_chaindata = $this->db->query("SELECT * FROM peers WHERE blacklist IS NULL OR blacklist < ".time()." ORDER BY id");
+        if (!empty($peers_chaindata)) {
+            while ($peer = $peers_chaindata->fetch_array(MYSQLI_ASSOC)) {
+                $ip = str_replace("\r","",$peer['ip']);
+                $ip = str_replace("\n","",$ip);
+
+                $port = str_replace("\r","",$peer['port']);
+                $port = str_replace("\n","",$port);
+
+                $infoPeer = array(
+                    'ip' => $ip,
+                    'port' => $port
+                );
+                $peers[] = $infoPeer;
+            }
+        }
+        return $peers;
+    }
+
+	/**
+     * Returns true if this peer has blacklisted
+	 *
+	 * @param string $ip
+	 * @param string $port
+     * @return bool
+     */
+	public function CheckIfPeerIsBlacklisted(string $ip, string $port) : bool {
+        $peers = [];
+        $peersBlackListed = $this->db->query("SELECT * FROM peers WHERE ip = '".$ip."' 
