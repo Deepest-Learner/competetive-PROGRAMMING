@@ -65,4 +65,41 @@ class DB extends DBBase {
      *
      * @param $ip
      * @param $port
-     * 
+     * @return bool
+     */
+    public function addPeer(string $ip,string $port) : bool {
+        $info_mined_blocks_by_peer = $this->db->query("SELECT ip FROM peers WHERE ip = '".$ip."' AND port = '".$port."';")->fetch_assoc();
+        if (empty($info_mined_blocks_by_peer)) {
+            $this->db->query("INSERT INTO peers (ip,port) VALUES ('".$ip."', '".$port."');");
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns whether or not we have this peer saved in the chaindata
+     *
+     * @param $ip
+     * @param $port
+     * @return bool
+     */
+    public function haveThisPeer(string $ip,string $port) : bool {
+        $info_mined_blocks_by_peer = $this->db->query("SELECT ip FROM peers WHERE ip = '".$ip."' AND port = '".$port."';")->fetch_assoc();
+        if (!empty($info_mined_blocks_by_peer)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Save config on database
+     *
+     * @param $ipAndPort
+     */
+    public function addPeerToBlackList(string $ipAndPort) : void {
+        //Get IP and Port
+        $tmp = explode(':',$ipAndPort);
+        $ip = $tmp[0];
+        $port = $tmp[1];
+
+        if (strlen($i
