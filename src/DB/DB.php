@@ -102,4 +102,34 @@ class DB extends DBBase {
         $ip = $tmp[0];
         $port = $tmp[1];
 
-        if (strlen($i
+        if (strlen($ip) > 0 && strlen($port) > 0) {
+            $currentInfoPeer = $this->db->query("SELECT id FROM peers WHERE ip = '".$ip."' AND port = '".$port."';")->fetch_assoc();
+
+            //Ban peer 10min
+            $blackListTime = time() + (5 * 60);
+            if (empty($currentInfoPeer)) {
+                $this->db->query("INSERT INTO peers (ip,port,blacklist) VALUES ('".$ip."', '".$port."', '".$blackListTime."');");
+            }
+            else {
+                $this->db->query("UPDATE peers SET blacklist='".$blackListTime."' WHERE ip = '".$ip."' AND port = '".$port."';");
+            }
+        }
+    }
+
+    /**
+     * Remove a peer from the chaindata
+     *
+     * @param $ip
+     * @param $port
+     * @return bool
+     */
+    public function removePeer(string $ip,string $port) : bool {
+        $info_mined_blocks_by_peer = $this->db->query("SELECT ip FROM peers WHERE ip = '".$ip."' AND port = '".$port."';")->fetch_assoc();
+        if (!empty($info_mined_blocks_by_peer)) {
+            if ($this->db->query("DELETE FROM peers WHERE ip = '".$ip."' AND port= '".$port."';"))
+                return true;
+        }
+        return false;
+    }
+
+ 
