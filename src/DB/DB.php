@@ -26,4 +26,43 @@ class DB extends DBBase {
     public function __construct() {
 
         //We create or load the database
-        $this->
+        $this->db = @new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME, DB_PORT);
+		if (isset($this->db->connect_error) && strlen($this->db->connect_error) > 0) {
+			Display::_error('Database ERROR');
+			Display::_error($this->db->connect_error);
+			if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+				Display::_error("Press Enter to close close window");
+				readline();
+			}
+		}
+    }
+
+    /**
+     * Get current network
+     *
+     * @return string
+     */
+    public function GetNetwork() : string {
+        $currentNetwork = $this->db->query("SELECT val FROM config WHERE cfg = 'network';")->fetch_assoc();
+        if (!empty($currentNetwork))
+            return strtolower($currentNetwork['val']);
+        return "mainnet";
+    }
+
+    /**
+     * @return array
+     */
+    public function GetBootstrapNode() : array {
+        $info_mined_blocks_by_peer = $this->db->query("SELECT * FROM peers ORDER BY id ASC LIMIT 1;")->fetch_assoc();
+        if (!empty($info_mined_blocks_by_peer)) {
+            return $info_mined_blocks_by_peer;
+        }
+        return null;
+    }
+
+    /**
+     * Add a peer to the chaindata
+     *
+     * @param $ip
+     * @param $port
+     * 
