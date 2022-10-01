@@ -167,4 +167,41 @@ class DB extends DBBase {
      */
 	public function CheckIfPeerIsBlacklisted(string $ip, string $port) : bool {
         $peers = [];
-        $peersBlackListed = $this->db->query("SELECT * FROM peers WHERE ip = '".$ip."' 
+        $peersBlackListed = $this->db->query("SELECT * FROM peers WHERE ip = '".$ip."' AND port = '".$port."' AND blacklist IS NOT NULL AND blacklist >= ".time()." LIMIT 1")->fetch_array(MYSQLI_ASSOC);
+        if (empty($peersBlackListed)) {
+			return false;
+        }
+        return true;
+    }
+
+	/**
+     * Returns an array with all the peers without bootstrap node peer
+     *
+     * @return array
+     */
+    public function GetAllPeersWithoutBootstrap() : array {
+        $peers = [];
+        $peers_chaindata = $this->db->query("SELECT * FROM peers WHERE blacklist IS NULL OR blacklist < ".time()." ORDER BY id");
+        if (!empty($peers_chaindata)) {
+            while ($peer = $peers_chaindata->fetch_array(MYSQLI_ASSOC)) {
+				if ($peer['ip'] == NODE_BOOTSTRAP || $peer['ip'] == NODE_BOOTSTRAP_TESTNET)
+					continue;
+
+                $infoPeer = array(
+                    'ip' => $peer['ip'],
+                    'port' => $peer['port']
+                );
+                $peers[] = $infoPeer;
+            }
+        }
+        return $peers;
+    }
+
+    /**
+     * Returns an array with 25 random peers
+     *
+     * @return array
+     */
+    public function GetPeers() : array {
+        $peers = [];
+        $peers_chaindata = $this->db->query("SELECT * FROM
