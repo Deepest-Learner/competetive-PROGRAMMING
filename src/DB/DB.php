@@ -237,4 +237,44 @@ class DB extends DBBase {
 			$current = @bcsub($current,$walletInfo['sended'],18);
 			$current = @bcsub($current,$walletInfo['fees'],18);
 			$current = uint256::parse($current);
-      
+        }
+
+		return array(
+            'sended' => $totalSpend,
+            'received' => $totalReceived,
+			'mined' => $totalReceivedReal,
+            'current' => $current
+        );
+
+    }
+
+	/**
+	 * Returns the tokens of a wallet
+	 *
+	 * @param string $wallet
+	 * @return array
+	 */
+	public function GetWalletTokens(string $wallet) : array {
+
+		$tokens = ['j4frc10'=>[],'j4frc20'=>[]];
+
+		$tokensAccount = $this->db->query("SELECT * FROM accounts_j4frc10 WHERE hash = '".$wallet."';");
+		if (!empty($tokensAccount)) {
+			while ($tokenAccountInfo = $tokensAccount->fetch_array(MYSQLI_ASSOC)) {
+				$tokenHash = $tokenAccountInfo['contract_hash'];
+
+				$totalSpend = uint256::parse($tokenAccountInfo['sended']);
+				$totalReceivedReal = uint256::parse($tokenAccountInfo['received']);
+				$current = uint256::parse(bcsub($tokenAccountInfo['received'],$tokenAccountInfo['sended'],18));
+
+
+				$tokens['j4frc10'][$tokenHash]['info'] = array(
+		            'sended' => $totalSpend,
+		            'received' => $totalReceivedReal,
+		            'current' => $current
+		        );
+			}
+		}
+		foreach ($tokens['j4frc10'] as $tokenHash=>$tokenInfo) {
+
+			$contractInfo = $this->GetContractBy
