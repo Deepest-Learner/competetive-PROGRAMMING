@@ -204,4 +204,37 @@ class DB extends DBBase {
      */
     public function GetPeers() : array {
         $peers = [];
-        $peers_chaindata = $this->db->query("SELECT * FROM
+        $peers_chaindata = $this->db->query("SELECT * FROM peers WHERE blacklist IS NULL OR blacklist < ".time()." LIMIT 25");
+        if (!empty($peers_chaindata)) {
+            while ($peer = $peers_chaindata->fetch_array(MYSQLI_ASSOC)) {
+                $infoPeer = array(
+                    'ip' => $peer['ip'],
+                    'port' => $peer['port']
+                );
+                $peers[] = $infoPeer;
+            }
+        }
+        return $peers;
+    }
+
+	/**
+     * Returns the information of a wallet
+     *
+     * @param string $wallet
+     * @return array
+     */
+    public function GetWalletInfo(string $wallet) : array {
+
+		$totalSpend = $totalReceivedReal = $current = $totalReceived = 0;
+
+		$walletInfo = $this->db->query("SELECT * FROM accounts WHERE hash = '".$wallet."';")->fetch_assoc();
+        if (!empty($walletInfo)) {
+			$totalSpend = uint256::parse($walletInfo['sended']);
+			$totalReceived = uint256::parse($walletInfo['received']);
+			$totalMined = uint256::parse($walletInfo['mined']);
+
+			$current = @bcadd($walletInfo['received'],$walletInfo['mined'],18);
+			$current = @bcsub($current,$walletInfo['sended'],18);
+			$current = @bcsub($current,$walletInfo['fees'],18);
+			$current = uint256::parse($current);
+      
