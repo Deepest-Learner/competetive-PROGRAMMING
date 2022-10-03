@@ -277,4 +277,34 @@ class DB extends DBBase {
 		}
 		foreach ($tokens['j4frc10'] as $tokenHash=>$tokenInfo) {
 
-			$contractInfo = $this->GetContractBy
+			$contractInfo = $this->GetContractByHash($tokenHash);
+			$tokenDefines = J4FVMTools::getTokenDefine(Tools::hex2str($contractInfo['code']));
+
+			$tokens['j4frc10'][$tokenHash]['Token'] = trim($tokenDefines['Token']);
+			$tokens['j4frc10'][$tokenHash]['Name'] = trim($tokenDefines['Name']);
+		}
+
+		$tokensRC20Account = $this->db->query("SELECT * FROM accounts_j4frc20 WHERE hash = '".$wallet."';");
+		if (!empty($tokensRC20Account)) {
+			while ($tokenRC20AccountInfo = $tokensRC20Account->fetch_array(MYSQLI_ASSOC)) {
+				$tokenHash = $tokenRC20AccountInfo['contract_hash'];
+				$tokenId = $tokenRC20AccountInfo['tokenId'];
+
+				$tokens['j4frc20'][$tokenHash]['tokens'][$tokenId] = true;
+			}
+		}
+		foreach ($tokens['j4frc20'] as $tokenHash=>$tokenInfo) {
+
+			$contractInfo = $this->GetContractByHash($tokenHash);
+			$tokenDefines = J4FVMTools::getTokenDefine(Tools::hex2str($contractInfo['code']));
+
+			$tokens['j4frc20'][$tokenHash]['Token'] = trim($tokenDefines['Token']);
+			$tokens['j4frc20'][$tokenHash]['Name'] = trim($tokenDefines['Name']);
+		}
+
+		return $tokens;
+	}
+
+}
+
+?>
