@@ -32,4 +32,49 @@ class DBBase extends DBBlocks {
      * Check if have RocksDB Engine installed on MariaDB Server
      *
      * @return bool`
-     
+     */
+    public function HaveRocksDBEngine() : bool {
+		try {
+			$query = $this->db->query("SHOW ENGINES;");
+	        if (!empty($query)) {
+	            while ($engines = $query->fetch_array(MYSQLI_ASSOC)) {
+					if (strtoupper($engines['Engine']) == 'ROCKSDB')
+						return true;
+				}
+	        }
+		}
+		catch (Exception $e) { }
+        return false;
+    }
+
+    /**
+     * Get all config
+     *
+     * @return array
+     */
+    public function GetAllConfig() : array {
+        $_CONFIG = array();
+        $query = $this->db->query("SELECT cfg, val FROM config");
+        if (!empty($query)) {
+            while ($cfg = $query->fetch_array(MYSQLI_ASSOC))
+                $_CONFIG[$cfg['cfg']] = trim($cfg['val']);
+        }
+        return $_CONFIG;
+    }
+
+    /**
+     * Get config
+     *
+     * @param $key
+     * @return string
+     */
+    public function GetConfig(string $key) : string {
+        $currentConfig = $this->db->query("SELECT val FROM config WHERE cfg = '".$key."';")->fetch_assoc();
+        if (!empty($currentConfig)) {
+            return $currentConfig['val'];
+        }
+        return "";
+    }
+
+    /**
+     * Save co
