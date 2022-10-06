@@ -77,4 +77,20 @@ class DBBase extends DBBlocks {
     }
 
     /**
-     * Save co
+     * Save config on database
+     *
+     * @param string $key
+     * @param string $value
+     */
+    public function SetConfig(string $key,string $value) : void {
+        $currentConfig = $this->db->query("SELECT val FROM config WHERE cfg = '".$key."';")->fetch_assoc();
+        if (empty($currentConfig)) {
+            $this->db->query("INSERT INTO config (cfg,val) VALUES ('".$key."', '".$value."');");
+        }
+        else {
+            $this->db->query("UPDATE config SET val='".$value."' WHERE cfg='".$key."'");
+        }
+    }
+}
+
+?>
