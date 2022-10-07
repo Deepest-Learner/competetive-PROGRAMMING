@@ -675,3 +675,145 @@ class DBBlocks extends DBContracts {
                     while ($transactionInfo = $transactions_chaindata->fetch_array(MYSQLI_ASSOC)) {
                         $transactions[] = $transactionInfo;
                     }
+                }
+
+                $blockInfo["transactions"] = $transactions;
+
+                $genesis_block = $blockInfo;
+            }
+        }
+        return $genesis_block;
+
+    }
+
+    /**
+     * Returns last block
+     *
+     * @param bool $withTransactions
+     *
+     * @return array
+     */
+    public function GetLastBlock(bool $withTransactions=true) : array {
+        $lastBlock = [];
+		$lastBlockNum = $this->GetCurrentBlockNum();
+        $infoLastBlock = $this->db->query("SELECT * FROM blocks WHERE height = " . $lastBlockNum);
+
+        if (!empty($infoLastBlock)) {
+            while ($blockInfo = $infoLastBlock->fetch_array(MYSQLI_ASSOC)) {
+
+                $transactions = array();
+
+				//Miner TXN
+                $sql = "SELECT txn_hash FROM transactions WHERE block_hash = '".$blockInfo['block_hash']."' AND wallet_from = '' ORDER BY gasPrice DESC, gasLimit DESC, timestamp DESC;";
+                if ($withTransactions)
+                    $sql = "SELECT * FROM transactions WHERE block_hash = '".$blockInfo['block_hash']."' AND wallet_from = '' ORDER BY gasPrice DESC, gasLimit DESC, timestamp DESC;";
+                $transactions_chaindata = $this->db->query($sql);
+                if (!empty($transactions_chaindata)) {
+                    while ($transactionInfo = $transactions_chaindata->fetch_array(MYSQLI_ASSOC)) {
+                        if ($withTransactions)
+                            $transactions[] = $transactionInfo;
+                        else
+                            $transactions[] = $transactionInfo['txn_hash'];
+                    }
+                }
+
+				//Other TXNs
+                $sql = "SELECT txn_hash FROM transactions WHERE block_hash = '".$blockInfo['block_hash']."' AND wallet_from <> '' ORDER BY gasPrice DESC, gasLimit DESC, timestamp DESC;";
+                if ($withTransactions)
+                    $sql = "SELECT * FROM transactions WHERE block_hash = '".$blockInfo['block_hash']."' AND wallet_from <> '' ORDER BY gasPrice DESC, gasLimit DESC, timestamp DESC;";
+                $transactions_chaindata = $this->db->query($sql);
+                if (!empty($transactions_chaindata)) {
+                    while ($transactionInfo = $transactions_chaindata->fetch_array(MYSQLI_ASSOC)) {
+                        if ($withTransactions)
+                            $transactions[] = $transactionInfo;
+                        else
+                            $transactions[] = $transactionInfo['txn_hash'];
+                    }
+                }
+
+                $blockInfo["transactions"] = $transactions;
+                $lastBlock = $blockInfo;
+            }
+        }
+        return $lastBlock;
+
+    }
+
+    /**
+     * Returns the blocks to be synchronized from the block passed by parameter
+     *
+     * @param int $fromBlock
+     * @return array
+     */
+    public function SyncBlocks(int $fromBlock) : array {
+
+		$blocks_in = "";
+		for ($i = $fromBlock; $i <= $fromBlock + 1000; $i++) {
+			if (strlen($blocks_in) > 0)
+				$blocks_in .= ",";
+			$blocks_in .= $i;
+		}
+
+        $blocksToSync = array();
+        $blocks_chaindata = $this->db->query("SELECT * FROM blocks WHERE height IN (".$blocks_in.") ORDER BY height ASC;");
+
+        //If we have block information, we will import them into a new BlockChain
+        if (!empty($blocks_chaindata)) {
+            $height = 0;
+            while ($blockInfo = $blocks_chaindata->fetch_array(MYSQLI_ASSOC)) {
+
+				//Miner TXN
+                $transactions_chaindata = $this->db->query("SELECT * FROM transactions WHERE block_hash = '".$blockInfo['block_hash']."' and wallet_from = '' ORDER BY gasPrice DESC, gasLimit DESC, timestamp DESC;");
+                $transactions = array();
+                if (!empty($transactions_chaindata)) {
+                    while ($transactionInfo = $transactions_chaindata->fetch_array(MYSQLI_ASSOC)) {
+                        $transactions[] = $transactionInfo;
+                    }
+                }
+
+				//Other TXNs
+				$transactions_chaindata = $this->db->query("SELECT * FROM transactions WHERE block_hash = '".$blockInfo['block_hash']."' and wallet_from <> '' ORDER BY gasPrice DESC, gasLimit DESC, timestamp DESC;");
+                if (!empty($transactions_chaindata)) {
+                    while ($transactionInfo = $transactions_chaindata->fetch_array(MYSQLI_ASSOC)) {
+                        $transactions[] = $transactionInfo;
+                    }
+                }
+
+                $blockInfo["transactions"] = $transactions;
+
+                $blocksToSync[] = $blockInfo;
+            }
+        }
+        return $blocksToSync;
+    }
+
+	/**
+     * Get Avg time block from height
+     *
+     * @param $height
+     * @return float
+     */
+	public function GetAvgBlockTime(int $height, int $limit = -1) : float {
+
+		$totalTimeMined = 0;
+		$numBlocks = 0;
+
+		if ($limit == -1) {
+			$sql = "SELECT timestamp_start_miner,timestamp_end_miner FROM blocks WHERE height >= '".$height."' ORDER BY height ASC;";
+		}
+		else {
+			$sql = "SELECT timestamp_start_miner,timestamp_end_miner FROM blocks WHERE height >= '".$height."' ORDER BY height ASC LIMIT ".$limit.";";
+		}
+		$blocks = $this->db->query($sql);
+		if (!empty($blocks)) {
+            while ($blockInfo = $blocks->fetch_array(MYSQLI_ASSOC)) {
+				$numBlocks++;
+				$totalTimeMined += $blockInfo['timestamp_end_miner'] - $blockInfo['timestamp_start_miner'];
+			}
+		}
+
+		return ceil($totalTimeMined / $numBlocks);
+	}
+}
+
+?>
