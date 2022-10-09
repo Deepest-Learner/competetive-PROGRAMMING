@@ -53,4 +53,32 @@ class GenesisBlock {
             Display::print("%LR%ERROR");
             Display::print("There is alrady exist a %G%GENESIS%W% Block");
             Display::print("Block #0 -> Hash: %LG%".$GENESIS_block_chaindata['block_hash']);
-        
+            if (IS_WIN)
+                readline("Press any key to close close window");
+            exit();
+        }
+    }
+
+	/**
+     * Mine a GENESIS BLOCK on MainThread
+     *
+     * @param DB $chaindata
+     * @param string $coinbase
+     * @param string $privKey
+     * @param int $amount
+     * @param bool $isTestNet
+     */
+	public static function makeMainThread(DB &$chaindata,string $coinbase,string $privKey,string $amount,bool $isTestNet) : void {
+		//We created the GENESIS block on mainthread
+		$genesisBlock = $chaindata->GetGenesisBlock();
+		$lastBlock = $chaindata->GetLastBlock();
+
+		$transactions = Transaction::withGas("",$coinbase,$amount,$privKey,"","If you want different results, do not do the same things", 21000, "0");
+		$transactions = [$transactions];
+
+		//Define block
+		$genesisBlock = new Block(0,"",2,$transactions,$lastBlock,$genesisBlock,0,1);
+
+		//Save transactions for this block
+        Tools::writeFile(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subprocess::$FILE_TX_INFO,Tools::str2hex(@serialize($transactions)));
+        Tools::writeFile(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subproc
