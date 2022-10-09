@@ -30,4 +30,27 @@ class GenesisBlock {
     public static function make(DB &$chaindata,string $coinbase,string $privKey,bool $isTestNet,string $amount="50") : void {
 
         @unlink(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
-        @unlink(Tools::GetBaseDir
+        @unlink(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_STARTED);
+        @unlink(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subprocess::$FILE_TX_INFO);
+
+        //We check that there is no block GENESIS
+        $GENESIS_block_chaindata = $chaindata->db->query("SELECT height, block_hash FROM blocks WHERE height = 0")->fetch_assoc();
+        if (empty($GENESIS_block_chaindata)) {
+            //we show the message that we generated the GENESIS block
+            Display::print("Generating %G%GENESIS%W% - Block %G%#0");
+            Display::print("Minning Block %G%#0");
+
+			//We created the GENESIS block by MainThread
+			if (MINER_MAX_SUBPROCESS <= 1)
+				self::makeMainThread($chaindata,$coinbase, $privKey,$amount,$isTestNet);
+
+			//We created the GENESIS block by miner subprocess
+			else
+				self::makeWithSubprocess($chaindata, $coinbase, $privKey,$amount,$isTestNet);
+
+        } else {
+            //we show the message that there is already a block genesis
+            Display::print("%LR%ERROR");
+            Display::print("There is alrady exist a %G%GENESIS%W% Block");
+            Display::print("Block #0 -> Hash: %LG%".$GENESIS_block_chaindata['block_hash']);
+        
