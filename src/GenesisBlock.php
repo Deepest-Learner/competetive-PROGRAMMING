@@ -143,4 +143,34 @@ class GenesisBlock {
 					Display::_error("%LR%GENESIS%W% no valid");
 					Display::_error("%LR%HASH%W% " . $genesisBlock->hash);
 					Display::_error("%LR%PREVIOUS%W% " . $genesisBlock->previous);
-					Display::_error(
+					Display::_error("%LR%DIFFICULTY%W% " . $genesisBlock->difficulty);
+					Display::_error("%LR%NONCE%W% " . $genesisBlock->nonce);
+					//Display::_error("%LR%HASH%W% " . $genesisBlock->info);
+					if (IS_WIN)
+						readline("Press any Enter to close close window");
+					exit();
+				}
+
+				//Save genesis block into blockchain
+				$chaindata->addBlock(0,$genesisBlock);
+
+				//Display message
+				Display::ShowMessageNewBlock('mined',0,$genesisBlock);
+
+				//Stop minning subprocess
+				Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+				@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_STARTED);
+				//@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.'NEW_BLOCK');
+
+				//We show the information of the mined block
+				Display::print("New Block mined with hash: %G%".$genesisBlock->hash);
+				Display::print("Nonce of Block: %G%".$genesisBlock->nonce);
+				Display::print("Transactions in Block: %LG%".count($genesisBlock->transactions));
+
+				Display::print("%G%GENESIS%W% Block was successfully generated");
+				Display::_br();
+				if (IS_WIN)
+					readline("Press any Enter to close close window");
+				exit();
+			}
+			usleep(1000000)
