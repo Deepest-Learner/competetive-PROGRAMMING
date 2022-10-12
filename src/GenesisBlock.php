@@ -112,4 +112,35 @@ class GenesisBlock {
 		Display::print("%G%GENESIS%W% Block was successfully generated");
 		Display::_br();
 		if (IS_WIN)
-			readline("Press any Enter to close close 
+			readline("Press any Enter to close close window");
+		exit();
+	}
+
+	/**
+     * Mine a GENESIS BLOCK on Subprocess
+     *
+     * @param DB $chaindata
+     * @param string $coinbase
+     * @param string $privKey
+     * @param int $amount
+     * @param bool $isTestNet
+     */
+	public static function makeWithSubprocess(DB &$chaindata,string $coinbase,string $privKey,string $amount,bool $isTestNet) : void {
+		//Start subprocess to make Genesis Block
+		Block::createGenesisWithSubProcess($coinbase, $privKey,$amount,$isTestNet);
+
+		//Wait for block to be generated
+		while(true) {
+
+			//Update MainThread time for subprocess
+			Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK,time());
+
+			//If found new block
+			if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_NEW_BLOCK)) {
+				$genesisBlock = Tools::objectToObject(@unserialize(Tools::hex2str(file_get_contents(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_NEW_BLOCK))),'Block');
+
+				if (!$genesisBlock->isValid()) {
+					Display::_error("%LR%GENESIS%W% no valid");
+					Display::_error("%LR%HASH%W% " . $genesisBlock->hash);
+					Display::_error("%LR%PREVIOUS%W% " . $genesisBlock->previous);
+					Display::_error(
