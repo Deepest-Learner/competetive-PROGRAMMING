@@ -173,4 +173,39 @@ class GenesisBlock {
 					readline("Press any Enter to close close window");
 				exit();
 			}
-			usleep(1000000)
+			usleep(1000000);
+		}
+	}
+
+    /**
+     * @param $genesis_block_bootstrap
+     * @param DB $chaindata
+     * @return bool
+     */
+    public static function makeFromPeer(DB &$chaindata, array $genesis_block_bootstrap) : bool {
+        $transactions = array();
+        if (!empty($genesis_block_bootstrap['transactions'])) {
+            foreach ($genesis_block_bootstrap['transactions'] as $transactionInfo) {
+				$transactions[] = Transaction::withGas(
+                    $transactionInfo['wallet_from_key'],
+                    $transactionInfo['wallet_to'],
+                    $transactionInfo['amount'],
+                    "",
+                    "",
+					$transactionInfo['data'],
+					$transactionInfo['gasLimit'],
+					$transactionInfo['gasPrice'],
+                    true,
+                    $transactionInfo['txn_hash'],
+                    $transactionInfo['signature'],
+                    $transactionInfo['timestamp']
+                );
+            }
+		}
+
+        $infoBlock = @unserialize($genesis_block_bootstrap['info']);
+
+        $genesis_block = new Block(
+            0,
+            $genesis_block_bootstrap['block_previous'],
+            $genesis_block_bootstra
