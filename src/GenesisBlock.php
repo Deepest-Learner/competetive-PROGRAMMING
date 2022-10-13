@@ -208,4 +208,30 @@ class GenesisBlock {
         $genesis_block = new Block(
             0,
             $genesis_block_bootstrap['block_previous'],
-            $genesis_block_bootstra
+            $genesis_block_bootstrap['difficulty'],
+            $transactions,
+            null,
+            null,
+            0,
+            1,
+			true,
+            $genesis_block_bootstrap['block_hash'],
+            $genesis_block_bootstrap['nonce'],
+            $genesis_block_bootstrap['timestamp_start_miner'],
+            $genesis_block_bootstrap['timestamp_end_miner'],
+            $genesis_block_bootstrap['root_merkle'],
+            $infoBlock
+        );
+
+        //Check if node is connected on testnet or mainnet
+        $isTestnet = ($chaindata->GetNetwork() == "testnet") ? true:false;
+
+        //We check if the received block is valid
+        if ($genesis_block->isValid()) {
+            //We add the GENESIS block to the local blockchain
+            $chaindata->addBlock(0,$genesis_block);
+            return true;
+        }
+        return false;
+    }
+}
