@@ -83,4 +83,43 @@ final class Gossip {
 			$db->SetConfig('network','mainnet');
 
 		//Set miner config
-		if ($this->en
+		if ($this->enable_mine)
+			$db->SetConfig('miner','on');
+		else
+			$db->SetConfig('miner','off');
+
+		//Set bootstrap config
+		if ($this->bootstrap_node)
+			$db->SetConfig('isBootstrap','on');
+		else
+			$db->SetConfig('isBootstrap','off');
+
+		//Set default hashrate to 0
+		$db->SetConfig('hashrate','0');
+
+		//We declare that we are not synchronizing
+		$this->syncing = false;
+		$db->SetConfig('syncing','off');
+		$db->SetConfig('p2p','off');
+
+		$this->name = $name;
+		$this->ip = $ip;
+		$this->port = $port;
+
+		//We create default folders
+		Tools::MakeDataDirectory();
+
+		//Clear TMP files
+		Tools::clearTmpFolder();
+		@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.'node_log');
+		@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+		@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sanity");
+
+		//Default miners stopped
+		Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+
+		//Update MainThread time for subprocess
+		Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK,time());
+
+		//Instance the pointer to the chaindata and get config
+		$this->chaindata = $db;
