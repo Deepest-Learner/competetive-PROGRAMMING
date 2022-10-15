@@ -159,3 +159,30 @@ final class Gossip {
 		$server = $config->nameservers ? reset($config->nameservers) : '8.8.8.8';
 
 		$factory = new React\Dns\Resolver\Factory();
+		$dns = $factory->create($server, $loop);
+
+		//Delayed Init Function
+		$loop->addTimer(0, function () use ($gossip) {
+	        //WE GENERATE THE GENESIS BLOCK
+	        if ($gossip->make_genesis) {
+	            if(!$gossip->isTestNet)
+	                GenesisBlock::make($gossip->chaindata,$gossip->coinbase,$gossip->key->privKey,$gossip->isTestNet,bcadd("2","0",18));
+	            else
+	                GenesisBlock::make($gossip->chaindata,$gossip->coinbase,$gossip->key->privKey,$gossip->isTestNet,bcadd("99999999999999999999999999999999","0",18));
+	        }
+
+	        //We are a BOOTSTRAP node
+	        else if ($gossip->bootstrap_node) {
+	            if ($gossip->isTestNet)
+	                Display::print("%Y%BOOTSTRAP NODE %W%(%G%TESTNET%W%) loaded successfully");
+	            else
+	                Display::print("%Y%BOOTSTRAP NODE %W%loaded successfully");
+
+	            $lastBlock = $gossip->chaindata->GetLastBlock(false);
+
+	            Display::print("Height: %G%".$lastBlock['height']);
+
+	            $gossip->difficulty = Blockchain::checkDifficulty($gossip->chaindata,null, $gossip->isTestNet)[0];
+
+	            Display::print("LastBlock: %G%".$lastBlock['block_hash']);
+	       
