@@ -123,3 +123,39 @@ final class Gossip {
 
 		//Instance the pointer to the chaindata and get config
 		$this->chaindata = $db;
+		$this->config = $this->chaindata->GetAllConfig();
+
+		//We started with that we do not have pending transactions
+		$this->pending_transactions = array();
+
+		//We create the Wallet for the node
+		$this->key = new Key(Wallet::LoadOrCreate('coinbase',"null"));
+
+		if (strlen($this->key->pubKey) != 451) {
+			Display::_error("Can't get the public/private key");
+			Display::_error("Make sure you have openssl installed and activated in php");
+			exit();
+		}
+		$this->coinbase = Wallet::GetWalletAddressFromPubKey($this->key->pubKey);
+		Display::print("Coinbase detected: %LG%".$this->coinbase);
+
+		//Save pointer of Gossip
+		$gossip = $this;
+
+		if ($sanityBlockchain > 0) {
+			$gossip->SanityFromBlockHeight($sanityBlockchain);
+			exit();
+		}
+
+		//Check integrity of last 20 blocks
+		if ($this->chaindata->GetCurrentBlockNum() > 0) {
+			Display::print("%Y%CHECKING INTEGRITY%W% of last 20 blocks");
+			Blockchain::checkIntegrity($gossip->chaindata,null,20);
+		}
+
+		$loop = React\EventLoop\Factory::create();
+
+		$config = React\Dns\Config\Config::loadSystemConfigBlocking();
+		$server = $config->nameservers ? reset($config->nameservers) : '8.8.8.8';
+
+		$factory = new React\Dns\Resolver\Factory();
