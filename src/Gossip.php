@@ -185,4 +185,36 @@ final class Gossip {
 	            $gossip->difficulty = Blockchain::checkDifficulty($gossip->chaindata,null, $gossip->isTestNet)[0];
 
 	            Display::print("LastBlock: %G%".$lastBlock['block_hash']);
-	       
+	            Display::print("Difficulty: %G%".$gossip->difficulty);
+	            Display::print("Current peers: %G%".count($gossip->chaindata->GetAllPeers()));
+
+	            //Check peers status
+	            $gossip->CheckConnectionWithPeers($gossip);
+	        }
+
+	        //If we already have information, we establish the loaded state
+	        else {
+				//Check if have peers
+				$peers = $gossip->chaindata->GetAllPeers();
+				if (count($peers) == 0) {
+					//If no have peers, connect to boostrap and get peers
+					$gossip->_connectToBootstrapNode($gossip);
+					//We ask the BootstrapNode to give us the information of the connected peers
+	                $peersNode = BootstrapNode::GetPeers($gossip->chaindata,$gossip->isTestNet);
+					$this->ConnectToBootstrapPeers($peersNode);
+				}
+				else {
+					//We have peers, connect to all peers
+					$this->ConnectToMyPeers($peers);
+				}
+
+				//If can't connect to any peers, try to connect to bootstrap
+				if (count($gossip->peers) == 0) {
+					$gossip->_connectToBootstrapNode($gossip);
+				}
+
+				//Get more peers from my current peers list (connected)
+				$this->GetMorePeersFromMyPeers();
+
+				//Check if have required peers to run node
+          
