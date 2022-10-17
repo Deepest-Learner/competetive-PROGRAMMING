@@ -217,4 +217,27 @@ final class Gossip {
 				$this->GetMorePeersFromMyPeers();
 
 				//Check if have required peers to run node
-          
+                if (count($gossip->peers) < PEERS_REQUIRED) {
+                    Display::_error("there are not enough peers       count=".count($gossip->peers)."   required=".PEERS_REQUIRED);
+                    if (IS_WIN)
+                        readline("Press any Enter to close close window");
+                    exit();
+                }
+
+				//Select random peer to check status
+				$ipAndPort = Peer::GetHighestBlockFromPeers($gossip);
+				$lastBlock_PeerNode = Peer::GetLastBlockNum($ipAndPort);
+                $lastBlock_LocalNode = $this->chaindata->GetCurrentBlockNum();
+
+                //We check if we need to synchronize or not
+                if ($lastBlock_LocalNode < $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
+                    Display::print("%LR%DeSync detected %W%- Downloading blocks (%G%".$lastBlock_LocalNode."%W%/%Y%".$lastBlock_PeerNode.")");
+
+					//We declare that we are synchronizing
+                    $gossip->syncing = true;
+
+                    $gossip->chaindata->SetConfig('syncing','on');
+
+					//Select a peer to sync
+					$ipPort = explode(':',$ipAndPort);
+					Display::print("Selected peer to sync -> %G%".Tools::GetIdFromIpAndPort($
