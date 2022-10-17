@@ -240,4 +240,30 @@ final class Gossip {
 
 					//Select a peer to sync
 					$ipPort = explode(':',$ipAndPort);
-					Display::print("Selected peer to sync -> %G%".Tools::GetIdFromIpAndPort($
+					Display::print("Selected peer to sync -> %G%".Tools::GetIdFromIpAndPort($ipPort[0],$ipPort[1]));
+					Tools::writeLog('Selected peer to sync			%G%'.Tools::GetIdFromIpAndPort($ipPort[0],$ipPort[1]));
+				}
+				else if ($lastBlock_LocalNode >= $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
+					$gossip->syncing = false;
+					$gossip->chaindata->SetConfig('syncing','off');
+
+					//Delete sync file
+					@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+				}
+				else {
+					$gossip->syncing = true;
+					$gossip->chaindata->SetConfig('syncing','on');
+
+					@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+					$ipAndPortToSync = Peer::GetHighestBlockFromPeers($gossip);
+					Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$ipAndPortToSync);
+				}
+
+				//If we do not have the GENESIS block, we download it from Peer (HighestChain)
+				if ($lastBlock_LocalNode == 0) {
+					//Make Genesis from Peer
+					$genesis_block_peer = Peer::GetGenesisBlock($ipAndPort);
+					$genesisMakeBlockStatus = GenesisBlock::makeFromPeer($gossip->chaindata,$genesis_block_peer);
+
+					if ($genesisMakeBlockStatus)
+						Display::print("%Y%Import
