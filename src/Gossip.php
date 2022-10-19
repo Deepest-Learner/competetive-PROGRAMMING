@@ -321,4 +321,42 @@ final class Gossip {
 					if ($gossip->enable_mine && @file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_STARTED)) {
 						//Stop minning subprocess
 						Tools::clearTmpFolder();
-						Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Sub
+						Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+					}
+
+					Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer", $ipAndPort);
+
+					//We declare that we are synchronizing
+					$gossip->syncing = true;
+
+					$gossip->chaindata->SetConfig('syncing','on');
+				}
+				else if ($lastBlock_LocalNode >= $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
+
+					$gossip->syncing = false;
+					$gossip->chaindata->SetConfig('syncing','off');
+
+					//Delete sync file
+					@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+				}
+				else {
+					$gossip->syncing = true;
+					$gossip->chaindata->SetConfig('syncing','on');
+
+					@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+					$ipAndPortToSync = Peer::GetHighestBlockFromPeers($gossip);
+					Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$ipAndPortToSync);
+				}
+			}
+		});
+
+		//Loop every 5s
+		$loop->addPeriodicTimer(5, function() use (&$gossip) {
+			//If have miners show log
+			if ($gossip->enable_mine)
+				$this->ShowInfoSubprocessMiners();
+
+			if ($gossip->syncing)
+				return;
+
+			if
