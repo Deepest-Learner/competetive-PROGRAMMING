@@ -359,4 +359,37 @@ final class Gossip {
 			if ($gossip->syncing)
 				return;
 
-			if
+			if (!$gossip->bootstrap_node)
+				return;
+
+			//Get Pending transactions from network
+			$gossip->GetPendingTransactions();
+		});
+
+		//General loop of node
+		$loop->addPeriodicTimer(1, function() use (&$gossip) {
+
+			//We establish the title of the process
+			$gossip->SetTitleProcess();
+
+			//Update MainThread time for subprocess
+			Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK,time());
+
+			if (DISPLAY_DEBUG && DISPLAY_DEBUG_LEVEL >= 3)
+				$gossip->ShowLogSubprocess();
+
+			//Check if need to sync with any peer
+			if (@file_exists(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR."sync_with_peer")) {
+				$gossip->syncing = true;
+			}
+
+			//Check if need to sanity (From subprocess propagation)
+			if (@file_exists(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR."sanity")) {
+				$gossip->busy = true;
+
+				$lastBlock_LocalNode = $gossip->chaindata->GetCurrentBlockNum();
+
+				//Micro-Sanity and resync
+				Display::_warning("Started Micro-Sanity       %G%height%W%=".$lastBlock_LocalNode."	%G%newHeight%W%=".($lastBlock_LocalNode-1));
+				$gossip->chaindata->RemoveLastBlocksFrom(($lastBlock_LocalNode-1));
+				Display::_warning("F
