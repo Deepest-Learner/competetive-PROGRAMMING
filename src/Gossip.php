@@ -290,4 +290,35 @@ final class Gossip {
                 $genesis_block_peer = Peer::GetGenesisBlock($ipAndPort);
                 $genesis_block_local = $gossip->chaindata->GetGenesisBlock();
                 if ($genesis_block_local['block_hash'] != $genesis_block_peer['block_hash']) {
-                    Display::_error("%Y%GENESIS BLOCK NO MATCH%W%    genesis block does not match the block genesis
+                    Display::_error("%Y%GENESIS BLOCK NO MATCH%W%    genesis block does not match the block genesis of peer");
+                    if (IS_WIN)
+                        readline("Press any Enter to close close window");
+                    exit();
+                }
+	        }
+
+			if ($gossip->make_genesis)
+				return;
+
+			//Get pending transactions from bootstrap
+			$gossip->GetPendingTransactions();
+
+		});
+
+		//Check peer status every 120s
+		$loop->addPeriodicTimer(120, function() use (&$gossip) {
+			$gossip->CheckConnectionWithPeers($gossip);
+
+			//If isnt bootstrap
+			if (!$gossip->bootstrap_node) {
+				$ipAndPort = Peer::GetHighestBlockFromPeers($gossip);
+				$lastBlock_PeerNode = Peer::GetLastBlockNum($ipAndPort);
+				$lastBlock_LocalNode = $gossip->chaindata->GetCurrentBlockNum();
+
+				//We check if we need to synchronize or not
+				if ($lastBlock_LocalNode < $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
+					//If have miner enabled, stop it and start sync
+					if ($gossip->enable_mine && @file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_STARTED)) {
+						//Stop minning subprocess
+						Tools::clearTmpFolder();
+						Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Sub
