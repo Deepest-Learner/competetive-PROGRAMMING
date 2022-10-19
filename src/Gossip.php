@@ -266,4 +266,28 @@ final class Gossip {
 					$genesisMakeBlockStatus = GenesisBlock::makeFromPeer($gossip->chaindata,$genesis_block_peer);
 
 					if ($genesisMakeBlockStatus)
-						Display::print("%Y%Import
+						Display::print("%Y%Imported%W% GENESIS block header               %G%count%W%=1");
+					else {
+						Display::_error("Can't make GENESIS block");
+						if (IS_WIN)
+							readline("Press any Enter to close close window");
+						exit();
+					}
+				}
+				else {
+					$lastBlock = $gossip->chaindata->GetLastBlock(false);
+
+		            Display::print("Height: %G%".$lastBlock['height']);
+
+					$gossip->difficulty = Blockchain::checkDifficulty($gossip->chaindata,null,$gossip->isTestNet)[0];
+
+		            Display::print("LastBlock: %G%".$lastBlock['block_hash']);
+		            Display::print("Difficulty: %G%".$gossip->difficulty);
+		            Display::print("Current peers: %G%".count($gossip->chaindata->GetAllPeers()));
+				}
+
+                //Check if have same GENESIS block from peer
+                $genesis_block_peer = Peer::GetGenesisBlock($ipAndPort);
+                $genesis_block_local = $gossip->chaindata->GetGenesisBlock();
+                if ($genesis_block_local['block_hash'] != $genesis_block_peer['block_hash']) {
+                    Display::_error("%Y%GENESIS BLOCK NO MATCH%W%    genesis block does not match the block genesis
