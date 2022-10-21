@@ -492,4 +492,38 @@ final class Gossip {
 		Display::print("%LP%Network%W% Listening on		%G%{$socket->getAddress()}%W%");
 
 		//Gossip
-		$socket->on('connection', function(ConnectionInterface 
+		$socket->on('connection', function(ConnectionInterface $connection) use (&$gossip) {
+
+			$dataFromPeer = '';
+
+			$connection->on('data', function($data) use (&$connection, &$dataFromPeer, &$gossip) : void {
+				if (strlen($data) > 0) {
+					//Concatenate data from peer
+					$dataFromPeer .= $data;
+
+					//Check if msgFromPeer have a correct format
+					$msgFromPeer = @json_decode($dataFromPeer,true);
+					if (@is_array($msgFromPeer)) {
+
+						$return = array(
+							'status'    => false,
+							'error'     => null,
+							'message'   => null,
+							'result'    => null
+						);
+
+						$address = $connection->getRemoteAddress();
+						$address = str_replace('tcp://','',$address);
+
+						if (DISPLAY_DEBUG && DISPLAY_DEBUG_LEVEL >= 2)
+							Display::print("%LP%Network%W% Message from client		%G%Address%W%=".$address."	%G%msg%W%=" . substr($dataFromPeer,0,32)."...");
+
+						switch (strtoupper($msgFromPeer['action'])) {
+							case 'GETPENDINGTRANSACTIONS':
+								$return['status'] = true;
+								$return['result'] = $gossip->chaindata->GetTxnFromPool();
+							break;
+							case 'ADDPENDINGTRANSACTIONS':
+								if (isset($msgFromPeer['txs'])) {
+									$return['status'] = true;
+									$return['result'] = $gossip->chaindata->
