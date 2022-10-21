@@ -392,4 +392,39 @@ final class Gossip {
 				//Micro-Sanity and resync
 				Display::_warning("Started Micro-Sanity       %G%height%W%=".$lastBlock_LocalNode."	%G%newHeight%W%=".($lastBlock_LocalNode-1));
 				$gossip->chaindata->RemoveLastBlocksFrom(($lastBlock_LocalNode-1));
-				Display::_warning("F
+				Display::_warning("Finished Micro-Sanity, re-sync with peer");
+				@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sanity");
+				$gossip->busy = false;
+			}
+
+			//If we are not synchronizing
+			if (!$gossip->syncing) {
+
+				//We have miner, start miner process
+				if ($gossip->enable_mine) {
+					$gossip->mineProcess();
+				}
+			}
+
+			//If we are synchronizing and we are connected with the bootstrap
+			else if ($gossip->syncing) {
+
+				//Select a peer to sync
+				if (@file_exists(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR."sync_with_peer"))
+					$ipAndPort = @file_get_contents(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR."sync_with_peer");
+				else
+					$ipAndPort = Peer::GetHighestBlockFromPeers($gossip);
+
+				//We prevent it from synchronizing itself
+				if ($ipAndPort == $gossip->ip . ":" . $gossip->port) {
+					$ipAndPort = "";
+					$gossip->syncing = false;
+					//Delete sync file
+					@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+				}
+
+				//Check if have ip and port
+				if (strlen($ipAndPort) > 0) {
+
+					//We get the last block from peer
+					$lastBlo
