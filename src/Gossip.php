@@ -455,4 +455,41 @@ final class Gossip {
 					} else if ($lastBlock_LocalNode >= $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
 
 						$gossip->syncing = false;
-						$gossip->chaindata->SetConfig('
+						$gossip->chaindata->SetConfig('syncing','off');
+
+						//Delete sync file
+						@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+
+						//We check the difficulty
+						$gossip->difficulty = Blockchain::checkDifficulty($gossip->chaindata, null, $gossip->isTestNet)[0];
+
+						//We clean the table of blocks mined by the peers
+						$gossip->chaindata->truncate("txnpool");
+					}
+					else {
+
+						$gossip->syncing = true;
+						$gossip->chaindata->SetConfig('syncing','on');
+
+						@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+						$ipAndPortToSync = Peer::GetHighestBlockFromPeers($gossip);
+						Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$ipAndPortToSync);
+					}
+				}
+			}
+		});
+
+		//Start Socket
+		$socket = new React\Socket\Server('0.0.0.0:'.$gossip->port, $loop, array(
+		    'tcp' => array(
+		        'backlog' => 200,
+		        'so_reuseport' => true,
+		        'ipv6_v6only' => false
+		    )
+		));
+
+		$address = $socket->getAddress();
+		Display::print("%LP%Network%W% Listening on		%G%{$socket->getAddress()}%W%");
+
+		//Gossip
+		$socket->on('connection', function(ConnectionInterface 
