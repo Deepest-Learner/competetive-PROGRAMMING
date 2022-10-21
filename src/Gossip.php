@@ -427,4 +427,32 @@ final class Gossip {
 				if (strlen($ipAndPort) > 0) {
 
 					//We get the last block from peer
-					$lastBlo
+					$lastBlock_PeerNode = Peer::GetLastBlockNum($ipAndPort);
+					$lastBlock_LocalNode = $gossip->chaindata->GetCurrentBlockNum();
+
+					if ($lastBlock_LocalNode < $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
+
+						//Save highest block in config table (used in API)
+						$gossip->chaindata->SetConfig('highestBlock',$lastBlock_PeerNode);
+
+						$gossip->syncing = true;
+						$gossip->chaindata->SetConfig('syncing','on');
+
+						//Get next peer blocks
+						$nextBlocksToSyncFromPeer = Peer::SyncNextBlocksFrom($ipAndPort,$lastBlock_LocalNode);
+
+						if (is_array($nextBlocksToSyncFromPeer) && !empty($nextBlocksToSyncFromPeer)) {
+
+							//Sync blocks
+							$resultSync = Peer::SyncBlocks($gossip,$nextBlocksToSyncFromPeer,$lastBlock_LocalNode,$lastBlock_PeerNode,$ipAndPort);
+
+							//If dont have result of sync, stop sync with this peer
+							if ($resultSync == null) {
+								//Delete sync file
+								@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+							}
+						}
+					} else if ($lastBlock_LocalNode >= $lastBlock_PeerNode && $lastBlock_PeerNode != -1) {
+
+						$gossip->syncing = false;
+						$gossip->chaindata->SetConfig('
