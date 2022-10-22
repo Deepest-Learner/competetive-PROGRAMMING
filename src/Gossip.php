@@ -566,4 +566,32 @@ final class Gossip {
 								//Determine isBusy
 								$gossip->isBusy = true;
 
-								//Get curren
+								//Get current network
+								$isTestNet = ($gossip->chaindata->GetConfig('network') == 'testnet') ? true:false;
+
+								//Get last block
+								$lastBlock = $gossip->chaindata->GetLastBlock();
+
+								//Check if have previous block hash and new block info
+								if (!isset($msgFromPeer['hash_previous']) || !isset($msgFromPeer['block'])) {
+									$return['status'] = true;
+									$return['error'] = "0x10000002";
+									$return['message'] = "Need hashPrevious & blockInfo";
+									//Display::_error("Need hashPrevious & blockInfo");
+									break;
+								}
+
+								//Check if this peer is in blacklist
+								if (Peer::CheckIfBlacklisted($gossip,$msgFromPeer["node_ip"],$msgFromPeer["node_port"])) {
+									$return['status'] = true;
+									$return['error'] = "7x00000001";
+									$return['message'] = "Blacklisted";
+									//Display::_error("This peer is blacklisted -> " . $msgFromPeer["node_ip"].":".$msgFromPeer["node_port"]);
+									break;
+								}
+
+								/** @var Block $blockMinedByPeer */
+								$blockMinedByPeer = Tools::objectToObject(unserialize($msgFromPeer['block']),"Block");
+
+								//Check if block received its OK
+								if (
