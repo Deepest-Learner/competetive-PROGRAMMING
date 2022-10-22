@@ -526,4 +526,44 @@ final class Gossip {
 							case 'ADDPENDINGTRANSACTIONS':
 								if (isset($msgFromPeer['txs'])) {
 									$return['status'] = true;
-									$return['result'] = $gossip->chaindata->
+									$return['result'] = $gossip->chaindata->addTxnsToPoolByPeer(@unserialize($msgFromPeer['txs']));
+								}
+							break;
+							case 'GETBLOCKBYHASH':
+								if (isset($msgFromPeer['hash'])) {
+									//We get a block given a hash
+									$return['status'] = true;
+									$return['result'] = $gossip->chaindata->GetBlockByHash($msgFromPeer['hash']);
+								}
+								break;
+							case 'PING':
+								$return['status'] = true;
+							break;
+							case 'GETPEERS':
+								$return['status'] = true;
+								$return['result'] = $gossip->chaindata->GetAllPeers();
+							break;
+							case 'MINEDBLOCK':
+
+								//Check if blockchain is syncing
+								if ($gossip->syncing) {
+									$return['status'] = true;
+									$return['error'] = "3x00000000";
+									$return['message'] = "Blockchain syncing";
+									//Display::_error("Blockchain syncing");
+									break;
+								}
+
+								//Check if im busy
+								if ($gossip->isBusy) {
+									$return['status'] = true;
+									$return['error'] = "0x10000003";
+									$return['message'] = "Busy";
+									//Display::_error("Busy");
+									break;
+								}
+
+								//Determine isBusy
+								$gossip->isBusy = true;
+
+								//Get curren
