@@ -645,4 +645,31 @@ final class Gossip {
 									$diffTimeSeconds = ($diffTimeSeconds < 0) ? ($diffTimeSeconds * -1):$diffTimeSeconds;
 									if ($diffTimeSeconds > 2) {
 										$return['status'] = true;
-										$return['error'] = "5x00000000"
+										$return['error'] = "5x00000000";
+										$return['result'] = 'sanity';
+										$return['message'] = "SameHeight | Peer {$address} need sanity - DiffSeconds: {$diffTimeSeconds}";
+										break;
+									}
+									*/
+
+									//Valid new block in same hiehgt to add in Blockchain
+									$returnCode = Blockchain::isValidBlockMinedByPeerInSameHeight($gossip->chaindata,$lastBlock,$blockMinedByPeer);
+									if ($returnCode == "0x00000000") {
+
+										Display::ShowMessageNewBlock('sanity',$lastBlock['height'],$blockMinedByPeer);
+
+										//If have miner enabled, stop all miners
+										Tools::clearTmpFolder();
+										Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+
+										if ( isset( $msgFromPeer['node_ip'] ) && isset($msgFromPeer['node_port']) ) {
+											Tools::sendBlockMinedToNetworkWithSubprocess($gossip->chaindata,$blockMinedByPeer,array(
+												'ip' => $msgFromPeer['node_ip'],
+												'port' => $msgFromPeer['node_port']
+											));
+										}
+										else {
+											Tools::sendBlockMinedToNetworkWithSubprocess($gossip->chaindata,$blockMinedByPeer,array());
+										}
+
+										$return['status'] =
