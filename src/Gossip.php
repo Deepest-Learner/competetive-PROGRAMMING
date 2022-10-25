@@ -623,3 +623,26 @@ final class Gossip {
 
 								//Same height, different hash block
 								if ($lastBlock['block_previous'] == $blockMinedByPeer->previous && $lastBlock['block_hash'] != $blockMinedByPeer->hash) {
+
+									//Check if difficulty its ok
+									$currentDifficulty = Blockchain::checkDifficulty($gossip->chaindata,($blockMinedByPeer->height-1),$isTestNet);
+									if ($currentDifficulty[0] != $blockMinedByPeer->difficulty) {
+										$return['status'] = true;
+										$return['error'] = "4x00000000";
+										$return['message'] = "Block difficulty hacked?";
+										$return['result'] = 'sanity';
+										Display::_error('SameHeight | Block difficulty hacked?');
+										break;
+									}
+
+									/*
+									// We check if the time difference is equal orgreater than 2s
+									$diffTimeBlocks = date_diff(
+							            date_create(date('Y-m-d H:i:s', $lastBlock['timestamp_end_miner'])),
+							            date_create(date('Y-m-d H:i:s', $blockMinedByPeer->timestamp_end))
+							        );
+									$diffTimeSeconds = ($diffTimeBlocks->format('%i') * 60) + $diffTimeBlocks->format('%s');
+									$diffTimeSeconds = ($diffTimeSeconds < 0) ? ($diffTimeSeconds * -1):$diffTimeSeconds;
+									if ($diffTimeSeconds > 2) {
+										$return['status'] = true;
+										$return['error'] = "5x00000000"
