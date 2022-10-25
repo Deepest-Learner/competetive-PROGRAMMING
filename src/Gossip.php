@@ -594,4 +594,32 @@ final class Gossip {
 								$blockMinedByPeer = Tools::objectToObject(unserialize($msgFromPeer['block']),"Block");
 
 								//Check if block received its OK
-								if (
+								if (!is_object($blockMinedByPeer) || ( is_object($blockMinedByPeer) && !isset($blockMinedByPeer->hash) )) {
+									$return['status'] = true;
+									$return['error'] = "5x00000000";
+									$return['message'] = "Block received malformed";
+									$return['result'] = 'sanity';
+									//Display::_error('Block received malformed');
+									break;
+								}
+
+								$currentLocalTime = Tools::GetGlobalTime() + 5;
+								//We check that the date of the block sent is not superior to mine
+								if ($blockMinedByPeer->timestamp_end > $currentLocalTime) {
+									$return['status'] = true;
+									$return['error'] = "6x00000002";
+									$return['message'] = "Block date is from the future";
+									$return['result'] = 'sanity';
+									//Display::_error('Block date is from the future');
+									break;
+								}
+
+								//Same block
+								if ($lastBlock['block_hash'] == $blockMinedByPeer->hash) {
+									$return['status'] = true;
+									$return['error'] = "0x00000000";
+									break;
+								}
+
+								//Same height, different hash block
+								if ($lastBlock['block_previous'] == $blockMinedByPeer->previous && $lastBlock['block_hash'] != $blockMinedByPeer->hash) {
