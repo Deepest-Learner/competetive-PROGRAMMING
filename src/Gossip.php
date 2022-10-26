@@ -703,4 +703,33 @@ final class Gossip {
 									}
 
 									//Check integrity of my blockchain
-									Blockchain::checkIntegrity(
+									Blockchain::checkIntegrity($gossip->chaindata,null,10);
+
+									break;
+								}
+
+								//Check if is a next block
+								else if ($lastBlock['block_hash'] == $blockMinedByPeer->previous) {
+
+									//We check that date of new block is not less than the last block
+									if ($blockMinedByPeer->timestamp_end < $lastBlock['timestamp_end_miner']) {
+										//Tools::writeLog('GOSSIP_MINEDBLOCK ('.Tools::GetIdFromIpAndPort($_SERVER['REMOTE_ADDR'],0).') -> Error 6x00000000');
+										$return['status'] = true;
+										$return['error'] = "6x00000000";
+										$return['message'] = "Block date is from the past";
+										$return['result'] = 'sanity';
+										//Display::_error("NewBlock | Block date is from the past");
+										break;
+									}
+
+									//Check if i have this block
+									$blockAlreadyAdded = $gossip->chaindata->GetBlockByHash($blockMinedByPeer->hash);
+									if ($blockAlreadyAdded != null) {
+										$return['status'] = true;
+										$return['error'] = '7x00000000';
+										break;
+									}
+
+									//Check if difficulty its ok
+									$currentDifficulty = Blockchain::checkDifficulty($gossip->chaindata,null,$isTestNet);
+				
