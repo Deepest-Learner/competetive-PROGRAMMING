@@ -757,4 +757,35 @@ final class Gossip {
 												'port' => $msgFromPeer['node_port']
 											));
 										}
+										else {
+											Tools::sendBlockMinedToNetworkWithSubprocess($gossip->chaindata,$blockMinedByPeer,array());
+										}
+
+										$return['status'] = true;
+										$return['error'] = $returnCode;
+										$return['message'] = "Block added";
+									}
+									else {
+										if ($returnCode == "0x00000001") {
+											Display::ShowMessageNewBlock('novalid',$lastBlock['height'],$blockMinedByPeer);
+										}
+										else if ($returnCode == "0x00000002") {
+											Display::ShowMessageNewBlock('rewardko',$lastBlock['height'],$blockMinedByPeer);
+										}
+										else if ($returnCode == "0x00000003") {
+											Display::ShowMessageNewBlock('previousko',$lastBlock['height'],$blockMinedByPeer);
+										}
+										else if ($returnCode == "0x00000004") {
+											Display::ShowMessageNewBlock('malformed',$lastBlock['height'],$blockMinedByPeer);
+										}
+										else {
+											Display::ShowMessageNewBlock('unkown',$lastBlock['height'],$blockMinedByPeer);
+										}
+										$return['status'] = true;
+										$return['error'] = $returnCode;
+										$return['result'] = 'sanity';
+										$return['message'] = 'New block | else';
+									}
+
+									break;
 		
