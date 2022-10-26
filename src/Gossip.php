@@ -732,4 +732,29 @@ final class Gossip {
 
 									//Check if difficulty its ok
 									$currentDifficulty = Blockchain::checkDifficulty($gossip->chaindata,null,$isTestNet);
-				
+									if ($currentDifficulty[0] != $blockMinedByPeer->difficulty) {
+										$return['status'] = true;
+										$return['error'] = "4x00000000";
+										$return['message'] = "Block difficulty hacked?";
+										$return['result'] = 'sanity';
+										//Display::_error("NewBlock | Block difficulty hacked?");
+										break;
+									}
+
+									//Valid block to add in Blockchain
+									$returnCode = Blockchain::isValidBlockMinedByPeer($gossip->chaindata,$lastBlock,$blockMinedByPeer);
+									if ($returnCode == "0x00000000") {
+
+										Display::ShowMessageNewBlock('imported',$lastBlock['height'],$blockMinedByPeer);
+
+										//If have miner enabled, stop all miners
+										Tools::clearTmpFolder();
+										Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+
+										if ( isset( $msgFromPeer['node_ip'] ) && isset($msgFromPeer['node_port']) ) {
+											Tools::sendBlockMinedToNetworkWithSubprocess($gossip->chaindata,$blockMinedByPeer,array(
+												'ip' => $msgFromPeer['node_ip'],
+												'port' => $msgFromPeer['node_port']
+											));
+										}
+		
