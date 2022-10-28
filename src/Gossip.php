@@ -817,4 +817,31 @@ final class Gossip {
 								}
 							break;
 							case 'HELLOBOOTSTRAP':
-								if (isset($msgFromPeer['
+								if (isset($msgFromPeer['client_ip']) && isset($msgFromPeer['client_port'])) {
+									$return['status'] = true;
+
+									$infoToSend = array(
+										'action' => 'HELLO_PONG'
+									);
+
+									if (Socket::isAlive($msgFromPeer['client_ip'],$msgFromPeer['client_port'])) {
+										$gossip->chaindata->addPeer($msgFromPeer['client_ip'],$msgFromPeer['client_port']);
+										Display::print('%LP%Network%W% Connected to peer		%G%peerId%W%='.Tools::GetIdFromIpAndPort($msgFromPeer['client_ip'],$msgFromPeer['client_port']));
+										$return['result'] = "p2p_on";
+									}
+									else
+										$return['result'] = "p2p_off";
+								}
+							break;
+							case 'HELLO':
+								//GG
+								if (isset($msgFromPeer['client_ip']) && isset($msgFromPeer['client_port'])) {
+									$return['status'] = true;
+									$gossip->chaindata->addPeer($msgFromPeer['client_ip'],$msgFromPeer['client_port']);
+
+									//Get more peers from this new peer
+									Peer::GetMorePeers($gossip, $msgFromPeer['client_ip'],$msgFromPeer['client_port']);
+
+									Display::print('%LP%Network%W% Connected to peer		%G%peerId%W%='.Tools::GetIdFromIpAndPort($msgFromPeer['client_ip'],$msgFromPeer['client_port']));
+								} else {
+									$retur
