@@ -844,4 +844,33 @@ final class Gossip {
 
 									Display::print('%LP%Network%W% Connected to peer		%G%peerId%W%='.Tools::GetIdFromIpAndPort($msgFromPeer['client_ip'],$msgFromPeer['client_port']));
 								} else {
-									$retur
+									$return['message'] = "No ClientIP or ClientPort defined";
+								}
+							break;
+							case 'LASTBLOCKNUM':
+								$return['status'] = true;
+								$return['result'] = $gossip->chaindata->GetCurrentBlockNum();
+							break;
+							case 'STATUSNODE':
+								$return['status'] = true;
+								$config = $gossip->chaindata->GetAllConfig();
+								$return['result'] = array(
+									'hashrate'      => $config['hashrate'],
+									'miner'         => $config['miner'],
+									'network'       => $config['network'],
+									'p2p'           => $config['p2p'],
+									'syncing'       => $config['syncing'],
+									'dbversion'     => $config['dbversion'],
+									'nodeversion'   => $config['node_version'],
+									'lastBlock'     => $gossip->chaindata->GetCurrentBlockNum()
+								);
+							break;
+							case 'GETGENESIS':
+								$return['status'] = true;
+								$return['result'] = $gossip->chaindata->GetGenesisBlock();
+							break;
+							case 'SYNCBLOCKS':
+								if (isset($msgFromPeer['from'])) {
+									$return['status'] = true;
+									$return['result'] = $gossip->chaindata->SyncBlocks($msgFromPeer['from']);
+								}
