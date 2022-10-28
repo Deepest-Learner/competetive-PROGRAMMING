@@ -788,4 +788,33 @@ final class Gossip {
 									}
 
 									break;
-		
+								}
+
+								else {
+
+									$return['status'] = true;
+									$return['error'] = "7x00000000";
+									$return['result'] = "";
+
+									// if height of block submitted is lower than our current height, send sanity to peer
+									if (($msgFromPeer['height'] - $lastBlock['height']) > 10) {
+										//Check integrity of my blockchain
+										Blockchain::checkIntegrity($gossip->chaindata,null,50);
+
+										//If have miner enabled, stop all miners
+										Tools::clearTmpFolder();
+										Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+
+										$gossip->syncing = true;
+										/*
+										// Start microsanity with this peer
+										if (strlen($msgFromPeer['node_ip']) > 0 && strlen($msgFromPeer['node_port']) > 0)
+											Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$msgFromPeer['node_ip'].":".$msgFromPeer['node_port']);
+										Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+										*/
+									}
+									break;
+								}
+							break;
+							case 'HELLOBOOTSTRAP':
+								if (isset($msgFromPeer['
