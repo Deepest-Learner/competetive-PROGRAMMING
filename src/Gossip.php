@@ -995,4 +995,38 @@ final class Gossip {
             $infoToSend = array(
                 'action' => 'HELLO',
                 'client_ip' => $this->ip,
-                
+                'client_port' => $this->port
+            );
+            $response = Socket::sendMessageWithReturn($ip, $port, $infoToSend, 5);
+            if ($response != null && isset($response['status'])) {
+                if ($response['status'] == true) {
+                    $this->peers[$ip.':'.$port] = true;
+                    if ($displayMessage)
+						Display::print('%LP%Network%W% Connected to peer		%G%peerId%W%='.Tools::GetIdFromIpAndPort($ip,$port));
+
+					return true;
+                }
+            }
+        }
+
+		return false;
+    }
+
+    /**
+     * Check the connection with the peers, if they do not respond remove them
+     */
+    public function CheckConnectionWithPeers(Gossip &$gossip) : void {
+
+        //Run subprocess peerAlive per peer
+        $peers = $gossip->chaindata->GetAllPeersWithoutBootstrap();
+
+        if (count($peers) > 0) {
+
+            Display::_debug("Checking status of peers                 %G%count%W%=".count($peers),1);
+
+            Tools::writeLog('Checking status of peers count='.count($peers));
+
+            //Run subprocess propagation
+            Subprocess::newProcess(Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR,'peerAlive',[],-1);
+        }
+   
