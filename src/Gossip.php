@@ -923,3 +923,40 @@ final class Gossip {
         } else {
             $ip = NODE_BOOTSTRAP;
             $port = NODE_BOOSTRAP_PORT;
+        }
+
+        $infoToSend = array(
+            'action' => 'HELLOBOOTSTRAP',
+            'client_ip' => $gossip->ip,
+            'client_port' => $gossip->port
+        );
+
+        $response = Socket::sendMessageWithReturn($ip, $port, $infoToSend, 5);
+		if ($response != null && isset($response['status'])) {
+			$gossip->chaindata->addPeer($ip, $port);
+
+			$gossip->peers[$ip.':'.$port] = true;
+
+			if ($gossip->isTestNet)
+				Display::print("%LP%Network%W% Connected to BootstrapNode		%G%peerId%W%=".Tools::GetIdFromIpAndPort($ip,$port));
+		}
+		else {
+			if ($gossip->isTestNet)
+				Display::_error("%LP%Network%W% Can't connect to BootstrapNode		%G%peerId%W%=".Tools::GetIdFromIpAndPort($ip,$port));
+		}
+    }
+
+    /**
+     * We add to the chaindata
+     * First we check if we have a connection to the
+     *
+     * @param   string    $ip
+     * @param   string    $port
+     * @param   bool      $displayMessage
+     * @return  bool
+     */
+    public function _addPeer(string $ip,string $port, bool $displayMessage=true) : bool {
+
+        if (!$this->chaindata->haveThisPeer($ip,$port) && ($this->ip != $ip || ($this->ip == $ip && $this->port != $port))) {
+
+            $infoToSe
