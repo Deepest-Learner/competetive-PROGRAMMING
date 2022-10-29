@@ -874,3 +874,52 @@ final class Gossip {
 									$return['status'] = true;
 									$return['result'] = $gossip->chaindata->SyncBlocks($msgFromPeer['from']);
 								}
+								else {
+									Display::print("ERROR SYNCBLOCKS");
+								}
+							break;
+							case 'HELLO_PONG':
+								$return['status'] = true;
+							break;
+						}
+
+						//Determine isBusy
+						if (strtoupper($msgFromPeer['action']) == 'MINEDBLOCK')
+							$gossip->isBusy = false;
+
+						$connection->write(@json_encode($return));
+						$connection->end();
+					}
+				}
+		    });
+
+			//Close connection from this peer
+			$connection->on('end', function () use (&$connection): void {
+          		$connection->close();
+      		});
+
+			//Remove peer when disconnect
+			$connection->on('close', function () use ($connection): void {
+          		//unset($this->peers[$connection->getRemoteAddress()]);
+      		});
+
+		});
+
+		//Start node
+		$loop->run();
+		$socket->close();
+	}
+
+    /**
+     * Connect to bootstrap node and add it to peer list
+     *
+     * @return  bool
+     */
+    public function _connectToBootstrapNode(Gossip &$gossip) : void {
+
+        if ($gossip->isTestNet) {
+            $ip = NODE_BOOTSTRAP_TESTNET;
+            $port = NODE_BOOSTRAP_PORT_TESTNET;
+        } else {
+            $ip = NODE_BOOTSTRAP;
+            $port = NODE_BOOSTRAP_PORT;
