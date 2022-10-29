@@ -959,4 +959,40 @@ final class Gossip {
 
         if (!$this->chaindata->haveThisPeer($ip,$port) && ($this->ip != $ip || ($this->ip == $ip && $this->port != $port))) {
 
-            $infoToSe
+            $infoToSend = array(
+                'action' => 'HELLO',
+                'client_ip' => $this->ip,
+                'client_port' => $this->port
+            );
+            $response = Socket::sendMessageWithReturn($ip, $port, $infoToSend, 5);
+            if ($response != null && isset($response['status'])) {
+                if ($response['status'] == true) {
+                    $this->chaindata->addPeer($ip, $port);
+                    $this->peers[$ip.':'.$port] = true;
+                    if ($displayMessage)
+						Display::print('%LP%Network%W% Connected to peer		%G%peerId%W%='.Tools::GetIdFromIpAndPort($ip,$port));
+
+					return true;
+                }
+            }
+        }
+
+		return false;
+    }
+
+	/**
+     * We connect to this peer
+     *
+     * @param   string    $ip
+     * @param   string    $port
+     * @param   bool      $displayMessage
+     * @return  bool
+     */
+	public function _connectToPeer(string $ip,string $port, bool $displayMessage=true) : bool {
+
+        if ($this->chaindata->haveThisPeer($ip,$port) && ($this->ip != $ip || ($this->ip == $ip && $this->port != $port))) {
+
+            $infoToSend = array(
+                'action' => 'HELLO',
+                'client_ip' => $this->ip,
+                
