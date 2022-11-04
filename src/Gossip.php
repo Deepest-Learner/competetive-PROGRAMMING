@@ -1029,4 +1029,42 @@ final class Gossip {
             //Run subprocess propagation
             Subprocess::newProcess(Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR,'peerAlive',[],-1);
         }
-   
+    }
+
+    /**
+     * Set the title of the process with useful information
+     */
+    public function SetTitleProcess() : void {
+        $title = "J4F Node";
+        $title .= " | PeerID: " . substr(PoW::hash($this->ip . $this->port), 0, 18);
+        $title .= " | Peers: " . count($this->chaindata->GetAllPeers());
+
+        if ($this->syncing)
+            $title .= " | Blockchain: Synchronizing";
+        else
+            $title .= " | Blockchain: Synchronized";
+
+        if ($this->enable_mine)
+            $title .= " | Minning";
+
+        if ($this->isTestNet)
+            $title .= " | TESTNET";
+        else
+            $title .= " | MAINNET";
+
+        cli_set_process_title($title);
+    }
+
+    /**
+     * We get the pending transactions from random peer
+     */
+    public function GetPendingTransactions() : void {
+        if (!$this->bootstrap_node) {
+
+			$ipAndPort = Peer::SelectPeerToSync($this);
+
+            //Get transactions from peer
+            $transactionsByPeer = Peer::GetPendingTransactions($ipAndPort);
+
+            //Check if have transactions by peer
+            if ($transactionsByPeer != null && is_array($transactionsByP
