@@ -1067,4 +1067,37 @@ final class Gossip {
             $transactionsByPeer = Peer::GetPendingTransactions($ipAndPort);
 
             //Check if have transactions by peer
-            if ($transactionsByPeer != null && is_array($transactionsByP
+            if ($transactionsByPeer != null && is_array($transactionsByPeer) && !empty($transactionsByPeer)) {
+				$this->chaindata->addTxnsToPoolByPeer($transactionsByPeer);
+            }
+        }
+    }
+
+    /**
+     * Show subprocess miners log
+     */
+    public function ShowInfoSubprocessMiners() : void {
+
+        //Check if miners are enabled
+        if (@!file_exists(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_STARTED))
+            return;
+
+        $hashRateMiner = 0;
+        $multiplyNonce = 0;
+        for ($i=0;$i<MINER_MAX_SUBPROCESS;$i++) {
+            $file = Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$i."_hashrate";
+            if (@file_exists($file)) {
+                $tmpHashRateMiner = @intval(@file_get_contents($file));
+                if ($tmpHashRateMiner > 0) {
+                    $multiplyNonce++;
+                    $hashRateMiner += $tmpHashRateMiner;
+                }
+                @unlink($file);
+            }
+        }
+
+        if ($hashRateMiner > 1000000000) {
+            $hashRateMiner = $hashRateMiner / 1000000000;
+            $hashRateMiner = number_format($hashRateMiner,2)." GH/s";
+        }
+        else if ($hashRateMiner > 1000
