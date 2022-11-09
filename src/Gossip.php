@@ -1100,4 +1100,34 @@ final class Gossip {
             $hashRateMiner = $hashRateMiner / 1000000000;
             $hashRateMiner = number_format($hashRateMiner,2)." GH/s";
         }
-        else if ($hashRateMiner > 1000
+        else if ($hashRateMiner > 1000000) {
+            $hashRateMiner = $hashRateMiner / 1000000;
+            $hashRateMiner = number_format($hashRateMiner,2)." MH/s";
+        }
+        else if ($hashRateMiner > 1000) {
+            $hashRateMiner = $hashRateMiner / 1000;
+            $hashRateMiner = number_format($hashRateMiner,2)." KH/s";
+        } else if ($hashRateMiner > 0) {
+            $hashRateMiner = number_format($hashRateMiner,2)." H/s";
+        } else {
+            $hashRateMiner = null;
+        }
+        if ($hashRateMiner != null) {
+            $this->chaindata->SetConfig('hashrate',$hashRateMiner);
+
+			if (SHOW_INFO_SUBPROCESS)
+            	Display::print("Miners Threads Status             %G%count%W%=".$multiplyNonce."            %G%hashRate%W%=" . $hashRateMiner);
+        }
+    }
+
+    /**
+     * Show subprocess propagation log
+     */
+    public function ShowLogSubprocess() : void {
+        $logFile = Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."log";
+        if (@file_exists($logFile)) {
+            $currentLog = @file($logFile);
+            if (!empty($currentLog)) {
+                @unlink($logFile);
+                foreach ($currentLog as $line) {
+                    Display::print(tri
