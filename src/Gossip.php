@@ -1170,4 +1170,34 @@ final class Gossip {
 					$lastBlock = $this->chaindata->GetLastBlock();
 					$directoryProcessFile = Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR;
 
-					Subprocess::RestartMinerThread($l
+					Subprocess::RestartMinerThread($lastBlock,$directoryProcessFile,$this->isTestNet,$this->difficulty,$i);
+
+					//Wait 0.5s
+					usleep(500000);
+				} else {
+					$timeMiner = @file_get_contents(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$i);
+
+					//Check if subprocess is dead
+					$threadTime = date_diff(
+						date_create(date('Y-m-d H:i:s', intval($timeMiner))),
+						date_create(date('Y-m-d H:i:s', time()))
+					);
+					$seconds = $threadTime->format('%s');
+					if ($seconds >= MINER_TIMEOUT_CLOSE) {
+
+						Display::_debug("MinerTimer  : " . intval($timeMiner),4);
+						Display::_debug("CurrentTimer: " . time(),4);
+
+						if (SHOW_INFO_SUBPROCESS)
+							Display::print("The miner thread #".$i." do not seem to respond (Timeout ".$seconds."s). Restarting Thread");
+
+						//Get info to pass miner
+						$lastBlock = $this->chaindata->GetLastBlock();
+						$directoryProcessFile = Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR;
+
+						Subprocess::RestartMinerThread($lastBlock,$directoryProcessFile,$this->isTestNet,$this->difficulty,$i);
+
+						//Wait 0.5s
+						usleep(500000);
+
+			
