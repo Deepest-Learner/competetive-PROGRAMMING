@@ -1130,4 +1130,44 @@ final class Gossip {
             if (!empty($currentLog)) {
                 @unlink($logFile);
                 foreach ($currentLog as $line) {
-                    Display::print(tri
+                    Display::print(trim($line));
+                }
+            }
+        }
+    }
+
+	/**
+	 * MainThread
+	 * Mine process
+	 */
+	public function mineProcess() : void {
+		//Enable Miners if not enabled
+		if (@!file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_STARTED)) {
+
+			//We check the difficulty before start miners
+			$this->difficulty = Blockchain::checkDifficulty($this->chaindata, null, $this->isTestNet)[0];
+
+			//Start miners
+			Miner::MineNewBlock($this);
+
+			//Wait 0.5s
+			usleep(500000);
+		}
+
+		//Check if threads are enabled
+		else {
+
+			for($i=0;$i<MINER_MAX_SUBPROCESS;$i++){
+
+				if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_NEW_BLOCK))
+					break;
+
+				if (@!file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$i)) {
+					if (SHOW_INFO_SUBPROCESS)
+						Display::print("The miner thread #".$i." do not seem to respond. Restarting Thread");
+
+					//Get info to pass miner
+					$lastBlock = $this->chaindata->GetLastBlock();
+					$directoryProcessFile = Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR;
+
+					Subprocess::RestartMinerThread($l
