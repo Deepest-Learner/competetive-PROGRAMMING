@@ -1233,4 +1233,51 @@ final class Gossip {
 							//Make SmartContracts on local blockchain
 							SmartContract::Make($this->chaindata,$blockMined);
 
-							//Call Functions of SmartC
+							//Call Functions of SmartContracts on local blockchain
+							SmartContract::CallFunction($this->chaindata,$blockMined);
+						}
+
+						//Propagate block on network
+						Tools::sendBlockMinedToNetworkWithSubprocess($this->chaindata,$blockMined);
+
+						Tools::writeLog('MINER (MINED NEW BLOCK)');
+					} else {
+						Display::_error("Block mined reward not valid");
+					}
+				} else {
+					Display::_error("Block mined not valid");
+				}
+			}
+			else{
+				Display::_error("Block mined malformed");
+			}
+
+			//Wait 2-2.5s
+			//usleep(rand(2000000,2500000));
+		}
+		//Determine isBusy
+		$this->isBusy = false;
+	}
+
+	/**
+	 * Connect to bootstrap peers
+	 */
+	public function ConnectToBootstrapPeers($peersNode) : void {
+		if (is_array($peersNode) && !empty($peersNode)) {
+			foreach ($peersNode as $peer) {
+				if (trim($this->ip).":".trim($this->port) != trim($peer['ip']).":".trim($peer['port'])) {
+					if (count($this->peers) <= PEERS_MAX) {
+						$this->_addPeer(trim($peer['ip']),trim($peer['port']));
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Connect to all my peers
+	 */
+	public function ConnectToMyPeers($peers) : void {
+		foreach ($peers as $peer) {
+			$infoToSend = array(
+				'action' => 'STATUS
