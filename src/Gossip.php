@@ -1200,4 +1200,37 @@ final class Gossip {
 						//Wait 0.5s
 						usleep(500000);
 
-			
+					}
+				}
+			}
+		}
+
+		//Check If i found new block
+		if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_NEW_BLOCK)) {
+
+			//Determine isBusy
+			$this->isBusy = true;
+
+			/** @var Block $blockMined */
+			$blockMined = Tools::objectToObject(@unserialize(Tools::hex2str(file_get_contents(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_NEW_BLOCK))),'Block');
+
+			//Get next block height
+			$nextHeight = $this->chaindata->GetNextBlockNum();
+
+			//Stop minning subprocess
+			Tools::clearTmpFolder();
+			Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING);
+
+			if (is_object($blockMined) && isset($blockMined->hash)) {
+				//Check if block mined is valid
+				if ($blockMined->isValid()) {
+					if ($blockMined->isValidReward($nextHeight,$this->isTestNet)) {
+						//Display new block mined
+						Display::ShowMessageNewBlock('mined',$nextHeight,$blockMined);
+
+						//Add this block on local blockchain
+						if ($this->chaindata->addBlock($nextHeight,$blockMined)) {
+							//Make SmartContracts on local blockchain
+							SmartContract::Make($this->chaindata,$blockMined);
+
+							//Call Functions of SmartC
