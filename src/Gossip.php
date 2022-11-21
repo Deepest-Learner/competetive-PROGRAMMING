@@ -1321,4 +1321,10 @@ final class Gossip {
      *
      * @param   int    $numBlocksToRemove
      */
-	public function Sa
+	public function SanityFromBlockHeight(int $numBlocksToRemove=1) : void {
+		Display::print("%LR%SANITY Started %W%- Removing blocks (%G%" . $numBlocksToRemove . "%W%)");
+		Blockchain::SanityFromBlockHeight($this->chaindata,$numBlocksToRemove);
+		Display::print("%LR%SANITY Finished %W%- Restart your client");
+	}
+}
+?>
