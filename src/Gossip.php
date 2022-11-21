@@ -1280,4 +1280,45 @@ final class Gossip {
 	public function ConnectToMyPeers($peers) : void {
 		foreach ($peers as $peer) {
 			$infoToSend = array(
-				'action' => 'STATUS
+				'action' => 'STATUSNODE'
+			);
+			$response = Socket::sendMessageWithReturn($peer['ip'],$peer['port'],$infoToSend,5);
+			if ($response != null && isset($response['status'])) {
+				$this->_connectToPeer($peer['ip'], $peer['port'], true);
+			}
+			else {
+				//Remove this peer
+				$this->chaindata->removePeer($peer['ip'],$peer['port']);
+			}
+		}
+	}
+
+	/**
+	 * Get more peers from my current peers
+	 */
+	public function GetMorePeersFromMyPeers() : void {
+		//Data to send
+		$infoToSend = array(
+            'action' => 'GETPEERS'
+        );
+		foreach($this->peers as $ipAndPort => $v) {
+			$peer = explode(":", $ipAndPort);
+			$infoPOST = Socket::sendMessageWithReturn($peer[0],$peer[1],$infoToSend,5);
+			if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1) {
+				if (is_array($infoPOST['result']) && !empty($infoPOST['result'])) {
+					foreach ($infoPOST['result'] as $newPeerInfo) {
+						if (count($this->peers) < PEERS_MAX) {
+							$this->_addPeer($newPeerInfo['ip'],$newPeerInfo['port']);
+						}
+					}
+				}
+			}
+		}
+	}
+
+    /**
+     * Start Sanity of Blockchain
+     *
+     * @param   int    $numBlocksToRemove
+     */
+	public function Sa
