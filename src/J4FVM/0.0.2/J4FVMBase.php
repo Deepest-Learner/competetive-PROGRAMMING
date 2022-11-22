@@ -37,4 +37,48 @@ class J4FVMBase {
 
 		//Parse normal functions
 		$matches = [];
-		preg_match_al
+		preg_match_all(REGEX::ContractFunctionsSimple,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			$i = 0;
+			foreach ($matches[0] as $match) {
+				foreach (self::$var_types as $type) $matches[2][$i] = str_replace($type,'',$matches[2][$i]);
+				$code_parsed = str_replace($matches[0][$i],$matches[1][$i].': function('.$matches[2][$i].')',$code_parsed);
+				$i++;
+			}
+		}
+
+		return $code_parsed;
+	}
+
+	/**
+     * Function that remove all code comments
+     *
+     * @param string $code
+     *
+     * @return string
+     */
+	public static function _parseComments(string $code) : string {
+		$code_parsed = $code;
+		$matches = [];
+		preg_match_all(REGEX::Comments,$code_parsed,$matches);
+		if (!empty($matches[0]))
+			foreach ($matches[0] as $match)
+				$code_parsed = str_replace($match,'',$code_parsed);
+		return $code_parsed;
+	}
+
+	/**
+     * Function that check special funity syntax
+     *
+     * @param string $code
+     *
+     * @return array
+     */
+	public static function _checkSyntaxError(string $code) : array {
+
+		$errors = [];
+
+		$code_parsed = self::_parseComments($code);
+
+		if (strpos($code_parsed,'+') != false)
+			$code_parsed = str_replace('+','+
