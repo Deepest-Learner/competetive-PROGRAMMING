@@ -81,4 +81,35 @@ class J4FVMBase {
 		$code_parsed = self::_parseComments($code);
 
 		if (strpos($code_parsed,'+') != false)
-			$code_parsed = str_replace('+','+
+			$code_parsed = str_replace('+','++',$code_parsed);
+
+		if (strpos($code_parsed,'-') != false)
+			$code_parsed = str_replace('-','--',$code_parsed);
+
+		//Get functions of contract with all info (params, returns, code)
+		$functions = J4FVMTools::getFunctions($code,true);
+
+		//Check if is a J4FRC10
+		if (J4FVMTools::isJ4FRC10Standard($code)) {
+			//Check if contract its a Token and have J4FRC-10 Standard
+			$tokenInfo = J4FVMTools::getTokenDefine($code);
+			if ($tokenInfo != null) {
+				$isJ4FRC10Standard = J4FVM::CheckJ4FRC10Standard($code);
+				if (strlen($isJ4FRC10Standard) > 0)
+					$code_parsed .= $isJ4FRC10Standard;
+			}
+			else {
+				$errors[] = 'error("<strong class=\"text-danger\">COMPILER_ERROR</strong> Not defines of token J4FRC10<br>");';
+			}
+		}
+
+		if (J4FVMTools::isJ4FRC20Standard($code)) {
+			//Check if contract its a Token and have J4FRC-10 Standard
+			$tokenInfo = J4FVMTools::getTokenDefine($code);
+			if ($tokenInfo != null) {
+				$isJ4FRC20Standard = J4FVM::CheckJ4FRC20Standard($code);
+				if (strlen($isJ4FRC20Standard) > 0)
+					$code_parsed .= $isJ4FRC20Standard;
+			}
+			else {
+				$errors[] = 'error("<strong class=\"text-danger\">COMPILER_ERROR</strong> N
