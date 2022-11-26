@@ -112,4 +112,43 @@ class J4FVMBase {
 					$code_parsed .= $isJ4FRC20Standard;
 			}
 			else {
-				$errors[] = 'error("<strong class=\"text-danger\">COMPILER_ERROR</strong> N
+				$errors[] = 'error("<strong class=\"text-danger\">COMPILER_ERROR</strong> Not defines of token J4FRC20<br>");';
+			}
+		}
+
+		//Check if function have return definition but not have return code
+		foreach ($functions as $functionsByType) {
+			foreach ($functionsByType as $function=>$functionInfo) {
+				//Comprobamos si tiene return
+				if (strlen($functionInfo['return']) > 0) {
+					$matches = [];
+					preg_match_all('/return\(.*\)/',$functionInfo['code'],$matches);
+					if (empty($matches[0])) {
+						$errors[] = 'error("<strong class=\"text-danger\">COMPILER_ERROR</strong> Function <strong>'.$function.'()</strong> defined with returns but not have return code<br>");';
+					}
+				}
+			}
+		}
+
+		return [$code_parsed,$errors];
+	}
+
+	/**
+     * Function that parse Interfaces
+     *
+     * @param string $code
+	 * @param bool $debug
+     *
+     * @return string
+     */
+	public static function _parseInterfaces(string $code_parsed,bool $debug=false) : string {
+
+		//Get Interface
+		$matches = [];
+		@preg_match_all(REGEX::InterfaceCode,$code_parsed,$matches);
+
+		$interfaces = [];
+		//Check if it a Interface
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[2]); $i++) {
+				$interfaceName = $matches[1]
