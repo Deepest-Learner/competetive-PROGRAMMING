@@ -151,4 +151,37 @@ class J4FVMBase {
 		//Check if it a Interface
 		if (!empty($matches[0])) {
 			for ($i = 0; $i < count($matches[2]); $i++) {
-				$interfaceName = $matches[1]
+				$interfaceName = $matches[1][$i];
+				$interfaces[$interfaceName] = [];
+
+				//Get Interface Functions
+				$matchesFunctions = [];
+				@preg_match_all(REGEX::InterfaceFunctions,$matches[2][$i],$matchesFunctions);
+				if (!empty($matchesFunctions[0]))
+					for ($x = 0; $x < count($matchesFunctions[1]); $x++)
+						$interfaces[$interfaceName][$matchesFunctions[1][$x]] = $matchesFunctions[2][$x];
+
+				//Remove Funity Interface code
+				$code_parsed = str_replace($matches[0][$i],'',$code_parsed);
+			}
+
+			//Generate parsed Interface code
+			foreach ($interfaces as $interfaceName=>$interfaceFunctions) {
+
+				$interfaceFunctionsParsedCode = '';
+				foreach ($interfaceFunctions as $function => $params) {
+					$e_params = (strpos($params,',') !== false) ? explode(',',$params):[$params];
+
+					$paramsParsedCode = '';
+					foreach ($e_params as $param) {
+
+						$paramsParsedCode .= (strlen($paramsParsedCode) > 0) ? ',':'';
+
+						$param = str_replace('string ','',$param);
+						$param = str_replace('uint ','',$param);
+						$param = str_replace('uint256 ','',$param);
+						$paramsParsedCode .= trim($param);
+					}
+
+					if (strlen($interfaceFunctionsParsedCode) > 0)
+						$in
