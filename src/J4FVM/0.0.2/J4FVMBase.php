@@ -229,4 +229,40 @@ class J4FVMBase {
      *
      * @return string
      */
-	public st
+	public static function _parse(string $code,bool $debug=false) : string {
+
+		//Check Syntax Error
+		$returnCheckSyntax = self::_checkSyntaxError($code);
+		if (!empty($returnCheckSyntax[1]))
+			return implode(" ",$returnCheckSyntax[1]);
+		$code_parsed = $returnCheckSyntax[0];
+
+		//Check if have Contract define struct
+		$matches = [];
+		preg_match(REGEX::ContractName,$code_parsed,$matches);
+		if (!empty($matches))
+			$code_parsed = str_replace($matches[0],'var '.$matches[1].' = {',$code_parsed);
+
+		//Class
+		$matches = [];
+		preg_match_all(REGEX::ClassName,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++)
+				if (!empty($matches[0]))
+					$code_parsed = str_replace($matches[0][$i],'var '.$matches[1][$i].' = {',$code_parsed);
+		}
+
+		//Parse Interfaces
+		$code_parsed = self::_parseInterfaces($code_parsed,$debug);
+
+		//Parse functions Funity to JS
+		$code_parsed = self::_parseFunctions($code_parsed);
+
+		//Parse prints
+		if ($debug === false) {
+			$matches = [];
+			preg_match_all(REGEX::PrintCode,$code_parsed,$matches);
+			foreach ($matches as $match) {
+				if (count($match) > 0)
+					if (strpos($match[0],'print') !== false)
+						$
