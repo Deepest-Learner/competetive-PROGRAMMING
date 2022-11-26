@@ -184,4 +184,49 @@ class J4FVMBase {
 					}
 
 					if (strlen($interfaceFunctionsParsedCode) > 0)
-						$in
+						$interfaceFunctionsParsedCode .= ',';
+
+					$interfaceFunctionsParsedCode .= $function.': function('.$paramsParsedCode.') {
+						return External.CallContract(this.addressInterface,"'.$function.'",['.$paramsParsedCode.']);
+					}
+					';
+
+				}
+				if (strlen($interfaceFunctionsParsedCode) > 0)
+					$interfaceFunctionsParsedCode = ','.$interfaceFunctionsParsedCode;
+
+				$code_parsed .= '
+				var '.$interfaceName.' = {
+
+					addressInterface: "",
+					'.$interfaceName.': function(contractAddress) {
+						this.addressInterface = contractAddress;
+						External.CheckIfExistsContract(contractAddress);
+						return this;
+					}
+
+					'.$interfaceFunctionsParsedCode.'
+				};
+				';
+
+				$interfaceCalls = [];
+				@preg_match_all('/=\s*'.$interfaceName.'\((.*)\)/',$code_parsed,$interfaceCalls);
+				if (!empty($interfaceCalls[0])) {
+					for ($i = 0; $i < count($interfaceCalls[0]); $i++) {
+						$code_parsed = str_replace($interfaceCalls[0][$i],'= '.$interfaceName.'.'.$interfaceName.'('.$interfaceCalls[1][$i].')',$code_parsed);
+					}
+				}
+			}
+		}
+		return $code_parsed;
+	}
+
+	/**
+     * Function that clear funity code
+     *
+     * @param string $code
+	 * @param bool $debug
+     *
+     * @return string
+     */
+	public st
