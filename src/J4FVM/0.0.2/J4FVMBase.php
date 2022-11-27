@@ -265,4 +265,36 @@ class J4FVMBase {
 			foreach ($matches as $match) {
 				if (count($match) > 0)
 					if (strpos($match[0],'print') !== false)
-						$
+						$code_parsed = str_replace($match,'',$code_parsed);
+			}
+		}
+
+		//Special ..
+		$code_parsed = str_replace('..','+',$code_parsed);
+
+		//mapping(address => uint256) balances,
+		$matches = [];
+		preg_match_all(REGEX::Mapping,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++)
+				$code_parsed = str_replace($matches[0][$i],$matches[1][$i].': contract.table_uint256("'.$matches[1][$i].'"),',$code_parsed);
+		}
+
+		//Special unmapping::balances(address => uint256)
+		$matches = [];
+		preg_match_all(REGEX::Unmapping,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++)
+				$code_parsed = str_replace($matches[0][$i],'contract.table_set("'.$matches[1][$i].'",this.'.$matches[1][$i].');',$code_parsed);
+		}
+
+		//Special set::$var
+		$matches = [];
+		preg_match_all(Regex::Set,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++)
+				$code_parsed = str_replace($matches[0][$i],'contract.set("'.$matches[1][$i].'",'.$matches[2][$i].');',$code_parsed);
+		}
+
+		//Special get::$var
+		$mat
