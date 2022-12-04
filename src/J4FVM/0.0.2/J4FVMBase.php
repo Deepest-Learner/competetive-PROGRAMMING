@@ -297,4 +297,34 @@ class J4FVMBase {
 		}
 
 		//Special get::$var
-		$mat
+		$matches = [];
+		preg_match_all(Regex::Get,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++)
+				$code_parsed = str_replace($matches[0][$i],'contract.get("'.$matches[1][$i].'")',$code_parsed);
+		}
+
+		//Special wrapping(address => uint256) balances {receiver};
+		$matches = [];
+		preg_match_all(REGEX::Wrapping,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++) {
+
+				$replace = '
+				var checkBalance = math.comp(this.'.$matches[1][$i].'['.$matches[2][$i].'],"0");
+		        if (checkBalance != 1 && checkBalance != 0) {
+		            this.'.$matches[1][$i].'['.$matches[2][$i].'] = math.parse("0");
+		        }';
+				$code_parsed = str_replace($matches[0][$i],$replace,$code_parsed);
+			}
+		}
+
+		//Special define::var
+		$token = J4FVMTools::getTokenDefine($code);
+		$matches = [];
+		preg_match_all(REGEX::Define,$code_parsed,$matches);
+		//echo '<pre>'.print_r($matches,true).'</pre>';
+		if (!empty($matches[0]) && !isset($token['error'])) {
+			for ($i = 0; $i < count($matches[0]); $i++) {
+				if (isset($token[$matches[1][$i]]))
+					$code_parsed = str_replace($matches[0][$i],"'".trim($token[
