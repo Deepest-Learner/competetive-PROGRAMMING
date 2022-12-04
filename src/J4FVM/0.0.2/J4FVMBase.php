@@ -363,4 +363,34 @@ class J4FVMBase {
 			}
 		}
 
-		//Special address
+		//Special address(0)
+		$matches = [];
+		preg_match_all(REGEX::Address0,$code_parsed,$matches);
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++)
+				$code_parsed = str_replace($matches[0][$i],'"J4F00000000000000000000000000000000000000000000000000000000"',$code_parsed);
+		}
+
+		//Parse Funity & Token vars
+		$code_parsed = str_replace('#pragma funity',		'//pragma funity',		$code_parsed);
+		$code_parsed = str_replace('#define Token',			'//define Token',		$code_parsed);
+		$code_parsed = str_replace('#define Name',			'//define Name',		$code_parsed);
+		$code_parsed = str_replace('#define TotalSupply',	'//define TotalSupply',	$code_parsed);
+		$code_parsed = str_replace('#define Precision',		'//define Precision',	$code_parsed);
+
+		return $code_parsed;
+	}
+
+	/**
+     * Function that parse special chars from string
+     *
+     * @param string $string
+     *
+     * @return string
+     */
+	public static function parseSpecialChars(string $string) : string {
+		$string = str_replace('(','',$string);
+		$string = str_replace(')','',$string);
+		$string = str_replace('"','',$string);
+		$string = str_replace("'",'',$string);
+	
