@@ -327,4 +327,40 @@ class J4FVMBase {
 		if (!empty($matches[0]) && !isset($token['error'])) {
 			for ($i = 0; $i < count($matches[0]); $i++) {
 				if (isset($token[$matches[1][$i]]))
-					$code_parsed = str_replace($matches[0][$i],"'".trim($token[
+					$code_parsed = str_replace($matches[0][$i],"'".trim($token[$matches[1][$i]])."'".$matches[2][$i],$code_parsed);
+				else
+					$code_parsed = str_replace($matches[0][$i],'0'.$matches[2][$i],$code_parsed);
+			}
+		}
+
+		//Special return('message')
+		$matches = [];
+		preg_match_all(REGEX::Return,$code_parsed,$matches);
+		//echo '<pre>'.print_r($matches,true).'</pre>';
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++) {
+				if ($debug === false) {
+					$code_parsed = str_replace($matches[0][$i],'return '.$matches[1][$i],$code_parsed);
+				}
+				else {
+					$code_parsed = str_replace($matches[0][$i],'j4f_return('.$matches[1][$i].'); return null',$code_parsed);
+				}
+			}
+		}
+
+		//Special error('message')
+		$matches = [];
+		preg_match_all(REGEX::Error,$code_parsed,$matches);
+		//echo '<pre>'.print_r($matches,true).'</pre>';
+		if (!empty($matches[0])) {
+			for ($i = 0; $i < count($matches[0]); $i++) {
+				if ($debug === false) {
+					$code_parsed = str_replace($matches[0][$i],'return null',$code_parsed);
+				}
+				else {
+					$code_parsed = str_replace($matches[0][$i],'j4f_error('.$matches[1][$i].'); return null',$code_parsed);
+				}
+			}
+		}
+
+		//Special address
