@@ -393,4 +393,54 @@ class J4FVMBase {
 		$string = str_replace(')','',$string);
 		$string = str_replace('"','',$string);
 		$string = str_replace("'",'',$string);
-	
+		$string = str_replace("`",'',$string);
+		$string = str_replace(";",'',$string);
+		$string = str_replace(",",'',$string);
+		$string = str_replace("+",'',$string);
+		$string = str_replace("-",'',$string);
+		$string = str_replace("_",'',$string);
+		$string = str_replace("?",'',$string);
+		$string = str_replace("/",'',$string);
+		$string = str_replace("\\",'',$string);
+		$string = str_replace("$",'',$string);
+		$string = str_replace("#",'',$string);
+		$string = str_replace(" ",'',$string);
+		return $string;
+	}
+
+	/**
+     * Function that return storedData of contract
+     *
+     * @param string $key
+     *
+     * @return mixed
+     */
+	public static function _get(string $key) {
+		if (isset(self::$data[$key]))
+			return self::$data[$key];
+		return 'null';
+	}
+
+	/**
+     * Function that set storedData in contract
+     *
+     * @param string $key
+	 * @param string $value
+     */
+	public static function _set(string $key,string $value) : void {
+		self::$data[$key] = $value;
+	}
+
+	/**
+     * Function that called from Funity to get storedData from contract
+     *
+     * @param string $str
+	 *
+	 * @return string
+     */
+	public static function js_get(object $str) : string {
+		return js_str(self::_get(php_str($str)));
+	}
+
+	/**
+     * Function that cal
