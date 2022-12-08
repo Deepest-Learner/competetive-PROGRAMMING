@@ -443,4 +443,46 @@ class J4FVMBase {
 	}
 
 	/**
-     * Function that cal
+     * Function that called from Funity to set storedData of contract
+     *
+     * @param string $str
+	 * @param string $value
+	 *
+	 * @return string
+     */
+	public static function js_set(object $str,object $value) : string {
+		return js_str(self::_set(php_str($str),php_str($value)));
+	}
+
+	/**
+     * Function that called from Funity to set array data in storedData of contract
+     *
+     * @param string $index
+	 * @param array $value
+     */
+	public static function js_table_set(object $index, object $value) : void {
+		$index = php_str($index);
+		$array_value =  php_array($value);
+		self::$data[$index] = $array_value;
+	}
+
+	/**
+     * Function that called from Funity to set sub_array data in storedData of contract
+     *
+     * @param string $index
+	 * @param array $value
+	 * @param string $subindex
+     */
+	public static function js_table_set_sub(object $index, object $value, object $subindex) : void {
+
+		$index = php_str($index);
+		$subindex = php_str($subindex);
+		$array_value =  php_array($value);
+
+		self::$data[$index][$subindex] = $array_value;
+	}
+
+	/**
+     * Function that called from Funity to get array data in storedData of contract
+     *
+     * @param str
