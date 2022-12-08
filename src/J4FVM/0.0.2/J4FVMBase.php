@@ -485,4 +485,63 @@ class J4FVMBase {
 	/**
      * Function that called from Funity to get array data in storedData of contract
      *
-     * @param str
+     * @param string $table
+	 *
+	 * @return array
+     */
+	public static function js_table(object $table) : object {
+		$table = php_str($table);
+
+		if (isset(self::$data[$table]))
+			$object = js_object(self::$data[$table]);
+		else
+			$object = js_object(null);
+
+		return $object;
+	}
+
+	/**
+     * Function that called from Funity to get data of array data in storedData of contract
+     *
+     * @param string $table
+	 * @param string $index
+	 *
+	 * @return mixed
+     */
+	public static function js_table_get(object $table,object $index) : object {
+
+		$table = php_str($table);
+		$index = php_str($index);
+
+		return js_str(self::$data[$table][$index]);
+	}
+
+	/**
+     * Function that called from Funity to get data of array uint256 in storedData of contract
+     *
+     * @param string $table
+	 *
+	 * @return mixed
+     */
+	public static function js_table_uint256(object $table) : object {
+		$table = php_str($table);
+
+		if (isset(J4FVM::$data[$table])) {
+			$object = js_object(J4FVM::$data[$table]);
+		}
+		else
+			$object = js_object(null);
+
+		return $object;
+	}
+
+	/**
+     * Function that called from Funity to get sub_data of array data in storedData of contract
+     *
+     * @param string $table
+	 * @param string $index
+	 * @param string $subindex
+	 *
+	 * @return mixed
+     */
+	public static function js_tab
