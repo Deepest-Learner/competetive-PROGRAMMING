@@ -584,4 +584,55 @@ class J4FVMBase {
 
 						//write Internal Transaction on blockchain (local)
 						$db->addInternalTransaction(self::$txn_hash,self::$contract_hash,$sender,$receiver,$amount);
-						re
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Blockchain Function
+     * Write Internal Transaction of contract J4FRC20
+     *
+     * @param string $sender
+     * @param string $receiver
+     * @param float $amount
+     * @return bool
+     */
+	public static function blockchain_transfer_token(object $sender,object $receiver,object $tokenId) : bool {
+
+		echo 'blockchain_transfer_token';
+
+		//Check if have txn_hash for this J4VM
+		if (self::$contract_hash != null && strlen(self::$contract_hash) == 128) {
+
+			//Parsing jsvars to phpvars
+			$sender = php_str($sender);
+			$receiver = php_str($receiver);
+			$tokenId = php_str($tokenId);
+
+			//Instance DB
+			$db = new DB();
+
+			if ($db != null) {
+
+				//Check param formats
+				$REGEX_Address = '/J4F[a-fA-F0-9]{56}/';
+				if (preg_match($REGEX_Address,$sender) && preg_match($REGEX_Address,$receiver) && is_numeric($tokenId)) {
+
+					//write Internal Transaction on blockchain (local)
+					$db->addInternalTransactionToken(self::$txn_hash,self::$contract_hash,$sender,$receiver,$tokenId);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Contract Function (withdraw)
+     * Write Internal Transaction of contract
+     *
+     *
