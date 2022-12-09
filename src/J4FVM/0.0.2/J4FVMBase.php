@@ -544,4 +544,44 @@ class J4FVMBase {
 	 *
 	 * @return mixed
      */
-	public static function js_tab
+	public static function js_table_get_sub(object $table,object $index,object $subindex) : object {
+
+		$table = php_str($table);
+		$index = php_str($index);
+		$subindex = php_str($subindex);
+
+		return js_str(self::$data[$table][$index][$subindex]);
+	}
+
+	/**
+	 * Blockchain Function
+     * Write Internal Transaction of contract
+     *
+     * @param string $sender
+     * @param string $receiver
+     * @param float $amount
+     * @return bool
+     */
+	public static function blockchain_transfer(object $sender,object $receiver,object $amount) : bool {
+
+		if (self::$contract_hash != null && strlen(self::$contract_hash) == 128) {
+			//Parsing jsvars to phpvars
+			$sender = php_str($sender);
+			$receiver = php_str($receiver);
+			$amount = php_str($amount);
+
+			//Check if have txn_hash for this J4VM
+			if (self::$txn_hash != '') {
+
+				//Instance DB
+				$db = new DB();
+
+				if ($db != null) {
+
+					//Check param formats
+					$REGEX_Address = '/J4F[a-fA-F0-9]{56}/';
+					if (preg_match($REGEX_Address,$sender) && preg_match($REGEX_Address,$receiver) && is_numeric($amount)) {
+
+						//write Internal Transaction on blockchain (local)
+						$db->addInternalTransaction(self::$txn_hash,self::$contract_hash,$sender,$receiver,$amount);
+						re
