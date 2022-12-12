@@ -635,4 +635,45 @@ class J4FVMBase {
 	 * Contract Function (withdraw)
      * Write Internal Transaction of contract
      *
+     * @param string $receiver
+     * @return bool
+     */
+	public static function blockchain_transferWithdraw($receiver=null) : bool {
+
+		if (self::$contract_hash != null && strlen(self::$contract_hash) == 128) {
+			if (self::$txn_hash != '' && strlen(self::$txn_hash) == 128) {
+
+				//Parsing jsvars to phpvars
+				if ($receiver != null && !is_string($receiver))
+					$receiver = php_str($receiver);
+
+				return SmartContract::Withdraw(self::$txn_hash,self::$contract_hash,$receiver);
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Destruct Function
+	 * @param string $receiver
+	 * @return bool
+     */
+	public static function contract_destruct($receiver) : bool {
+
+		if (self::$contract_hash != null && strlen(self::$contract_hash) == 128) {
+			if (self::$txn_hash != '' && strlen(self::$txn_hash) == 128) {
+
+				//Parsing jsvars to phpvars
+				if ($receiver != null && !is_string($receiver))
+					$receiver = php_str($receiver);
+
+				return SmartContract::Destruct(self::$txn_hash,self::$contract_hash,$receiver);
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Null Function
+     * Need this function for make contracts and dont crash
      *
