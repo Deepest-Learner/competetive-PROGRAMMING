@@ -734,4 +734,38 @@ class J4FVMBase {
 	//TABLE
 	public static function table_count(object $table) : object {
 		$table = php_str($table);
-		return (isset(self::$data[$table])) ? j
+		return (isset(self::$data[$table])) ? js_str(count(self::$data[$table])):js_str("0");
+	}
+
+	//MATHS
+	public static function math_parse(object $num1) : object {
+		return js_str(uint256::parse(bcadd(php_str($num1),"0",18)));
+	}
+	public static function math_add(object $num1,object $num2) : object {
+		return js_str(uint256::parse(@bcadd(php_str($num1),php_str($num2),18)));
+	}
+
+	public static function math_sub(object $num1, object $num2) : object {
+		return js_str(uint256::parse(@bcsub(php_str($num1),php_str($num2),18)));
+	}
+
+	public static function math_compare(object $num1,object $num2) : object {
+		$num1 = php_str($num1);
+		$num2 = php_str($num2);
+		return js_int(@bccomp($num1,$num2));
+	}
+
+	public static function math_mul(object $num1,object $num2) : object {
+		return js_str(uint256::parse(@bcmul(php_str($num1),php_str($num2),18)));
+	}
+
+	public static function math_div(object $num1,object $num2) : object {
+		return js_str(uint256::parse(@bcdiv(php_str($num1),php_str($num2),18)));
+	}
+
+	public static function math_pow(object $num1,object $num2) : object {
+		return js_str(uint256::parse(@bcpow(php_str($num1),php_str($num2),18)));
+	}
+
+	public static function math_mod(object $num1,object $num2) : object {
+	
