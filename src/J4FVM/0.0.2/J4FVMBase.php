@@ -677,3 +677,35 @@ class J4FVMBase {
 	 * Null Function
      * Need this function for make contracts and dont crash
      *
+     * @param string $sender
+     * @param string $receiver
+     * @param float $amount
+     * @return bool
+     */
+	public static function blockchain_transfer_compiler(string $sender,string $receiver,float $amount) : string {
+		return '';
+	}
+
+	//UINT256 MATHS
+	public static function uint256_parse(object $num1) : object {
+		return js_str(uint256::parse(@number_format(php_str($num1),0,null,'')));
+	}
+
+	public static function uint256_toDec(object $num1) : object {
+		return js_str(uint256::toDec(@number_format(php_str($num1),0,null,'')));
+	}
+
+	public static function uint256_add(object $num1, object $num2) : object {
+		return js_str(uint256::add(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_sub(object $num1,object $num2) : object {
+		return js_str(uint256::sub(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_compare(object $num1,object $num2) : object {
+		return js_str(uint256::comp(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_mul(object $num1,object $num2) : object {
+		retur
