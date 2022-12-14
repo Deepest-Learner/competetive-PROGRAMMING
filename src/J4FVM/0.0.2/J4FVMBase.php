@@ -708,4 +708,30 @@ class J4FVMBase {
 	}
 
 	public static function uint256_mul(object $num1,object $num2) : object {
-		retur
+		return js_str(uint256::mul(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_div(object $num1,object $num2) : object {
+		return js_str(uint256::div(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_pow(object $num1,object $num2) : object {
+		return js_str(uint256::pow(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_mod(object $num1,object $num2) : object {
+		return js_str(uint256::mod(@number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,'')));
+	}
+
+	public static function uint256_sqrt(object $num1) : object {
+		return js_str(uint256::sqrt(@number_format(php_str($num1),0,null,'')));
+	}
+
+	public static function uint256_powmod(object $num1,object $num2,object $mod) : object {
+		return js_str(uint256::powmod(number_format(php_str($num1),0,null,''),@number_format(php_str($num2),0,null,''),@number_format(php_str($mod),0,null,'')));
+	}
+
+	//TABLE
+	public static function table_count(object $table) : object {
+		$table = php_str($table);
+		return (isset(self::$data[$table])) ? j
