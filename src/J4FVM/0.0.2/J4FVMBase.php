@@ -768,4 +768,43 @@ class J4FVMBase {
 	}
 
 	public static function math_mod(object $num1,object $num2) : object {
-	
+		return js_str(uint256::parse(@bcmod(php_str($num1),php_str($num2),18)));
+	}
+
+	public static function math_sqrt(object $num1) : object {
+		return js_str(self::math_parse(@bcsqrt(php_str($num1),18)));
+	}
+
+	public static function math_powmod(object $num1,object $num2,object $mod) : object {
+		return js_str(self::math_parse(@bcpowmod(php_str($num1),php_str($num2),php_str($mod))));
+	}
+
+	public static function math_random(int $length=32) : object {
+		if (is_numeric($length))
+			$randomNum = substr(Tools::hex2dec(PoW::hash(time().rand())),0,$length);
+		else
+			$randomNum = substr(Tools::hex2dec(PoW::hash(time().rand())),0,php_str($length));
+		return js_str($randomNum);
+	}
+
+	//JSON
+	public static function json_stringify(object $array) : object {
+		return js_str(@json_encode(php_array($array)));
+	}
+
+	public static function json_parse(object $jsonString) : object {
+		$json = @json_encode(php_str($jsonString));
+		if (is_array($json) && !empty($json))
+			$object = js_object($json);
+		else
+			$object = js_object(null);
+		return $object;
+	}
+
+	//CRYPTO
+	public static function js_sha3(object $str) : object {
+		return js_str(PoW::hash(php_str($str)));
+	}
+
+	//EXTERNAL CALLS -> INTERFACE
+	public static func
