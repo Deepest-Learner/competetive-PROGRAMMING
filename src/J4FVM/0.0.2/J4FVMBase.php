@@ -807,4 +807,42 @@ class J4FVMBase {
 	}
 
 	//EXTERNAL CALLS -> INTERFACE
-	public static func
+	public static function external_callContract(object $contractHash,object $functionName,object $params) : object {
+		$contractHash = php_str($contractHash);
+		$functionName = php_str($functionName);
+
+		$params = php_array($params);
+
+		$callCode['Method'] = '0x'.substr(PoW::hash(trim($functionName)),0,8);
+		$callCode['Params'] = [];
+
+		//Parse params
+		if (!empty($params)) {
+			foreach ($params as $param) {
+				if (strlen(trim($param)) > 0) {
+					$callCode['Params'][count($callCode['Params'])] = Tools::str2hex(trim($param));
+				}
+			}
+		}
+		$callCodeParsed = Tools::str2hex(@json_encode($callCode));
+
+		//Start Chaindata pointer
+		$chaindata = new DB();
+
+		//Get contract by hash
+		$contract = $chaindata->GetContractByHash($contractHash);
+		if ($contract != null) {
+			$j4fvm_process = new J4FVMSubprocess('READ');
+
+			//Set info for J4FVM
+			$j4fvm_process->setContractHash($contractHash);
+			$j4fvm_process->setTxnHash('empty');
+			$j4fvm_process->setVersion(J4FVMTools::GetFunityVersion($contract['code']));
+			$j4fvm_process->setFrom('0');
+			$j4fvm_process->setAmount('0');
+			$j4fvm_process->setData($callCodeParsed);
+
+			//Run contract
+			$statusRun = $j4fvm_process->run();
+			if ($statusRun !== "1") {
+				die('<strong class="text-danger">J4FVM_Interf
