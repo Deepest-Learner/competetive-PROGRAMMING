@@ -845,4 +845,29 @@ class J4FVMBase {
 			//Run contract
 			$statusRun = $j4fvm_process->run();
 			if ($statusRun !== "1") {
-				die('<strong class="text-danger">J4FVM_Interf
+				die('<strong class="text-danger">J4FVM_Interface</strong> Internal error running Interface ');
+			}
+			else {
+				$outputCall = '';
+				foreach ($j4fvm_process->output() as $line)
+					$outputCall .= $line;
+
+				return js_str(Tools::hex2str($outputCall));
+			}
+		}
+		else {
+			die("<strong class='text-danger'>J4FVM_Interface</strong> - Contract with that hash not defined");
+		}
+	}
+	public static function external_existsContract(object $contractHash) : void {
+		$contractHash = php_str($contractHash);
+
+		//Start Chaindata pointer
+		$chaindata = new DB();
+		//Get contract by hash
+		$contract = $chaindata->GetContractByHash($contractHash);
+		if ($contract == null)
+			die("<strong class='text-danger'>J4FVM_Interface</strong> - Contract with that hash not defined");
+	}
+}
+?>
