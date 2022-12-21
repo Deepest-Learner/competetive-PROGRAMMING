@@ -45,4 +45,50 @@ Class J4FVMSubprocess {
 		$this->txnHash = $txnHash;
 	}
 
-	public functio
+	public function setContractHash(string $contractHash) : void {
+		$this->contractHash = $contractHash;
+	}
+
+	public function setFrom(string $from) : void {
+		$this->txnFrom = $from;
+	}
+
+	public function setAmount(string $amount) : void {
+		$this->txnAmount = $amount;
+	}
+
+	public function setVersion(string $version) : void {
+		$this->version = $version;
+	}
+
+	public function setData(string $data) : void {
+		$this->txnData = $data;
+	}
+
+	public function run() : string {
+
+		if ($this->contractHash == null)
+			return 'Error, ContractHash not defined';
+
+		if ($this->txnData == null)
+			return 'Error, TXN Data not defined';
+
+		if ($this->txnHash == null)
+			return 'Error, TXN Hash not defined';
+
+		if ($this->txnFrom == null)
+			return 'Error, TXN From not defined';
+
+		if ($this->txnAmount == null)
+			return 'Error, TXN Amount not defined';
+
+		//Default use latest versionfd
+		if ($this->version == null)
+			$this->version = 'latest';
+
+        //Make params for j4fvm
+        $params = $this->typeCall.' '.$this->contractHash.' '.$this->version.' '.$this->txnData.' '.$this->txnHash.' '.$this->txnFrom.' '.$this->txnAmount;
+
+		try {
+
+			$directoryProcessFi
