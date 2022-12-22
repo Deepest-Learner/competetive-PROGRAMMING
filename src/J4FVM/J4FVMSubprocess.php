@@ -91,4 +91,31 @@ Class J4FVMSubprocess {
 
 		try {
 
-			$directoryProcessFi
+			$directoryProcessFile = Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR;
+			$prefixCommand = (IS_WIN) ? 'start /B cmd /C ':'';
+            $handle = @popen($prefixCommand.PHP_RUN_COMMAND.' '.$directoryProcessFile.'j4fvm.php ' . $params, 'r');
+
+			//Get Output
+			$outputLines = [];
+			while (!@feof($handle))
+			    $outputLines[] = @fgets($handle);
+			@pclose($handle);
+
+			//Save output
+			$this->output = $outputLines;
+
+			return true;
+		}
+		catch (Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function output() : array {
+		if (is_string($this->output))
+			return [$this->output];
+		else
+			return $this->output;
+	}
+}
+?>
