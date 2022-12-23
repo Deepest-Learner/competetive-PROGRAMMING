@@ -37,4 +37,36 @@ class Peer {
         //Check if node is connected on testnet or mainnet
         $isTestNet = ($gossip->chaindata->GetNetwork() == "testnet") ? true:false;
 
-        if (is_arra
+        if (is_array($nextBlocksToSyncFromPeer) && count($nextBlocksToSyncFromPeer) > 0) {
+			$gossip->isBusy = true;
+            foreach ($nextBlocksToSyncFromPeer as $object) {
+
+				//Transform blockArray into blockObject
+				$blockToImport = BlockChain::BlockArrayToObject($object);
+
+                //Get last local block
+                $lastBlock = $gossip->chaindata->GetLastBlock();
+
+				if (@is_array($lastBlock) && !@empty($lastBlock)) {
+
+					//Check if block received its OK
+					if (!is_object($blockToImport) || ( is_object($blockToImport) && !isset($blockToImport->hash) )) {
+						$return['status'] = true;
+						$return['error'] = "5x00000000";
+						$return['message'] = "Block received malformed";
+						break;
+					}
+
+					$currentLocalTime = Tools::GetGlobalTime() + 5;
+					//We check that the date of the block sent is not superior to mine
+					if ($blockToImport->timestamp_end > $currentLocalTime) {
+						$return['status'] = true;
+						$return['error'] = "6x00000002";
+						$return['message'] = "Block date is from the future";
+						break;
+					}
+
+					//Check if my last block is the previous block of the block to import
+					if ($lastBlock['block_hash'] == $blockToImport->previous) {
+
+			
