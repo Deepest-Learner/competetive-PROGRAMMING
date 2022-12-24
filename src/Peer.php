@@ -98,4 +98,29 @@ class Peer {
 								}
 							} else {
 								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Reward transaction not valid");
-								$gossip->chaindata->addPeerToBlackList($
+								$gossip->chaindata->addPeerToBlackList($ipAndPort);
+								return false;
+							}
+						} else {
+							Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Has a block that I can not validate");
+							$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							return false;
+						}
+					}
+
+					//Check if my last block is the same height of the block to import
+					else if ($lastBlock['block_previous'] == $blockToImport->previous && $lastBlock['block_hash'] != $blockToImport->hash) {
+
+						//Check if difficulty its ok
+						$currentDifficulty = Blockchain::checkDifficulty($gossip->chaindata,($lastBlock['height']-1),$isTestNet);
+						if ($currentDifficulty[0] != $blockToImport->difficulty) {
+							Display::ShowMessageNewBlock('novalid',$lastBlock['height'],$blockToImport);
+							Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Difficulty hacked?");
+							$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							break;
+						}
+
+						// We check if the time difference is equal orgreater than 2s
+						$diffTimeBlocks = date_diff(
+							date_create(date('Y-m-d H:i:s', $lastBlock['timestamp_end_miner'])),
+							date_create
