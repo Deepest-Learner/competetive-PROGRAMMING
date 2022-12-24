@@ -69,4 +69,33 @@ class Peer {
 					//Check if my last block is the previous block of the block to import
 					if ($lastBlock['block_hash'] == $blockToImport->previous) {
 
-			
+						//Define new height for next block
+						$nextHeight = $lastBlock['height']+1;
+
+						//Check if difficulty its ok
+						$currentDifficulty = Blockchain::checkDifficulty($gossip->chaindata,null,$isTestNet);
+						if ($currentDifficulty[0] != $blockToImport->difficulty) {
+							Display::ShowMessageNewBlock('diffko',$lastBlock['height'],$blockToImport);
+							break;
+						}
+
+						//If block is valid
+						if ($blockToImport->isValid()) {
+							//Check if rewarded transaction is valid, prevent hack money
+							if ($blockToImport->isValidReward($nextHeight,$gossip->isTestNet)) {
+								//We add block to blockchain
+								if ($gossip->chaindata->addBlock($nextHeight,$blockToImport)) {
+									//Make SmartContracts on local blockchain
+									SmartContract::Make($gossip->chaindata,$blockToImport);
+
+									//Call Functions of SmartContracts on local blockchain
+									SmartContract::CallFunction($gossip->chaindata,$blockToImport);
+
+									//Save block pointer
+									$blockSynced = $blockToImport;
+
+									$blocksSynced++;
+								}
+							} else {
+								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Reward transaction not valid");
+								$gossip->chaindata->addPeerToBlackList($
