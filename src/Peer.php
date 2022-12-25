@@ -123,4 +123,26 @@ class Peer {
 						// We check if the time difference is equal orgreater than 2s
 						$diffTimeBlocks = date_diff(
 							date_create(date('Y-m-d H:i:s', $lastBlock['timestamp_end_miner'])),
-							date_create
+							date_create(date('Y-m-d H:i:s', $blockToImport->timestamp_end))
+						);
+						$diffTimeSeconds = ($diffTimeBlocks->format('%i') * 60) + $diffTimeBlocks->format('%s');
+						$diffTimeSeconds = ($diffTimeSeconds < 0) ? ($diffTimeSeconds * -1):$diffTimeSeconds;
+						if ($diffTimeSeconds > 2) {
+							Display::ShowMessageNewBlock('novalid',$lastBlock['height'],$blockToImport);
+							Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Block in past");
+							$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							break;
+						}
+
+						//Valid new block in same hiehgt to add in Blockchain
+						$returnCode = Blockchain::isValidBlockMinedByPeerInSameHeight($gossip->chaindata,$lastBlock,$blockToImport);
+						if ($returnCode == "0x00000000") {
+							//Save block pointer
+							$blockSynced = $blockToImport;
+
+							$blocksSynced++;
+						}
+						else {
+							if ($returnCode == "0x00000001") {
+								Display::ShowMessageNewBlock('novalid',$lastBlock['height'],$blockToImport);
+								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Has a block that I can not validateHas a blo
