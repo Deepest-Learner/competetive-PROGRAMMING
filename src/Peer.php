@@ -145,4 +145,29 @@ class Peer {
 						else {
 							if ($returnCode == "0x00000001") {
 								Display::ShowMessageNewBlock('novalid',$lastBlock['height'],$blockToImport);
-								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Has a block that I can not validateHas a blo
+								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Has a block that I can not validateHas a block that I can not validate");
+								$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							}
+							else if ($returnCode == "0x00000002") {
+								Display::ShowMessageNewBlock('rewardko',$lastBlock['height'],$blockToImport);
+								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Reward transaction not valid");
+								$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							}
+							else if ($returnCode == "0x00000003") {
+								Display::ShowMessageNewBlock('previousko',$lastBlock['height'],$blockToImport);
+								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Previous block fail");
+								$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							}
+							else if ($returnCode == "0x00000004") {
+								Display::ShowMessageNewBlock('malformed',$lastBlock['height'],$blockToImport);
+								Display::_warning("Peer ".$ipAndPort." added to blacklist       %G%reason%W%=Block malformed");
+								$gossip->chaindata->addPeerToBlackList($ipAndPort);
+							}
+							else if ($returnCode == "0x00000005") {
+								Display::ShowMessageNewBlock('noaccepted',$lastBlock['height'],$blockToImport);
+							}
+							break;
+						}
+					}
+
+			
