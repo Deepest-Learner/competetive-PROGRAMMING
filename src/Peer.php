@@ -170,4 +170,34 @@ class Peer {
 						}
 					}
 
-			
+					//Check if same block
+					else if ($lastBlock['block_previous'] == $blockToImport->previous && $lastBlock['block_hash'] == $blockToImport->hash) {
+						continue;
+					}
+					else {
+						//Improve peer system with autoSanity
+						$numBlocksSanity = 200 + $blocksSynced;
+						if ($lastBlock['height'] <= $numBlocksSanity)
+							$numBlocksSanity = 1;
+						$heightBlockFromRemove = $lastBlock['height'] - $numBlocksSanity;
+
+						//Micro-Sanity and resync
+						Display::_warning("Started Micro-Sanity       %G%height%W%=".$lastBlock['height']."	%G%newHeight%W%=".$heightBlockFromRemove);
+						$gossip->chaindata->RemoveLastBlocksFrom($heightBlockFromRemove);
+						Display::_warning("Finished Micro-Sanity, re-sync with peer");
+
+						$ipAndPortToSync = Peer::GetHighestBlockFromPeers($gossip);
+						Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$ipAndPortToSync);
+
+						$gossip->syncing = true;
+						$gossip->isBusy = false;
+						return false;
+					}
+				}
+            }
+        }
+
+        if ($blocksSynced == 1) {
+			Display::ShowMessageNewBlock('imported',$lastBlock['height'],$blockSynced);
+			return true;
+        } else if ($blocksSynced > 0) {
