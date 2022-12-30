@@ -201,3 +201,38 @@ class Peer {
 			Display::ShowMessageNewBlock('imported',$lastBlock['height'],$blockSynced);
 			return true;
         } else if ($blocksSynced > 0) {
+            Display::print("%Y%Imported%W% new blocks         	%G%count%W%=".$blocksSynced."            %G%current%W%=".$currentBlocks."   %G%total%W%=".$totalBlocks);
+			return true;
+        }
+
+		$gossip->isBusy = false;
+
+		return false;
+    }
+
+	/**
+	 * Check this peer and determine if need to sync with it
+	 *
+	 * @return bool
+	 */
+	public static function CheckPeerIfNeedToSync(Gossip &$gossip, string $peerIp, string $peerPort) : void {
+		$lastBlock = $gossip->chaindata->GetLastBlock();
+
+		$infoToSend = array(
+			'action' => 'STATUSNODE'
+		);
+		$response = Socket::sendMessageWithReturn($peerIp,$peerPort,$infoToSend,2);
+
+		//Check if response as ok
+		if ($response != null && isset($response['status'])) {
+
+			//Check if peer have same height block
+			if ($response['result']['lastBlock'] > ($lastBlock['height']+1)) {
+
+				//Check if have same GENESIS block from peer
+				$peerGenesisBlock = Peer::GetGenesisBlock($peerIp.':'.$peerPort);
+				$localGenesisBlock = $gossip->chaindata->GetGenesisBlock();
+
+				//Check if i have genesis block (local blockchain)
+				if ($localGenesisBlock != null) {
+					if ($localGenesisBlock['block_hash'] == $peerGenesisBlock['block_hash']) {
