@@ -236,3 +236,35 @@ class Peer {
 				//Check if i have genesis block (local blockchain)
 				if ($localGenesisBlock != null) {
 					if ($localGenesisBlock['block_hash'] == $peerGenesisBlock['block_hash']) {
+						Tools::writeLog('SUBPROCESS::Selected peer '.$peer['ip'].':'.$peer['port'].' for sync');
+						@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+						Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$peerIp.":".$peerPort);
+					}
+				}
+				else {
+					//Init sync
+					Tools::writeLog('SUBPROCESS::Selected peer '.$peer['ip'].':'.$peer['port'].' for sync');
+					@unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer");
+					Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR."sync_with_peer",$peerIp.":".$peerPort);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Select peer to sync with it
+	 *
+	 * @return string
+	 */
+	public static function SelectPeerToSync(Gossip &$gossip) : string {
+
+		$highestChain = -1;
+
+		if ($gossip->isTestNet)
+			$ipAndPort = NODE_BOOTSTRAP_TESTNET.':'.NODE_BOOSTRAP_PORT_TESTNET;
+		else
+			$ipAndPort = NODE_BOOTSTRAP.':'.NODE_BOOSTRAP_PORT;
+
+		$lastBlock = $gossip->chaindata->GetLastBlock();
+		//Run subprocess peerAlive per peer
+		$peers = $gossip->chaindata->GetAllPeersWithou
