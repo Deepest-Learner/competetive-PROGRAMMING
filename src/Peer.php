@@ -297,4 +297,58 @@ class Peer {
 								//Sync with peer (have more blocks)
 								if ($response['result']['lastBlock'] > $highestChain) {
 									$highestChain = $response['result']['lastBlock'];
-	
+									$ipAndPort = $peer['ip'].':'.$peer['port'];
+								}
+							}
+						}
+						else {
+							//Init sync
+							if ($response['result']['lastBlock'] > $highestChain) {
+								$ipAndPort = $peer['ip'].':'.$peer['port'];
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return $ipAndPort;
+	}
+
+    /**
+     *
+     * We obtain the GENESIS block from Peer
+     *
+     * @param $ipAndPort
+     * @return mixed
+     */
+    public static function GetGenesisBlock(string $ipAndPort) : array {
+
+        //Get IP and Port
+        $tmp = explode(':',$ipAndPort);
+        $ip = $tmp[0];
+        $port = $tmp[1];
+
+        $infoToSend = array(
+            'action' => 'GETGENESIS'
+        );
+
+        $infoPOST = Socket::sendMessageWithReturn($ip,$port,$infoToSend);
+        if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1)
+            return $infoPOST['result'];
+        else
+            return [];
+    }
+
+    /**
+     *
+     * We get the last block from peer
+     *
+     * @param $ipAndPort
+     * @param $isTestNet
+     * @return int
+     */
+    public static function GetLastBlockNum(string $ipAndPort) : int {
+
+        //Get IP and Port
+        $tmp = explo
