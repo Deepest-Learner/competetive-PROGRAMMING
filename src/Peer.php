@@ -267,4 +267,34 @@ class Peer {
 
 		$lastBlock = $gossip->chaindata->GetLastBlock();
 		//Run subprocess peerAlive per peer
-		$peers = $gossip->chaindata->GetAllPeersWithou
+		$peers = $gossip->chaindata->GetAllPeersWithoutBootstrap();
+		if (count($peers) > 0) {
+			foreach ($peers as $peer) {
+				$infoToSend = array(
+					'action' => 'STATUSNODE'
+				);
+
+				$response = Socket::sendMessageWithReturn($peer['ip'],$peer['port'],$infoToSend,2);
+
+				//Check if response as ok
+				if ($response != null && isset($response['status'])) {
+
+					//Check if peer have same height block
+					if ($response['result']['lastBlock'] > ($lastBlock['height']+1)) {
+
+						Tools::writeLog('SUBPROCESS::This peer '.$peer['ip'].':'.$peer['port'].' have more blocks than me');
+
+						//Check if have same GENESIS block from peer
+						$peerGenesisBlock = Peer::GetGenesisBlock($peer['ip'].':'.$peer['port']);
+						$localGenesisBlock = $gossip->chaindata->GetGenesisBlock();
+
+						//Check if i have genesis block (local blockchain)
+						if ($localGenesisBlock != null) {
+							if ($localGenesisBlock['block_hash'] == $peerGenesisBlock['block_hash']) {
+
+								Tools::writeLog('SUBPROCESS::Selected peer '.$peer['ip'].':'.$peer['port'].' for sync');
+
+								//Sync with peer (have more blocks)
+								if ($response['result']['lastBlock'] > $highestChain) {
+									$highestChain = $response['result']['lastBlock'];
+	
