@@ -351,4 +351,43 @@ class Peer {
     public static function GetLastBlockNum(string $ipAndPort) : int {
 
         //Get IP and Port
-        $tmp = explo
+        $tmp = explode(':',$ipAndPort);
+        $ip = $tmp[0];
+        $port = $tmp[1];
+
+        $infoToSend = array(
+            'action' => 'LASTBLOCKNUM'
+        );
+
+		$infoPOST = Socket::sendMessageWithReturn($ip,$port,$infoToSend);
+        if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1)
+            return $infoPOST['result'];
+        else
+            return -1;
+    }
+
+    /**
+     *
+     * We get the next 100 blocks from peer given a current height
+     *
+     * @param string $ipAndPort
+     * @param string $lastBlockOnLocal
+     * @return mixed
+     */
+    public static function SyncNextBlocksFrom(string $ipAndPort,int $lastBlockOnLocal) : array {
+
+        //Get IP and Port
+        $tmp = explode(':',$ipAndPort);
+        $ip = $tmp[0];
+        $port = $tmp[1];
+
+        $infoToSend = array(
+			'action' => 'SYNCBLOCKS',
+            'from' => $lastBlockOnLocal
+        );
+
+		$infoPOST = Socket::sendMessageWithReturn($ip,$port,$infoToSend,30);
+		if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1) {
+			if (is_array($infoPOST['result']) && !empty($infoPOST['result'])) {
+				return $infoPOST['result'];
+		
