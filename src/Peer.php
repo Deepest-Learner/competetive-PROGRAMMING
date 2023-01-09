@@ -390,4 +390,45 @@ class Peer {
 		if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1) {
 			if (is_array($infoPOST['result']) && !empty($infoPOST['result'])) {
 				return $infoPOST['result'];
-		
+			}
+			else {
+				return [];
+			}
+		}
+        else
+            return [];
+	}
+
+	/**
+     *
+     * We get the peer with more blocks
+     *
+     * @param Gossip $gossip
+     * @return string
+     */
+    public static function GetHighestBlockFromPeers(Gossip &$gossip) : string {
+
+		//Default select a bootstrap node
+		if ($gossip->isTestNet)
+			$selectedPeer = NODE_BOOTSTRAP_TESTNET.':'.NODE_BOOSTRAP_PORT_TESTNET;
+		else
+			$selectedPeer = NODE_BOOTSTRAP.':'.NODE_BOOSTRAP_PORT;
+
+		$numBlocksPeer = 0;
+
+		//Data to send
+        $infoToSend = array(
+			'action' => 'LASTBLOCKNUM'
+        );
+
+		$myPeers = $gossip->chaindata->GetAllPeers();
+
+		//Check all peers and select highest block peer
+		if (!empty($myPeers)) {
+			foreach($myPeers as $peerInfo) {
+				if (Socket::isAlive($peerInfo["ip"],$peerInfo["port"])) {
+					$infoPOST = Socket::sendMessageWithReturn($peerInfo["ip"],$peerInfo["port"],$infoToSend,10);
+					if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1) {
+						if (intval($infoPOST['result']) > $numBlocksPeer) {
+							$numBlocksPeer = intval($infoPOST['result']);
+							$selectedPeer = $peerInfo["ip"] . ":"
