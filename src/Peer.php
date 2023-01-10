@@ -481,4 +481,26 @@ class Peer {
 		foreach($gossip->peers as $ipAndPort => $v) {
 			$peer = explode(":", $ipAndPort);
 			$infoPOST = Socket::sendMessageWithReturn($peer[0],$peer[1],$infoToSend,5);
-			if ($infoPOST != null && isset($infoPOST
+			if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1) {
+				if (is_array($infoPOST['result']) && !empty($infoPOST['result'])) {
+					foreach ($infoPOST['result'] as $newPeerInfo) {
+						if (count($gossip->peers) < PEERS_MAX) {
+							$gossip->_addPeer($newPeerInfo['ip'],$newPeerInfo['port']);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Check if peer is blacklisted
+	 * @param Gossip $gossip
+	 * @param string $ip
+	 * @param string $port
+	 * @return bool
+	 */
+	public static function CheckIfBlacklisted(Gossip &$gossip, string $ip, string $port) : bool {
+		return $gossip->chaindata->CheckIfPeerIsBlacklisted($ip,$port);
+	}
+}
