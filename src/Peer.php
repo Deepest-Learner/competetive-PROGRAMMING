@@ -431,4 +431,54 @@ class Peer {
 					if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1) {
 						if (intval($infoPOST['result']) > $numBlocksPeer) {
 							$numBlocksPeer = intval($infoPOST['result']);
-							$selectedPeer = $peerInfo["ip"] . ":"
+							$selectedPeer = $peerInfo["ip"] . ":" . $peerInfo["port"];
+						}
+					}
+				}
+			}
+		}
+
+		return $selectedPeer;
+	}
+
+	/**
+     *
+     * We get pending transactions from Peer
+     *
+     * @param string $ipAndPort
+     * @return int|mixed
+     */
+    public static function GetPendingTransactions(string $ipAndPort) {
+
+		//Get IP and Port
+        $tmp = explode(':',$ipAndPort);
+        $ip = $tmp[0];
+        $port = $tmp[1];
+
+        $infoToSend = array(
+            'action' => 'GETPENDINGTRANSACTIONS'
+        );
+
+		$infoPOST = Socket::sendMessageWithReturn($ip,$port,$infoToSend);
+		if ($infoPOST != null && isset($infoPOST['status']) && $infoPOST['status'] == 1)
+			return $infoPOST['result'];
+		else
+			return null;
+    }
+
+	/**
+	 * Get more peers from peer
+	 * @param Gossip $gossip
+	 * @param string $ip
+	 * @param string $port
+	 * @return void
+	 */
+	public static function GetMorePeers(Gossip &$gossip, string $ip, string $port) : void {
+		//Data to send
+		$infoToSend = array(
+            'action' => 'GETPEERS'
+        );
+		foreach($gossip->peers as $ipAndPort => $v) {
+			$peer = explode(":", $ipAndPort);
+			$infoPOST = Socket::sendMessageWithReturn($peer[0],$peer[1],$infoToSend,5);
+			if ($infoPOST != null && isset($infoPOST
