@@ -9,4 +9,40 @@
 // (at your option) any later version.
 //
 // The J4FCore library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRA
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with the J4FCore library. If not, see <http://www.gnu.org/licenses/>.
+
+class Pki {
+    /**
+     * We generate a public and private key
+     *
+     * @param $password
+     * @return array
+     */
+    public static function generateKeyPair(string $password) : array {
+        $res = openssl_pkey_new([
+            'private_key_bits' => 2048,
+            'private_key_type' => OPENSSL_KEYTYPE_RSA
+        ]);
+
+        if ($password != null)
+            @openssl_pkey_export($res,$privKey, $password);
+        else
+            @openssl_pkey_export($res,$privKey);
+
+        return ['private'=>$privKey, 'public'=>@openssl_pkey_get_details($res)['key']];
+    }
+
+    /**
+     * We encrypt a message with the private key
+     *
+     * @param string $message
+     * @param string $privKey
+     * @param string $password
+     * @return bool|string
+     */
+    public static function encrypt(string $message,string $privKey, string $password
