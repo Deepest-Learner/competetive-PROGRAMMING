@@ -45,4 +45,45 @@ class Pki {
      * @param string $password
      * @return bool|string
      */
-    public static function encrypt(string $message,string $privKey, string $password
+    public static function encrypt(string $message,string $privKey, string $password="") : string {
+
+        if (strlen($password) > 0) {
+            if (@openssl_pkey_get_private($privKey, $password)) {
+                @openssl_private_encrypt($message, $crypted, @openssl_pkey_get_private($privKey, $password));
+            }
+            else {
+                return "";
+            }
+        }
+        else
+            @openssl_private_encrypt($message,$crypted, $privKey);
+
+        return base64_encode($crypted);
+    }
+
+    /**
+     * We decrypt a message with the public key
+     *
+     * @param $crypted
+     * @param $pubKey
+     * @return mixed
+     */
+    public static function decrypt(string $crypted,string $pubKey) {
+        @openssl_public_decrypt(base64_decode($crypted),$decrypted,$pubKey);
+        return $decrypted;
+    }
+
+    /**
+     * We validate if the message can be decrypted
+     *
+     * @param $message
+     * @param $crypted
+     * @param $pubKey
+     * @return bool
+     */
+    public static function isValid(string $message,string $crypted,string $pubKey) {
+        return $message == self::decrypt($crypted,$pubKey);
+    }
+
+}
+?>
