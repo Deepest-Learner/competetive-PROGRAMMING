@@ -64,4 +64,26 @@ class PoW {
                 $countIdleLog = 0;
 
                 //We obtain the difference between first 100000 hashes time and this hash time
-   
+                $minedTime = date_diff(
+                    date_create(date('Y-m-d H:i:s', $lastLogTime)),
+                    date_create(date('Y-m-d H:i:s', time()))
+                );
+                $timeCheckedHashesSeconds = intval($minedTime->format('%s'));
+                $timeCheckedHashesMinutes = intval($minedTime->format('%i'));
+                if ($timeCheckedHashesSeconds > 0)
+                    $timeCheckedHashesSeconds = $timeCheckedHashesSeconds + ($timeCheckedHashesMinutes * 60);
+
+                $currentLimitCount = $limitCount;
+                if ($timeCheckedHashesSeconds <= 0) {
+                    $timeCheckedHashesSeconds = 1;
+                    $limitCount *= 10;
+                }
+
+                $hashRateMiner = $currentLimitCount / $timeCheckedHashesSeconds;
+
+                //Save current time
+                $lastLogTime = time();
+
+				if ($isMultiThread)
+                	Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$idMiner."_hashrate",$hashRateMiner);
+                //Subprocess::writeLog("Miners 
