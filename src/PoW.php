@@ -32,4 +32,36 @@ class PoW {
      * @param string $message
      * @param string $difficulty
      * @param string $startNonce
-     * @p
+     * @param string $incrementNonce
+	 * @param bool $isMultiThread
+     * @return string
+     */
+    public static function findNonce($idMiner,$message,$difficulty,$startNonce,$incrementNonce,$isMultiThread=true) : string {
+        $max_difficulty = "000FFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+
+		$nonce = "0";
+        $nonce = bcadd($nonce,strval($startNonce));
+
+        //Save current time
+        $lastLogTime = time();
+
+        //Can't start subprocess without mainthread
+        if ($isMultiThread && !file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK))
+            die('MAINTHREAD NOT FOUND');
+
+		$countIdle = 0;
+        $countIdleCheck = 0;
+        $countIdleLog = 0;
+        $limitCount = 1000;
+
+        while(!self::isValidNonce($message,$nonce,$difficulty,$max_difficulty)) {
+
+            $countIdle++;
+            $countIdleLog++;
+			$countIdleCheck++;
+
+            if ($countIdleLog == $limitCount) {
+                $countIdleLog = 0;
+
+                //We obtain the difference between first 100000 hashes time and this hash time
+   
