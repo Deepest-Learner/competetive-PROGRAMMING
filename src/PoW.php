@@ -86,4 +86,24 @@ class PoW {
 
 				if ($isMultiThread)
                 	Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$idMiner."_hashrate",$hashRateMiner);
-                //Subprocess::writeLog("Miners 
+                //Subprocess::writeLog("Miners has checked ".$nonce." - Current hash rate: " . $hashRateMiner);
+
+            }
+
+			if ($countIdleCheck == 100) {
+				$countIdleCheck = 0;
+                //Quit-Files
+                if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_STOP_MINING)) {
+                    //Delete "pid" file
+                    @unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$startNonce);
+                    die('STOP MINNING');
+                }
+                if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_NEW_BLOCK)) {
+                    //Delete "pid" file
+                    @unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$startNonce);
+                    die('BLOCK FOUND');
+                }
+                if (!file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_TX_INFO)) {
+                    //Delete "pid" file
+                    @unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$startNonce);
+                    die('
