@@ -106,4 +106,28 @@ class PoW {
                 if (!file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_TX_INFO)) {
                     //Delete "pid" file
                     @unlink(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$startNonce);
-                    die('
+                    die('NO TX INFO');
+                }
+			}
+
+            //Check alive status every 1000 hashes
+            if ($countIdle % 1000 == 0 && $isMultiThread) {
+                $countIdle = 0;
+
+				//Update "pid" file every 1000 hashes
+                Tools::writeFile(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MINERS_THREAD_CLOCK."_".$idMiner,time());
+
+                //Check if MainThread is alive
+                if (@file_exists(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK)) {
+                    $mainThreadTime = @file_get_contents(Tools::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.Subprocess::$FILE_MAIN_THREAD_CLOCK);
+                    $minedTime = date_diff(
+                        date_create(date('Y-m-d H:i:s', $mainThreadTime)),
+                        date_create(date('Y-m-d H:i:s', time()))
+                    );
+                    $diffTime = $minedTime->format('%s');
+                    if ($diffTime >= MINER_TIMEOUT_CLOSE)
+                        die('MAINTHREAD NOT FOUND');
+                }
+            }
+
+            //We increased the nonce to continue in the search to solve the problem
