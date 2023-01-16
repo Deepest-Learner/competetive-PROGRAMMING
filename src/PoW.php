@@ -131,3 +131,30 @@ class PoW {
             }
 
             //We increased the nonce to continue in the search to solve the problem
+            $nonce = bcadd($nonce,strval($incrementNonce));
+        }
+
+        return $nonce;
+    }
+
+    /**
+     * @param $message
+     * @param $nonce
+     * @param $difficulty
+     * @param $maxDifficulty
+     * @return bool
+     */
+    public static function isValidNonce(string $message,string $nonce,string $difficulty,string $maxDifficulty) : bool {
+
+		$difficulty = ($difficulty < 0) ? 1:$difficulty;
+		$hash = PoW::hash($message.$nonce);
+        $targetHash = @bcdiv(Tools::hex2dec($maxDifficulty),$difficulty);
+		$hashValue = Tools::hex2dec(strtoupper($hash));
+
+        $result = bccomp($targetHash,$hashValue);
+        if ($result === 1 || $result === 0)
+            return true;
+        return false;
+    }
+}
+?>
