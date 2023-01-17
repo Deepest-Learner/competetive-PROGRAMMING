@@ -30,4 +30,22 @@ class REGEX {
 	const isJ4FRC10 = '/[Cc]ontract\s{0,}([a-zA-Z0-9]*)\s{0,}(is J4FRC10|)\s{0,}\{/m';
 	const isJ4FRC20 = '/[Cc]ontract\s{0,}([a-zA-Z0-9]*)\s{0,}(is J4FRC20|)\s{0,}\{/m';
 
-	const ContractCode = '/^Contract\s*([a-zA-Z0-9]{1,})\s({(?>"(?:[^"\\\\]*+|\\\\.)*"|\'(?:[^\'\\\\]*+|\\\\.)*\'|\/\/.*$|\/\*[\s\S]*?\*\/|#.*$|<<<\s*["\']?(\w+)["\']?[^;]+\3;$|[^{}<\'"\/#]++|[^{}]++|(?2))*
+	const ContractCode = '/^Contract\s*([a-zA-Z0-9]{1,})\s({(?>"(?:[^"\\\\]*+|\\\\.)*"|\'(?:[^\'\\\\]*+|\\\\.)*\'|\/\/.*$|\/\*[\s\S]*?\*\/|#.*$|<<<\s*["\']?(\w+)["\']?[^;]+\3;$|[^{}<\'"\/#]++|[^{}]++|(?2))*})/m';
+
+	const ContractFunctions = '/(\w*)\s*:\s*function\s*\((.*)\)\s*(?:(public|private)|)\s*(?:(returns\s*bool|returns\s*string|returns\s*uint256|returns\s*int|returns)|)\s*\K({((?>"(?:[^"\\\\]*+|\\\\.)*"|\'(?:[^\'\\\\]*+|\\\\.)*\'|\/\/.*$|\/\*[\s\S]*?\*\/|#.*$|<<<\s*["\']?(\w+)["\']?[^;]+\3;$|[^{}<\'"\/#]++|[^{}]++|(?5))*)})/m';
+
+	const ContractFunctionsSimple = '/(\w*)\s*:\s*function\s*\((.*)\)\s*(?:(public|private)|)\s*(?:(returns\s*bool|returns\s*string|returns\s*uint256|returns\s*uint|returns\s*int|returns)|\s*)/';
+
+	// INTERFACES
+	const InterfaceCode = '/^Interface\s*([a-zA-Z0-9]{1,})\s({(?>"(?:[^"\\\\]*+|\\\\.)*"|\'(?:[^\'\\\\]*+|\\\\.)*\'|\/\/.*$|\/\*[\s\S]*?\*\/|#.*$|<<<\s*["\']?(\w+)["\']?[^;]+\3;$|[^{}<\'"\/#]++|[^{}]++|(?2))*})\;/m';
+
+	const InterfaceFunctions = '/^\s*function\s{0,}([a-zA-Z0-9]{0,})\((.*)\)\s*public\s*returns\s*([a-zA-Z0-9]*);/m';
+
+	//CLASS
+	const ClassName = "/^[Cc]lass\s{0,}+([a-zA-Z_\-]*)\s{0,}{/m";
+
+	//FUNITY
+	const PrintCode = '/print\((.*)\);/m';
+	const Mapping = '/mapping\(address => uint256\) (.*),/m';
+	const Unmapping = '/unmapping::(.*)\(address => uint256\);/m';
+	const Wrapping = '/wrapping\(addr
