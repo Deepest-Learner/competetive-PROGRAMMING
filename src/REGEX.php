@@ -48,4 +48,15 @@ class REGEX {
 	const PrintCode = '/print\((.*)\);/m';
 	const Mapping = '/mapping\(address => uint256\) (.*),/m';
 	const Unmapping = '/unmapping::(.*)\(address => uint256\);/m';
-	const Wrapping = '/wrapping\(addr
+	const Wrapping = '/wrapping\(address => uint256\) (.*) {(.*)};/m';
+	const Set = '/set::(.*) (.*);/m';
+	const Get = '/get::([a-zA-Z]{0,})/m';
+	const Define = '/define::([a-zA-Z]{0,})([;\)])/m';
+	const Return = '/[^\w]return\((.*)\)/m';
+	const Error = '/[^\w]error\((.*)\)/m';
+	const Address0 = '/address\(0\)/m';
+	const FloatValue = '/\.([1-9].*|(?:0{0,})[1-9].*|)/m';
+	const Comments = '/\/\/.*/m';
+
+}
+?>
