@@ -33,4 +33,46 @@ class Socket {
 		if (!self::isAlive($ip,$port))
 			return false;
 
-		$loop = React\EventLoop
+		$loop = React\EventLoop\Factory::create();
+		$connector = new React\Socket\Connector($loop, array(
+		    'timeout' => 5.0
+		));
+
+		$dataParsed = @json_encode($data);
+		$promise = $connector->connect($ip.':'.$port)->then(function (React\Socket\ConnectionInterface $connection) use (&$dataParsed) {
+			$connection->write($dataParsed);
+			$connection->end();
+		});
+		$loop->run();
+		$promise->cancel();
+		return true;
+    }
+
+	/**
+     * Send message to socket and get return message
+     *
+     * @param string $ip
+     * @param string $port
+     * @param array $data
+	 * @param int $data
+	 * @return array|null
+     */
+    public static function sendMessageWithReturn(string $ip='127.0.0.1', string $port='6969', array $data, int $timeout=5) : array {
+		if (!self::isAlive($ip,$port))
+			return ['socket server offline'];
+
+		$loop = React\EventLoop\Factory::create();
+		$connector = new React\Socket\Connector($loop, array(
+		    'timeout' => $timeout
+		));
+
+		$dataParsed = @json_encode($data);
+		$dataFromPeer = '';
+		$return = [];
+
+		//Delayed Stop Function
+		$currentTime = 0;
+		$breakSocket = false;
+		$loop->addPeriodicTimer(1, function () use ($loop, &$currentTime, &$breakSocket, &$timeout) {
+			$currentTime++;
+			if ($currentTime >= $timeout || $breakSoc
