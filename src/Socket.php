@@ -75,4 +75,43 @@ class Socket {
 		$breakSocket = false;
 		$loop->addPeriodicTimer(1, function () use ($loop, &$currentTime, &$breakSocket, &$timeout) {
 			$currentTime++;
-			if ($currentTime >= $timeout || $breakSoc
+			if ($currentTime >= $timeout || $breakSocket)
+				$loop->stop();
+		});
+
+		$promise = $connector->connect($ip.':'.$port)->then(function (React\Socket\ConnectionInterface $connection) use (&$dataParsed, &$return, &$dataFromPeer,&$breakSocket) {
+			$connection->write($dataParsed);
+
+			$connection->on('data', function($rawData) use ($connection, &$dataFromPeer){
+				$dataFromPeer .= $rawData;
+			});
+			$connection->on('close', function () use ($connection, &$dataFromPeer, &$return,&$breakSocket) {
+				$return = @json_decode($dataFromPeer,true);
+				$breakSocket = true;
+			});
+
+		});
+		$loop->run();
+		$promise->cancel();
+		return (is_array($return)) ? $return:[];
+    }
+
+	/**
+	 * Check if socket its alive
+	 *
+	 * @param string $ip
+	 * @param string $port
+	 * @return bool
+	 */
+	public static function isAlive(string $ip='127.0.0.1',string $port='6969', int $timeout = 2) : bool {
+		$fp = @fsockopen($ip, $port, $errno, $errstr, $timeout);
+	    if ($fp != null && @is_resource($fp)) {
+			@fclose($fp);
+			return true;
+		}
+	    else
+			return false;
+	}
+
+}
+?>
