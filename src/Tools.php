@@ -71,4 +71,54 @@ class Tools {
             'f' => '15');
         $decval = '0';
         $number = @strrev($number);
-        for($i = 0; $i <
+        for($i = 0; $i < @strlen($number); $i++)
+        {
+            $decval = @bcadd(@bcmul(@bcpow('16',$i,0),$decvalues[$number{$i}]), $decval);
+        }
+        return $decval;
+    }
+
+    /**
+     * Add zeros in front of a chain
+     *
+     * @param $num
+     * @param $lim
+     * @return mixed
+     */
+    public static function zeropad($num, $lim)
+    {
+        return (strlen($num) >= $lim) ? $num : self::zeropad("0" . $num, $lim);
+    }
+
+    /**
+     * Transforms a serialized object into an instantiated object
+     *
+     * @param $instance
+     * @param $className
+     * @return mixed
+     */
+    public static function objectToObject($instance, $className) {
+        return @unserialize(sprintf(
+            'O:%d:"%s"%s',
+            strlen($className),
+            $className,
+            strstr(strstr(serialize($instance), '"'), ':')
+        ));
+    }
+
+    /**
+     * Get ID from IP and PORT
+     *
+     * @param $ip
+     * @param $port
+     * @return bool|string
+     */
+    public static function GetIdFromIpAndPort($ip,$port) {
+        return substr(PoW::hash($ip.$port),0,18);
+    }
+
+    /**
+     * Write file with content
+     * If file exist,delete
+     *
+   
