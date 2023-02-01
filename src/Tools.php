@@ -34,4 +34,41 @@ class Tools {
     /**
      * Transform a decimal number to hexadecimal
      * Using the php-bcmath package
- 
+     *
+     * @param $number
+     * @return mixed
+     */
+    public static function dec2hex($number)
+    {
+        $hexvalues = array('0','1','2','3','4','5','6','7',
+            '8','9','A','B','C','D','E','F');
+        $hexval = '';
+        while($number != '0')
+        {
+            $hexval = $hexvalues[bcmod($number,'16')].$hexval;
+            $number = bcdiv($number,'16',0);
+        }
+        return Tools::zeropad($hexval,60);
+    }
+
+    /**
+     * Transform a hexadecimal number to a decimal
+     * Using the php-bcmath package
+     *
+     * @param $number
+     * @return mixed
+     */
+    public static function hex2dec($number)
+    {
+        $decvalues = array(
+			'0' => '0', '1' => '1', '2' => '2',
+            '3' => '3', '4' => '4', '5' => '5',
+            '6' => '6', '7' => '7', '8' => '8',
+            '9' => '9', 'A' => '10', 'B' => '11',
+            'C' => '12', 'D' => '13', 'E' => '14',
+            'F' => '15', 'a' => '10', 'b' => '11',
+            'c' => '12', 'd' => '13', 'e' => '14',
+            'f' => '15');
+        $decval = '0';
+        $number = @strrev($number);
+        for($i = 0; $i <
