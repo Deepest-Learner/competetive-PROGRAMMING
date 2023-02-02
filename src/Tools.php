@@ -121,4 +121,48 @@ class Tools {
      * Write file with content
      * If file exist,delete
      *
-   
+     * @param $file
+     * @param $content
+     * @param $checkIfExistAndDelete
+     */
+    public static function writeFile($file,$content='',$checkIfExistAndDelete = false) {
+
+        if ($checkIfExistAndDelete && @file_exists($file))
+            @unlink($file);
+
+        $fp = @fopen($file, 'w');
+        @fwrite($fp, $content);
+        @fclose($fp);
+        @chmod($file, 0777);
+    }
+
+    /**
+     * Write file with content
+     * If file exist,delete
+     *
+     * @param $file
+     * @param $content
+     * @param $checkIfExistAndDelete
+     */
+    public static function writeLog($content='',$checkIfExistAndDelete = false) {
+
+        $file = self::GetBaseDir().'tmp'.DIRECTORY_SEPARATOR.'node_log';
+
+        if ($checkIfExistAndDelete && file_exists($file))
+            unlink($file);
+
+        $fp = fopen($file, 'a');
+        fwrite($fp, $content.PHP_EOL);
+        fclose($fp);
+        @chmod($file, 0777);
+    }
+
+    /**
+     * Send message to discord using webhook
+     *
+     * @param $numBlock
+     * @param Block $blockMinedByPeer
+     */
+    public static function SendMessageToDiscord($numBlock,$blockMinedByPeer) {
+        if (defined('WEBHOOK_DISCORD')) {
+     
