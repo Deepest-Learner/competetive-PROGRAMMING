@@ -191,4 +191,40 @@ class Tools {
      * @param DB $chaindata
      * @param $blockMined
      */
-    publi
+    public static function sendBlockMinedToNetwork(&$chaindata,$blockMined) {
+        $peers = $chaindata->GetAllPeers();
+        foreach ($peers as $peer) {
+            $infoToSend = array(
+                'action'            => 'MINEDBLOCK',
+                'hash_previous'     => $blockMined->previous,
+                'block'             => @serialize($blockMined)
+            );
+
+            Socket::sendMessage($peer['ip'],$peer['port'],$infoToSend);
+        }
+    }
+
+    /**
+     * Get block size
+     *
+     * @param array|object $block
+     * @return string
+     */
+    public static function GetBlockSize($block) {
+        if (is_array($block) || is_object($block))
+            return self::GetSizeFormatted(strlen(@serialize($block)));
+        return "0 b";
+    }
+
+    /**
+     * Get size block formatted
+     *
+     * @param $bytes
+     * @return string
+     */
+    public static function GetSizeFormatted($bytes) {
+
+        if ($bytes > 1000000000000000000000000)
+            $bytesFormatted = number_format($bytes / 1000000000000000000000000,2)." Yb";
+        else if ($bytes > 1000000000000000000000)
+            $bytesFormatted = numb
