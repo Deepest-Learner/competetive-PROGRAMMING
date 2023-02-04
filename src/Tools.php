@@ -227,4 +227,30 @@ class Tools {
         if ($bytes > 1000000000000000000000000)
             $bytesFormatted = number_format($bytes / 1000000000000000000000000,2)." Yb";
         else if ($bytes > 1000000000000000000000)
-            $bytesFormatted = numb
+            $bytesFormatted = number_format($bytes / 1000000000000000000000,2)." Zb";
+        else if ($bytes > 1000000000000000000)
+            $bytesFormatted = number_format($bytes / 1000000000000000000,2)." Eb";
+        else if ($bytes > 1000000000000000)
+            $bytesFormatted = number_format($bytes / 1000000000000000,2)." Pb";
+        else if ($bytes > 1000000000000)
+            $bytesFormatted = number_format($bytes / 1000000000000,2)." Tb";
+        else if ($bytes > 1000000000)
+            $bytesFormatted = number_format($bytes / 1000000000,2)." Gb";
+        else if ($bytes > 1000000)
+            $bytesFormatted = number_format($bytes / 1000000,2)." Mb";
+        else if ($bytes > 1000)
+            $bytesFormatted = number_format($bytes / 1000,2)." Kb";
+        else
+            $bytesFormatted = number_format($bytes,2)." b";
+
+        return $bytesFormatted;
+    }
+
+    /**
+     * @param DB $chaindata
+     * @param Block $blockMined
+     */
+    public static function sendBlockMinedToNetworkWithSubprocess(&$chaindata,$blockMined,$skipPeer=null) {
+
+        //Write block cache for propagation subprocess
+        Tools::writeFile(Tools::GetBaseDir()."tmp".DIRECTORY_SEPAR
