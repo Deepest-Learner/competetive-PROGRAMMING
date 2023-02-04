@@ -253,4 +253,40 @@ class Tools {
     public static function sendBlockMinedToNetworkWithSubprocess(&$chaindata,$blockMined,$skipPeer=null) {
 
         //Write block cache for propagation subprocess
-        Tools::writeFile(Tools::GetBaseDir()."tmp".DIRECTORY_SEPAR
+        Tools::writeFile(Tools::GetBaseDir()."tmp".DIRECTORY_SEPARATOR.Subprocess::$FILE_PROPAGATE_BLOCK,Tools::str2hex(@serialize($blockMined)));
+
+        if (DISPLAY_DEBUG && DISPLAY_DEBUG_LEVEL >= 3) {
+            $mini_hash = substr($blockMined->hash,-12);
+            $mini_hash_previous = substr($blockMined->previous,-12);
+
+            Display::_debug("sendBlockMinedToNetworkWithSubprocess  %G%previous%W%=".$mini_hash_previous."  %G%hash%W%=".$mini_hash,3);
+        }
+
+        //Run subprocess propagation per peer
+        $peers = $chaindata->GetAllPeers();
+        $id = 0;
+        foreach ($peers as $peer) {
+
+			// If have skipPeer, check this
+			if ($skipPeer != null)
+				if ($skipPeer['ip'] == $peer['ip'] && $skipPeer['port'] == $skipPeer['port'])
+					continue;
+
+            //Params for subprocess
+            $params = array(
+                $peer['ip'],
+                $peer['port'],
+                1
+            );
+
+            //Run subprocess propagation
+            Subprocess::newProcess(Tools::GetBaseDir()."subprocess".DIRECTORY_SEPARATOR,'propagate',$params,$id);
+
+            $id++;
+        }
+    }
+
+    /**
+     * We create the base directories (if they did not exist)
+     */
+    public static fun
