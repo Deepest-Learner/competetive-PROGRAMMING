@@ -289,4 +289,42 @@ class Tools {
     /**
      * We create the base directories (if they did not exist)
      */
-    public static fun
+    public static function MakeDataDirectory() {
+
+        Display::print("Data directory: %G%".Tools::GetBaseDir()."data".DIRECTORY_SEPARATOR);
+
+        if (!@file_exists(Tools::GetBaseDir().DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."wallets"))
+            @mkdir(Tools::GetBaseDir().DIRECTORY_SEPARATOR."data".DIRECTORY_SEPARATOR."wallets",755, true);
+
+        if (!@file_exists(Tools::GetBaseDir().DIRECTORY_SEPARATOR."tmp"))
+            @mkdir(Tools::GetBaseDir().DIRECTORY_SEPARATOR."tmp",755, true);
+    }
+
+    /**
+     * Get base directory
+     *
+     * @return mixed|string
+     */
+    public static function GetBaseDir() {
+        $dir = __DIR__;
+        $dir = preg_replace('/src$/','',$dir);
+        $dir = preg_replace('/data$/','',$dir);
+        $dir = preg_replace('/cli$/','',$dir);
+        $dir = preg_replace('/bin$/','',$dir);
+        $dir = preg_replace('/subprocess$/','',$dir);
+        return $dir;
+    }
+
+    /**
+     * Get datetime diff
+     *
+     * @param $dt1
+     * @param $dt2
+     * @return stdClass
+     */
+    public static function datetimeDiff($dt1, $dt2){
+        $t1 = strtotime($dt1);
+        $t2 = strtotime($dt2);
+
+        $dtd = new stdClass();
+   
