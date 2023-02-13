@@ -416,4 +416,36 @@ class Tools {
      */
     public static function GetGlobalTimeByNTP() {
         $bit_max = 4294967296;
-        $epoch_convert = 2
+        $epoch_convert = 2208988800;
+        $vn = 3;
+
+        $servers = array('pool.ntp.org','0.pool.ntp.org','1.pool.ntp.org','2.pool.ntp.org','3.pool.ntp.org');
+        $server_count = count($servers);
+
+        //first byte
+        //LI (leap indicator), a 2-bit integer. 00 for 'no warning'
+        $header = '00';
+
+        //VN (version number), a 3-bit integer.  011 for version 3
+        $header .= sprintf('%03d',decbin($vn));
+
+        //Mode (association mode), a 3-bit integer. 011 for 'client'
+        $header .= '011';
+
+        //construct the packet header, byte 1
+        $request_packet = chr(bindec($header));
+
+        //Define default empty response
+        $response = '';
+        $local_received = -1;
+        $local_sent = -1;
+
+        //we'll use a for loop to try additional servers should one fail to respond
+        for($i=0; $i < $server_count; $i++) {
+            $socket = @fsockopen('udp://'.$servers[$i], 123, $err_no, $err_str,1);
+
+            if (!$socket) {
+                //this was the last server on the list, so give up
+                if ($i == $server_count-1)
+                    return Tools::GetGlobalTimeByHTTPOrLocalTime();
+          
