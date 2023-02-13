@@ -374,4 +374,46 @@ class Tools {
 	}
 
     /**
-     * Get global time usin
+     * Get global time using HTTP Api
+     * If no answer is obtained, local time is used
+     *
+     * @return int
+     */
+    public static function GetGlobalTimeByHTTPOrLocalTime() {
+        $worldTime = @json_decode(@file_get_contents('http://worldtimeapi.org/api/timezone/Etc/UTC'));
+        if (is_object($worldTime) && !empty($worldTime)) {
+            return strtotime(date('Y-m-d H:i:s', $worldTime->unixtime));
+        } else {
+            return time();
+        }
+    }
+
+	/**
+     * Get local UNIX militime
+     *
+     * @return false|int
+     */
+	public static function GetGlobalMilitime() {
+		return round(microtime(true) * 1000);
+	}
+
+    /**
+     * Get local UNIX time
+     *
+     * @return false|int
+     */
+    public static function GetGlobalTime() {
+        return time();
+    }
+
+    /**
+     * Get global UNIX time using NTP Protocol
+     *
+     * In case can not get time from the NTP servers
+     * will call GetGlobalTimeByHTTPOrLocalTime function
+     *
+     * @return false|int
+     */
+    public static function GetGlobalTimeByNTP() {
+        $bit_max = 4294967296;
+        $epoch_convert = 2
