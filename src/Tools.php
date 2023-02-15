@@ -448,4 +448,27 @@ class Tools {
                 //this was the last server on the list, so give up
                 if ($i == $server_count-1)
                     return Tools::GetGlobalTimeByHTTPOrLocalTime();
-          
+            }
+
+            else if ($socket) {
+                //add nulls to position 11 (the transmit timestamp, later to be returned as originate)
+                //10 lots of 32 bits
+                for ($j=1; $j<40; $j++)
+                    $request_packet .= chr(0x0);
+
+                //the time our packet is sent from our server (returns a string in the form 'msec sec')
+                $local_sent_explode = explode(' ',microtime());
+                $local_sent = $local_sent_explode[1] + $local_sent_explode[0];
+
+                //add 70 years to convert unix to ntp epoch
+                $originate_seconds = $local_sent_explode[1] + $epoch_convert;
+
+                //convert the float given by microtime to a fraction of 32 bits
+                $originate_fractional = round($local_sent_explode[0] * $bit_max);
+
+                //pad fractional seconds to 32-bit length
+                $originate_fractional = sprintf('%010d',$originate_fractional);
+
+                //pack to big endian binary string
+                $packed_seconds = pack('N', $originate_seconds);
+                $packed_fractional = pack("N", $originat
