@@ -471,4 +471,35 @@ class Tools {
 
                 //pack to big endian binary string
                 $packed_seconds = pack('N', $originate_seconds);
-                $packed_fractional = pack("N", $originat
+                $packed_fractional = pack("N", $originate_fractional);
+
+                //add the packed transmit timestamp
+                $request_packet .= $packed_seconds;
+                $request_packet .= $packed_fractional;
+
+                $response = '';
+                if (fwrite($socket, $request_packet)) {
+                    $data = NULL;
+                    stream_set_timeout($socket, 1);
+
+                    $response = fread($socket, 48);
+
+                    //the time the response was received
+                    $local_received = microtime(true);
+
+                    //echo 'response was: '.strlen($response).$response;
+                }
+                fclose($socket);
+
+                //the response was of the right length, assume it's valid and break out of the loop
+                if (strlen($response) == 48)
+                    break;
+                else
+                    //this was the last server on the list, so give up
+                    if ($i == $server_count-1)
+                        return Tools::GetGlobalTimeByHTTPOrLocalTime();
+            }
+        }
+
+        //unpack the response to unsiged lonng for calculations
+        $unpack
