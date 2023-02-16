@@ -502,4 +502,34 @@ class Tools {
         }
 
         //unpack the response to unsiged lonng for calculations
-        $unpack
+        $unpack0 = unpack("N12", $response);
+
+        //present as a decimal number
+        $remote_received_seconds = sprintf('%u', $unpack0[9])-$epoch_convert;
+        $remote_transmitted_seconds = sprintf('%u', $unpack0[11])-$epoch_convert;
+
+        $remote_received_fraction = sprintf('%u', $unpack0[10]) / $bit_max;
+        $remote_transmitted_fraction = sprintf('%u', $unpack0[12]) / $bit_max;
+
+        $remote_received = $remote_received_seconds + $remote_received_fraction;
+        $remote_transmitted = $remote_transmitted_seconds + $remote_transmitted_fraction;
+
+        //calculations assume a symmetrical delay, fixed point would give more accuracy
+        $delay = (($local_received - $local_sent) / 2)  - ($remote_transmitted - $remote_received);
+
+        $ntp_time =  $remote_transmitted - $delay;
+        $ntp_time_explode = explode('.',$ntp_time);
+
+        return $ntp_time_explode[0];
+    }
+
+	public static function numberFormat($number) {
+		$tmp = explode('.', $number);
+		$length = 0;
+		if(count($tmp)>1) {
+			$length = strlen($tmp[1]);
+		}
+		return number_format($number, $length);
+	}
+}
+?>
