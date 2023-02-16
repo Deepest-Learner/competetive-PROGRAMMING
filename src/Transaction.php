@@ -82,3 +82,56 @@ class Transaction {
 		if ($isDataParsed === false)
 			$data = Tools::str2hex($data);
 		else if ($isDataParsed > 0)
+			$data = Tools::str2hex($data);
+
+		$this->data = $data;
+
+        if ($signed) {
+            $this->hash = $hash;
+            $this->signature = $signature;
+            $this->timestamp = $timestamp;
+        } else {
+            //Guardamos el tiempo en el que se crea la transaccion
+            $this->timestamp = Tools::GetGlobalMilitime();
+            if ($sign = Pki::encrypt($this->message(), $privKey,$password)) {
+                $this->signature = $sign;
+                $this->hash = $this->message();
+            } else {
+                $this->signature = "unknown";
+            }
+        }
+    }
+
+	/**
+     * Get fee transaction
+     *
+     * @return string
+     */
+	public function GetFee(DB &$chaindata) {
+		$txnGas = Gas::calculateGasTxn($chaindata,$this->to,$this->data);
+		if ($txnGas <= $this->gasLimit)
+			$fees = @bcmul($txnGas,$this->gasPrice,18);
+		else
+			$fees = @bcmul($this->gasLimit,$this->gasPrice,18);
+		return $fees;
+	}
+
+    /**
+     * Get hash transaction
+     *
+     * @return string
+     */
+    public function message() : string {
+		return PoW::hash($this->from.$this->to.$this->amount.$this->timestamp.$this->data.$this->gasLimit.$this->gasPrice);
+    }
+
+    /**
+     * Check if transaction is valid
+     *
+     * @return bool
+     */
+    public function isValid() : bool {
+        return !$this->from || Pki::isValid($this->message(), $this->signature, $this->from);
+    }
+}
+?>
