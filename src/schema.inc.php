@@ -220,3 +220,321 @@ if ($dbversion == 7) {
 	");
 
 	$db->db->query("
+	CREATE TABLE `accounts_j4frc10` (
+	  `hash` varchar(128) NOT NULL,
+	  `contract_hash` varchar(128) NOT NULL,
+	  `sended` decimal(65,18) unsigned NOT NULL,
+	  `received` decimal(65,18) unsigned NOT NULL,
+	  PRIMARY KEY (`hash`)
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+	");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+
+if ($dbversion == 8) {
+
+	$db->db->query("
+	ALTER TABLE `transactions`
+	ADD INDEX `bHash` (`block_hash`) USING HASH;
+	");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 9) {
+
+    $db->db->query("
+	ALTER TABLE `accounts_j4frc10`
+	DROP PRIMARY KEY,
+	ADD PRIMARY KEY (`hash`, `contract_hash`);
+	");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 10) {
+
+    $db->db->query("
+	CREATE TABLE `txnpool` (
+	  `txn_hash` varchar(128) NOT NULL,
+	  `wallet_from_key` longtext,
+	  `wallet_from` varchar(128) DEFAULT NULL,
+	  `wallet_to` varchar(128) NOT NULL,
+	  `amount` decimal(65,18) NOT NULL,
+	  `signature` longtext NOT NULL,
+	  `data` longblob NOT NULL,
+	  `timestamp` varchar(12) NOT NULL,
+	  `version` varchar(15) NOT NULL DEFAULT '0.0.1',
+	  `gasLimit` int(11) NOT NULL DEFAULT 21000,
+   	  `gasPrice` decimal(65,18) NOT NULL DEFAULT '0',
+	  PRIMARY KEY (`txn_hash`),
+	  UNIQUE KEY `txn` (`txn_hash`) USING BTREE,
+	  KEY `wallet_from_to` (`wallet_from`,`wallet_to`) USING BTREE
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+	");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 11) {
+
+	$db->db->query("
+	CREATE TABLE `accounts_j4frc20` (
+	  `hash` varchar(128) NOT NULL,
+	  `contract_hash` varchar(128) NOT NULL,
+	  `tokenId` bigint(11) unsigned NOT NULL,
+	  PRIMARY KEY (`hash`,`contract_hash`,`tokenId`)
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+	");
+
+	$db->db->query("
+	CREATE TABLE `smart_contracts_txn_token` (
+	  `txn_hash` varchar(128) NOT NULL,
+	  `contract_hash` varchar(128) NOT NULL,
+	  `wallet_from` varchar(128) NOT NULL,
+	  `wallet_to` varchar(128) NOT NULL,
+	  `tokenId` bigint(11) NOT NULL,
+	  `timestamp` varchar(12) NOT NULL,
+	  PRIMARY KEY (`txn_hash`),
+	  UNIQUE KEY `txn` (`txn_hash`) USING HASH,
+	  KEY `wallet_from_to` (`wallet_from`,`wallet_to`) USING HASH,
+	  KEY `contract` (`contract_hash`) USING HASH
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+	");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 12) {
+
+	$db->db->query("
+	ALTER TABLE `accounts`
+	MODIFY COLUMN `hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	ENGINE=MyISAM;
+	");
+
+	$db->db->query("
+	ALTER TABLE `accounts_j4frc10`
+	MODIFY COLUMN `hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `contract_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `hash`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `accounts_j4frc20`
+	MODIFY COLUMN `hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `contract_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `hash`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `blocks`
+	MODIFY COLUMN `block_previous`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `height`,
+	MODIFY COLUMN `block_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `block_previous`,
+	MODIFY COLUMN `root_merkle`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `block_hash`,
+	MODIFY COLUMN `nonce`  varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `root_merkle`,
+	MODIFY COLUMN `timestamp_start_miner`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `nonce`,
+	MODIFY COLUMN `timestamp_end_miner`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `timestamp_start_miner`,
+	MODIFY COLUMN `difficulty`  varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `timestamp_end_miner`,
+	MODIFY COLUMN `version`  varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `difficulty`,
+	MODIFY COLUMN `info`  text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `version`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `config`
+	MODIFY COLUMN `cfg`  varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `val`  varchar(200) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `cfg`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `peers`
+	MODIFY COLUMN `ip`  varchar(120) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `id`,
+	MODIFY COLUMN `port`  varchar(8) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `ip`,
+	MODIFY COLUMN `blacklist`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '' AFTER `port`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `smart_contracts`
+	MODIFY COLUMN `contract_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `txn_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `contract_hash`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `smart_contracts_txn`
+	MODIFY COLUMN `txn_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `contract_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `txn_hash`,
+	MODIFY COLUMN `wallet_from`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `contract_hash`,
+	MODIFY COLUMN `wallet_to`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `wallet_from`,
+	MODIFY COLUMN `timestamp`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `amount`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `smart_contracts_txn_token`
+	MODIFY COLUMN `txn_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `contract_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `txn_hash`,
+	MODIFY COLUMN `wallet_from`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `contract_hash`,
+	MODIFY COLUMN `wallet_to`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `wallet_from`,
+	MODIFY MyISAM `timestamp`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `tokenId`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `transactions`
+	MODIFY COLUMN `txn_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `block_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `txn_hash`,
+	MODIFY COLUMN `wallet_from_key`  longtext CHARACTER SET utf8 COLLATE utf8_bin NULL AFTER `block_hash`,
+	MODIFY COLUMN `wallet_from`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '' AFTER `wallet_from_key`,
+	MODIFY COLUMN `wallet_to`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `wallet_from`,
+	MODIFY COLUMN `signature`  longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `amount`,
+	MODIFY COLUMN `timestamp`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `data`,
+	ENGINE=MyISAM;
+	");
+	$db->db->query("
+	ALTER TABLE `txnpool`
+	MODIFY COLUMN `txn_hash`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL FIRST ,
+	MODIFY COLUMN `wallet_from_key`  longtext CHARACTER SET utf8 COLLATE utf8_bin NULL AFTER `txn_hash`,
+	MODIFY COLUMN `wallet_from`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '' AFTER `wallet_from_key`,
+	MODIFY COLUMN `wallet_to`  varchar(128) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `wallet_from`,
+	MODIFY COLUMN `signature`  longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `amount`,
+	MODIFY COLUMN `timestamp`  varchar(12) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `data`,
+	ENGINE=MyISAM;
+	");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 13) {
+
+	if (FORCE_USE_ROCKSDB) {
+		$db->db->query("ALTER TABLE accounts ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE accounts_j4frc10 ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE accounts_j4frc20 ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE blocks ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE config ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE peers ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE smart_contracts ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE smart_contracts_txn ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE smart_contracts_txn_token ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE transactions ENGINE = RocksDB;");
+		$db->db->query("ALTER TABLE txnpool ENGINE = RocksDB;");
+	}
+	else {
+		$db->db->query("ALTER TABLE accounts ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE accounts_j4frc10 ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE accounts_j4frc20 ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE blocks ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE config ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE peers ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE smart_contracts ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE smart_contracts_txn ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE smart_contracts_txn_token ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE transactions ENGINE = InnoDB;");
+		$db->db->query("ALTER TABLE txnpool ENGINE = InnoDB;");
+	}
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 14) {
+
+	$db->db->query("ALTER TABLE `accounts` ADD UNIQUE INDEX `account` (`hash`) USING HASH;");
+	$db->db->query("ALTER TABLE `accounts_j4frc10` ADD UNIQUE INDEX `account_contract` (`hash`, `contract_hash`) USING HASH;");
+	$db->db->query("ALTER TABLE `accounts_j4frc20` ADD UNIQUE INDEX `account_contract_token` (`hash`, `contract_hash`, `tokenId`) USING HASH;");
+	$db->db->query("ALTER TABLE `config` ADD UNIQUE INDEX `config` (`cfg`) USING HASH;");
+	$db->db->query("ALTER TABLE `peers` DROP INDEX `ip`;");
+	$db->db->query("ALTER TABLE `peers` ADD UNIQUE INDEX `ip_port` (`ip`, `blacklist`) USING HASH;");
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 15) {
+
+	if (FORCE_USE_ROCKSDB) {
+		$db->db->query("
+		set rocksdb_bulk_load=1;
+		ALTER TABLE `blocks` ADD UNIQUE INDEX `height` (`height`) USING BTREE;
+		");
+	}
+	else {
+		$db->db->query("ALTER TABLE `blocks` ADD UNIQUE INDEX `height` (`height`) USING BTREE;");
+	}
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 16) {
+
+	if (FORCE_USE_ROCKSDB) {
+		$db->db->query("
+		set rocksdb_bulk_load=1;
+		ALTER TABLE `transactions` ADD INDEX `timestamp` (`timestamp`);
+		");
+	}
+	else {
+		$db->db->query("ALTER TABLE `transactions` ADD INDEX `timestamp` (`timestamp`);");
+	}
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+if ($dbversion == 17) {
+
+	if (FORCE_USE_ROCKSDB) {
+		$db->db->query("
+		set rocksdb_bulk_load=1;
+		ALTER TABLE `txnpool` MODIFY COLUMN `timestamp` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `data`;
+		ALTER TABLE `transactions` MODIFY COLUMN `timestamp` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `data`;
+		");
+	}
+	else {
+		$db->db->query("
+		ALTER TABLE `txnpool` MODIFY COLUMN `timestamp` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `data`;
+		ALTER TABLE `transactions` MODIFY COLUMN `timestamp` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER `data`;
+		");
+	}
+
+    Display::print("Updating DB Schema #".$dbversion);
+
+    //Increment version to next stage
+    $dbversion++;
+}
+
+
+// update dbversion
+if ($dbversion != $_CONFIG['dbversion']) {
+    $db->SetConfig('dbversion',$dbversion);
+}
+
+Display::print("DB Schema updated");
+
+?>
